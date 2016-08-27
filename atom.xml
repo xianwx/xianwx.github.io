@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>yuzixin&#39;s blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://xianwx.github.io/"/>
+  <updated>2016-08-27T14:40:20.000Z</updated>
+  <id>https://xianwx.github.io/</id>
+  
+  <author>
+    <name>禹子歆</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello world</title>
+    <link href="https://xianwx.github.io/2016/08/27/hello-world/"/>
+    <id>https://xianwx.github.io/2016/08/27/hello-world/</id>
+    <published>2016-08-27T09:13:42.000Z</published>
+    <updated>2016-08-27T14:40:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直想弄个自己的博客，但是去了很多博客网站都觉得冗余信息太多，我需要的是漂漂亮亮的简洁的博客，于是找到了hexo + github.</p>
+<p>慢慢会补上各个博文的，github也会慢慢上传些代码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      我的第一个页面。
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="https://xianwx.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+</feed>
