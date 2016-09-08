@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xianwx.github.io/"/>
-  <updated>2016-09-08T12:28:26.000Z</updated>
+  <updated>2016-09-08T12:30:14.000Z</updated>
   <id>https://xianwx.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/"/>
     <id>https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2016-09-08T12:28:26.000Z</updated>
+    <updated>2016-09-08T12:30:14.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
 <h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
@@ -34,7 +34,7 @@
 <p>等待上传成功，可以打开<code>[http://xianwx.github.io](http://xianwx.github.io)</code>看效果啦！</p>
 <p>– todo 新建一个分支保存博客程序，避免换电脑的时候悲剧</p>
 <h2 id="8-添加多说"><a href="#8-添加多说" class="headerlink" title="8. 添加多说"></a>8. 添加多说</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">① 到http://duoshuo.com/create-site/新建一个站点</div><div class="line">② 站点地址填http://xianwx.github.io 这个，域名随便写个，比如我是yuzixin</div><div class="line"></div><div class="line">如果你使用跟我不一样的主题，跳过不看后面这步，去自己看主题里的配置方法。</div><div class="line">③ 打开yelee/_config.yml，找到duoshuo，把on的值改为true，domain: 写自己的域名（上边的yuzixin）</div></pre></td></tr></table></figure>
-<h2 id="9-剩下的一些杂七杂八的配置"><a href="#9-剩下的一些杂七杂八的配置" class="headerlink" title="9. 剩下的一些杂七杂八的配置"></a>9. 剩下的一些杂七杂八的配置</h2><p>先欠着，往后补上，回家去咯~</p>
+<h2 id="9-剩下的一些杂七杂八的配置"><a href="#9-剩下的一些杂七杂八的配置" class="headerlink" title="9. 剩下的一些杂七杂八的配置"></a>9. 剩下的一些杂七杂八的配置</h2><p>预告：rss，写博客的方法，写about me，markdown语法，– todo 自己还需要研究的：添加图片，购买域名<br>先欠着，往后补上，回家去咯~</p>
 ]]></content>
     
     <summary type="html">
