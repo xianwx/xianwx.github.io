@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="自己的才是最好的！">
+<meta name="description" content="让预览来的更多一些吧！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用github + hexo搭建一个属于自己的博客">
-<meta property="og:url" content="https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/index.html">
+<meta property="og:title" content="加强你的quick look">
+<meta property="og:url" content="https://xianwx.github.io/2016/09/09/power-up-your-quick-look/index.html">
 <meta property="og:site_name" content="yuzixin's blog">
-<meta property="og:description" content="自己的才是最好的！">
-<meta property="og:updated_time" content="2016-09-08T12:32:07.000Z">
+<meta property="og:description" content="让预览来的更多一些吧！">
+<meta property="og:updated_time" content="2016-09-09T02:31:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何使用github + hexo搭建一个属于自己的博客">
-<meta name="twitter:description" content="自己的才是最好的！">
+<meta name="twitter:title" content="加强你的quick look">
+<meta name="twitter:description" content="让预览来的更多一些吧！">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>如何使用github + hexo搭建一个属于自己的博客 | yuzixin&#39;s blog</title>
+<title>加强你的quick look | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +267,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-build-hexo-blog-with-github-pages" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-power-up-your-quick-look" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/08/build-hexo-blog-with-github-pages/" class="article-date">
-      <time datetime="2016-09-08T11:36:27.000Z" itemprop="datePublished">2016-09-08</time>
+      <a href="/2016/09/09/power-up-your-quick-look/" class="article-date">
+      <time datetime="2016-09-09T02:21:17.000Z" itemprop="datePublished">2016-09-09</time>
 </a>
 
 
@@ -286,7 +286,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何使用github + hexo搭建一个属于自己的博客
+      加强你的quick look
     </h1>
   
 
@@ -297,7 +297,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -307,19 +307,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
-<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
-<h2 id="3-在github上创建创库"><a href="#3-在github上创建创库" class="headerlink" title="3. 在github上创建创库"></a>3. 在github上创建创库</h2><p>每个github账户都可以创建一个可以直接通过‘用户名.github.io’访问到的仓库。<br>步骤：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">① 在github上新建一个responsitory</div><div class="line">② 给仓库命名为自己的用户名.github.io</div><div class="line">③ 保存，过一小段时间就可以通过`用户名.github.io`访问了。</div><div class="line">④ clone到本地，本文假设clone到一个名为blog的文件夹下。</div></pre></td></tr></table></figure></p>
-<h2 id="4-安装hexo"><a href="#4-安装hexo" class="headerlink" title="4. 安装hexo"></a>4. 安装hexo</h2><p>使用命令行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g   #-g表示全局安装, npm默认为当前项目安装</div></pre></td></tr></table></figure></p>
-<h2 id="5-运行hexo"><a href="#5-运行hexo" class="headerlink" title="5. 运行hexo"></a>5. 运行hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd blog</div><div class="line">$ hexo init #初始化</div><div class="line">$ hexo g #这条是生成静态界面，也可以用hexo generate，g是缩写</div><div class="line">$ hexo s #hexo server的缩写，启动服务器，现在你可以打开`http://localhost:4040/`看到你的界面了，初始化会创建好一个页面</div></pre></td></tr></table></figure>
-<h2 id="6-设置你想要的主题"><a href="#6-设置你想要的主题" class="headerlink" title="6. 设置你想要的主题"></a>6. 设置你想要的主题</h2><p>我使用的主题是<strong><a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">yelee</a></strong><br>很简单，运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee</div></pre></td></tr></table></figure></p>
-<p>然后修改blog下的_config.yml文件<br><code>theme: yelee</code></p>
-<h2 id="7-部署到github"><a href="#7-部署到github" class="headerlink" title="7. 部署到github"></a>7. 部署到github</h2><p>修改_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/xianwx/xianwx.github.io.git(这里改成你自己的刚才新建的github responsitory)</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>设置成功过后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d #deploy的缩写，首次会让你输入账号密码</div></pre></td></tr></table></figure></p>
-<p>等待上传成功，可以打开<strong><a href="http://xianwx.github.io">http://xianwx.github.io</a></strong>看效果啦！</p>
-<p>– todo 新建一个分支保存博客程序，避免换电脑的时候悲剧</p>
-<h2 id="8-添加多说"><a href="#8-添加多说" class="headerlink" title="8. 添加多说"></a>8. 添加多说</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">① 到http://duoshuo.com/create-site/新建一个站点</div><div class="line">② 站点地址填http://xianwx.github.io 这个，域名随便写个，比如我是yuzixin</div><div class="line"></div><div class="line">如果你使用跟我不一样的主题，跳过不看后面这步，去自己看主题里的配置方法。</div><div class="line">③ 打开yelee/_config.yml，找到duoshuo，把on的值改为true，domain: 写自己的域名（上边的yuzixin）</div></pre></td></tr></table></figure>
-<h2 id="9-剩下的一些杂七杂八的配置"><a href="#9-剩下的一些杂七杂八的配置" class="headerlink" title="9. 剩下的一些杂七杂八的配置"></a>9. 剩下的一些杂七杂八的配置</h2><p>预告：rss，写博客的方法，写about me，markdown语法，– todo 自己还需要研究的：添加图片，购买域名<br>先欠着，往后补上，回家去咯~</p>
+        <h2 id="quick-look"><a href="#quick-look" class="headerlink" title="quick look"></a>quick look</h2><p>用mac的同学经常用<code>空格</code>键来预览一些文件的内容吧，在只想观看但是不打算修改内容的话用quick look正好，比如看文本，看psd的图片。<br>但是系统自带的只支持预览一些文本以及图像。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. 安装brew</div><div class="line">    自行Google</div><div class="line">2. 安装brew cask</div><div class="line">    自行Google</div><div class="line">3. 使用命令行来安装插件：brew cask install ***</div></pre></td></tr></table></figure>
+<h2 id="插件名收集"><a href="#插件名收集" class="headerlink" title="插件名收集"></a>插件名收集</h2><ul>
+<li>比如写博客要用到markdown，装个预览.md的插件吧：brew cask install qlmarkdown</li>
+</ul>
 
       
     </div>
@@ -328,13 +320,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/08/build-hexo-blog-with-github-pages/">如何使用github + hexo搭建一个属于自己的博客</a></p>
+        <p><span>本文标题:</span><a href="/2016/09/09/power-up-your-quick-look/">加强你的quick look</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
-        <p><span>发布时间:</span>2016-09-08, 19:36:27</p>
-        <p><span>最后更新:</span>2016-09-08, 20:32:07</p>
+        <p><span>发布时间:</span>2016-09-09, 10:21:17</p>
+        <p><span>最后更新:</span>2016-09-09, 10:31:01</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/08/build-hexo-blog-with-github-pages/" title="如何使用github + hexo搭建一个属于自己的博客">https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/09/power-up-your-quick-look/" title="加强你的quick look">https://xianwx.github.io/2016/09/09/power-up-your-quick-look/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://xianwx.github.io/2016/09/09/power-up-your-quick-look/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -346,16 +338,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/09/09/power-up-your-quick-look/">
-                    加强你的quick look
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/08/27/hello-world/">
-                    hello world
+                <a href="/2016/09/08/build-hexo-blog-with-github-pages/">
+                    如何使用github + hexo搭建一个属于自己的博客
                 </a>
             </div>
         
@@ -367,7 +353,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-简介"><span class="toc-number">1.</span> <span class="toc-text">1. 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-配置"><span class="toc-number">2.</span> <span class="toc-text">2. 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-在github上创建创库"><span class="toc-number">3.</span> <span class="toc-text">3. 在github上创建创库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装hexo"><span class="toc-number">4.</span> <span class="toc-text">4. 安装hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-运行hexo"><span class="toc-number">5.</span> <span class="toc-text">5. 运行hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-设置你想要的主题"><span class="toc-number">6.</span> <span class="toc-text">6. 设置你想要的主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-部署到github"><span class="toc-number">7.</span> <span class="toc-text">7. 部署到github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-添加多说"><span class="toc-number">8.</span> <span class="toc-text">8. 添加多说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-剩下的一些杂七杂八的配置"><span class="toc-number">9.</span> <span class="toc-text">9. 剩下的一些杂七杂八的配置</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#quick-look"><span class="toc-number">1.</span> <span class="toc-text">quick look</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-number">2.</span> <span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件名收集"><span class="toc-number">3.</span> <span class="toc-text">插件名收集</span></a></li></ol>
         
     </div>
     <style>
@@ -403,7 +389,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"如何使用github + hexo搭建一个属于自己的博客　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"加强你的quick look　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -419,7 +405,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/08/build-hexo-blog-with-github-pages/" data-title="如何使用github + hexo搭建一个属于自己的博客" data-url="https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/09/09/power-up-your-quick-look/" data-title="加强你的quick look" data-url="https://xianwx.github.io/2016/09/09/power-up-your-quick-look/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         var loadComment = function(){
@@ -442,15 +428,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/09/09/power-up-your-quick-look/" title="上一篇: 加强你的quick look">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/08/27/hello-world/" title="下一篇: hello world">
+            <a href="/2016/09/08/build-hexo-blog-with-github-pages/" title="下一篇: 如何使用github + hexo搭建一个属于自己的博客">
                 <i class="fa fa-angle-right"></i>
             </a>
         
