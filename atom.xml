@@ -51,7 +51,7 @@
     <link href="https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/"/>
     <id>https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2016-09-08T12:32:07.000Z</updated>
+    <updated>2016-09-16T03:42:56.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
 <h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
@@ -61,11 +61,14 @@
 <h2 id="6-设置你想要的主题"><a href="#6-设置你想要的主题" class="headerlink" title="6. 设置你想要的主题"></a>6. 设置你想要的主题</h2><p>我使用的主题是<strong><a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">yelee</a></strong><br>很简单，运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee</div></pre></td></tr></table></figure></p>
 <p>然后修改blog下的_config.yml文件<br><code>theme: yelee</code></p>
 <h2 id="7-部署到github"><a href="#7-部署到github" class="headerlink" title="7. 部署到github"></a>7. 部署到github</h2><p>修改_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/xianwx/xianwx.github.io.git(这里改成你自己的刚才新建的github responsitory)</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
+<p>安装插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
 <p>设置成功过后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d #deploy的缩写，首次会让你输入账号密码</div></pre></td></tr></table></figure></p>
 <p>等待上传成功，可以打开<strong><a href="http://xianwx.github.io">http://xianwx.github.io</a></strong>看效果啦！</p>
 <p>– todo 新建一个分支保存博客程序，避免换电脑的时候悲剧</p>
 <h2 id="8-添加多说"><a href="#8-添加多说" class="headerlink" title="8. 添加多说"></a>8. 添加多说</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">① 到http://duoshuo.com/create-site/新建一个站点</div><div class="line">② 站点地址填http://xianwx.github.io 这个，域名随便写个，比如我是yuzixin</div><div class="line"></div><div class="line">如果你使用跟我不一样的主题，跳过不看后面这步，去自己看主题里的配置方法。</div><div class="line">③ 打开yelee/_config.yml，找到duoshuo，把on的值改为true，domain: 写自己的域名（上边的yuzixin）</div></pre></td></tr></table></figure>
-<h2 id="9-剩下的一些杂七杂八的配置"><a href="#9-剩下的一些杂七杂八的配置" class="headerlink" title="9. 剩下的一些杂七杂八的配置"></a>9. 剩下的一些杂七杂八的配置</h2><p>预告：rss，写博客的方法，写about me，markdown语法，– todo 自己还需要研究的：添加图片，购买域名<br>先欠着，往后补上，回家去咯~</p>
+<h2 id="9-插件配置"><a href="#9-插件配置" class="headerlink" title="9. 插件配置"></a>9. 插件配置</h2><p>在_config.yml里，有个plugins<br>在安装了插件过后，就可以在这里选择使用格式是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plugins: -hexo-generator-feed -hexo-generator-search</div></pre></td></tr></table></figure></p>
+<p>(我分行写会报错，只能一整行写过去)<br>更多plugins：<a href="https://hexo.io/plugins/" target="_blank" rel="external">https://hexo.io/plugins/</a></p>
+<h2 id="10-剩下的一些杂七杂八的配置"><a href="#10-剩下的一些杂七杂八的配置" class="headerlink" title="10. 剩下的一些杂七杂八的配置"></a>10. 剩下的一些杂七杂八的配置</h2><p>预告：rss，写博客的方法，写about me，markdown语法，– todo 自己还需要研究的：添加图片，购买域名<br>先欠着，往后补上，回家去咯~</p>
 ]]></content>
     
     <summary type="html">
