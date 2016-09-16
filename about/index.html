@@ -83,7 +83,9 @@
 </script>
 
 
-    <script> yiliaConfig.jquery_ui = [false]; </script>
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
 
 
 
@@ -335,6 +337,112 @@
 <h3 id="杭州皮匠科技有限公司"><a href="#杭州皮匠科技有限公司" class="headerlink" title="杭州皮匠科技有限公司"></a><a href="http://www.3pjgames.com/" target="_blank" rel="external">杭州皮匠科技有限公司</a></h3><p>是一家正在成长的公司，专注手游，我在的团队使用<strong>quick-cocos2dx</strong>我也觉得近几年以及往后几年都是手游的成长期，有很大的市场，决心扑入手游大坑，可是苦于项目一直被投资人枪毙，最近才开始大力研发一款项目，期间作为客户端主要开发者之一，学到了很多知识。</p>
 <h2 id="现在的我"><a href="#现在的我" class="headerlink" title="现在的我"></a>现在的我</h2><p>来杭州后讨了个女朋友，最近在热恋中。以后打算坚定的做程序员了，所以在开始努力学习。</p>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">你们可曾看到过如此详尽，如此废话的about me？now you see, 请围笑:)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-content">
+      
+        
+          <!-- css -->
+          <style type="text/css">
+              .center {
+                  text-align: center;
+              }
+              .hidden {
+                  display: none;
+              }
+            .donate_bar a.btn_donate{
+              display: inline-block;
+              width: 82px;
+              height: 82px;
+              background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+              _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+
+              <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+                   因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+                 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+                 嵌入其它博客时不一定要它们。 -->
+              -webkit-transition: background 0s;
+              -moz-transition: background 0s;
+              -o-transition: background 0s;
+              -ms-transition: background 0s;
+              transition: background 0s;
+              <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+            }
+
+            .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+            .donate_bar .donate_txt {
+              display: block;
+              color: #9d9d9d;
+              font: 14px/2 "Microsoft Yahei";
+            }
+            .bold{ font-weight: bold; }
+          </style>
+          <!-- /css -->
+
+            <!-- Donate Module -->
+            <div id="donate_module">
+
+          <!-- btn_donate & tips -->
+          <div id="donate_board" class="donate_bar center">
+              <br>
+              ------------------------------------------------------------------------------------------------------------------------------
+              <br>
+            <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+            <span class="donate_txt">
+              会不会有人就是想不开要打赏我呢？这是个问题！
+            </span>
+              
+            
+          </div>
+          <!-- /btn_donate & tips -->
+
+          <!-- donate guide -->
+            
+          <div id="donate_guide" class="donate_bar center hidden">
+                <br>
+              ------------------------------------------------------------------------------------------------------------------------------
+              <br>
+
+            <a href="http://odkw6ym6r.bkt.clouddn.com/weixin.png" title="用微信扫一扫哦~" class="fancybox" rel="article0">
+              <img src="http://odkw6ym6r.bkt.clouddn.com/weixin.png" title="微信打赏 Colin" height="190px" width="auto"/>
+            </a>
+                
+                &nbsp;&nbsp;
+
+            <a href="http://odkw6ym6r.bkt.clouddn.com/zhifubao.png" title="用支付宝扫一扫即可~" class="fancybox" rel="article0">
+              <img src="http://odkw6ym6r.bkt.clouddn.com/zhifubao.png" title="支付宝打赏 Colin" height="190px" width="auto"/>
+            </a>
+
+            <span class="donate_txt">
+              会不会有人就是想不开要打赏我呢？这是个问题！
+            </span>
+
+          </div>
+          <!-- /donate guide -->
+
+          <!-- donate script -->
+          <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+              $('#donate_board').addClass('hidden');
+              $('#donate_guide').removeClass('hidden');
+            }
+
+            function donate_on_web(){
+              $('#donate').submit();
+                }
+
+            var original_window_onload = window.onload;
+                window.onload = function () {
+                    if (original_window_onload) {
+                        original_window_onload();
+                    }
+                    document.getElementById('donate_board_wdg').className = 'hidden';
+            }
+          </script>
+          <!-- /donate script -->
+        </div>
+        <!-- /Donate Module -->
+           
       
     </div>
     
