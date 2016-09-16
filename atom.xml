@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xianwx.github.io/"/>
-  <updated>2016-09-09T02:55:19.000Z</updated>
+  <updated>2016-09-16T10:24:52.000Z</updated>
   <id>https://xianwx.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>duoshuo_style</title>
+    <link href="https://xianwx.github.io/2016/09/16/duoshuo-style/"/>
+    <id>https://xianwx.github.io/2016/09/16/duoshuo-style/</id>
+    <published>2016-09-16T10:18:13.000Z</published>
+    <updated>2016-09-16T10:24:52.000Z</updated>
+    
+    <summary type="html">
+    
+      多说样式美化
+    
+    </summary>
+    
+    
+      <category term="多说 hexo" scheme="https://xianwx.github.io/tags/%E5%A4%9A%E8%AF%B4-hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>加强你的quick look</title>
