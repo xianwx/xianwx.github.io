@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xianwx.github.io/"/>
-  <updated>2016-09-16T13:13:45.000Z</updated>
+  <updated>2016-09-16T14:20:57.000Z</updated>
   <id>https://xianwx.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://xianwx.github.io/2016/09/16/duoshuo-style/"/>
     <id>https://xianwx.github.io/2016/09/16/duoshuo-style/</id>
     <published>2016-09-16T10:18:13.000Z</published>
-    <updated>2016-09-16T13:13:45.000Z</updated>
+    <updated>2016-09-16T14:20:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>今天逛本博客主题的编写者的<a href="http://moxfive.xyz/" target="_blank" rel="external">博客</a>的时候，看到了他的评论系统效果十分的好看，于是好奇心起，也打算自己弄一个一样的。</p>
 <h2 id="1-已经做好的文件"><a href="#1-已经做好的文件" class="headerlink" title="1. 已经做好的文件"></a>1. 已经做好的文件</h2><p>在多说设置里用的<a href="https://xianwx.github.io/show/test.css">css文件</a><br>样式的<a href="https://xianwx.github.io/show/embed.js">ejs文件</a><br>本地修改的<a href="https://xianwx.github.io/show/duoshuo.txt">ejs文件</a></p>
@@ -53,6 +53,10 @@
     
     </summary>
     
+      <category term="技术学习" scheme="https://xianwx.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="hexo" scheme="https://xianwx.github.io/tags/hexo/"/>
     
       <category term="多说" scheme="https://xianwx.github.io/tags/%E5%A4%9A%E8%AF%B4/"/>
     
@@ -63,7 +67,7 @@
     <link href="https://xianwx.github.io/2016/09/09/power-up-your-quick-look/"/>
     <id>https://xianwx.github.io/2016/09/09/power-up-your-quick-look/</id>
     <published>2016-09-09T02:21:17.000Z</published>
-    <updated>2016-09-09T02:55:19.000Z</updated>
+    <updated>2016-09-16T14:21:41.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="quick-look"><a href="#quick-look" class="headerlink" title="quick look"></a>quick look</h2><p>用mac的同学经常用<code>空格</code>键来预览一些文件的内容吧，在只想观看但是不打算修改内容的话用quick look正好，比如看文本，看psd的图片。<br>但是系统自带的只支持预览一些文本以及图像。</p>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. 安装brew</div><div class="line">    自行Google</div><div class="line">2. 安装brew cask</div><div class="line">    brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask</div><div class="line">3. 使用命令行来安装插件：brew cask install ***</div></pre></td></tr></table></figure>
@@ -84,6 +88,8 @@
     
     </summary>
     
+      <category term="生活所得" scheme="https://xianwx.github.io/categories/%E7%94%9F%E6%B4%BB%E6%89%80%E5%BE%97/"/>
+    
     
       <category term="mac" scheme="https://xianwx.github.io/tags/mac/"/>
     
@@ -94,7 +100,7 @@
     <link href="https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/"/>
     <id>https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2016-09-16T10:45:59.000Z</updated>
+    <updated>2016-09-16T14:20:27.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
 <h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
@@ -123,6 +129,8 @@
     
     </summary>
     
+      <category term="技术学习" scheme="https://xianwx.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
     
       <category term="hexo" scheme="https://xianwx.github.io/tags/hexo/"/>
     
@@ -133,7 +141,7 @@
     <link href="https://xianwx.github.io/2016/08/27/hello-world/"/>
     <id>https://xianwx.github.io/2016/08/27/hello-world/</id>
     <published>2016-08-27T09:13:42.000Z</published>
-    <updated>2016-08-27T14:40:20.000Z</updated>
+    <updated>2016-09-16T14:21:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>一直想弄个自己的博客，但是去了很多博客网站都觉得冗余信息太多，我需要的是漂漂亮亮的简洁的博客，于是找到了hexo + github.</p>
 <p>慢慢会补上各个博文的，github也会慢慢上传些代码。</p>
@@ -144,6 +152,8 @@
       我的第一个页面。
     
     </summary>
+    
+      <category term="个人牢骚" scheme="https://xianwx.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%89%A2%E9%AA%9A/"/>
     
     
       <category term="随笔" scheme="https://xianwx.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
