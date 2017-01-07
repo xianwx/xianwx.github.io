@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://xianwx.xyz/"/>
+  <link href="http://www.xianwx.xyz/"/>
   <updated>2017-01-07T07:41:30.000Z</updated>
-  <id>http://xianwx.xyz/</id>
+  <id>http://www.xianwx.xyz/</id>
   
   <author>
     <name>禹子歆</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>更好的管理你的git SSH-Key</title>
-    <link href="http://xianwx.xyz/2017/01/07/manage-your-git-ssh-key/"/>
-    <id>http://xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</id>
+    <link href="http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/"/>
+    <id>http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</id>
     <published>2017-01-07T06:59:38.000Z</published>
     <updated>2017-01-07T07:41:30.000Z</updated>
     
@@ -46,17 +46,17 @@
     
     </summary>
     
-      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="git" scheme="http://xianwx.xyz/tags/git/"/>
+      <category term="git" scheme="http://www.xianwx.xyz/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>给lua文件注入插件的方法</title>
-    <link href="http://xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/"/>
-    <id>http://xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</id>
+    <link href="http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/"/>
+    <id>http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</id>
     <published>2017-01-07T03:54:39.000Z</published>
     <updated>2017-01-07T06:11:16.000Z</updated>
     
@@ -83,19 +83,19 @@
     
     </summary>
     
-      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="lua" scheme="http://xianwx.xyz/tags/lua/"/>
+      <category term="lua" scheme="http://www.xianwx.xyz/tags/lua/"/>
     
-      <category term="quick cocos" scheme="http://xianwx.xyz/tags/quick-cocos/"/>
+      <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
     
   </entry>
   
   <entry>
     <title>lua的元表以及多继承</title>
-    <link href="http://xianwx.xyz/2016/09/23/lua-multiple-inheritance/"/>
-    <id>http://xianwx.xyz/2016/09/23/lua-multiple-inheritance/</id>
+    <link href="http://www.xianwx.xyz/2016/09/23/lua-multiple-inheritance/"/>
+    <id>http://www.xianwx.xyz/2016/09/23/lua-multiple-inheritance/</id>
     <published>2016-09-23T03:49:39.000Z</published>
     <updated>2017-01-07T06:46:23.000Z</updated>
     
@@ -122,17 +122,17 @@
     
     </summary>
     
-      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="lua" scheme="http://xianwx.xyz/tags/lua/"/>
+      <category term="lua" scheme="http://www.xianwx.xyz/tags/lua/"/>
     
   </entry>
   
   <entry>
     <title>自定义自己的评论系统</title>
-    <link href="http://xianwx.xyz/2016/09/16/duoshuo-style/"/>
-    <id>http://xianwx.xyz/2016/09/16/duoshuo-style/</id>
+    <link href="http://www.xianwx.xyz/2016/09/16/duoshuo-style/"/>
+    <id>http://www.xianwx.xyz/2016/09/16/duoshuo-style/</id>
     <published>2016-09-16T10:18:13.000Z</published>
     <updated>2016-09-17T03:55:10.000Z</updated>
     
@@ -167,19 +167,19 @@
     
     </summary>
     
-      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="多说" scheme="http://xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
+      <category term="多说" scheme="http://www.xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
     
-      <category term="hexo" scheme="http://xianwx.xyz/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>加强你的quick look</title>
-    <link href="http://xianwx.xyz/2016/09/09/power-up-your-quick-look/"/>
-    <id>http://xianwx.xyz/2016/09/09/power-up-your-quick-look/</id>
+    <link href="http://www.xianwx.xyz/2016/09/09/power-up-your-quick-look/"/>
+    <id>http://www.xianwx.xyz/2016/09/09/power-up-your-quick-look/</id>
     <published>2016-09-09T02:21:17.000Z</published>
     <updated>2016-09-16T14:21:41.000Z</updated>
     
@@ -202,19 +202,19 @@
     
     </summary>
     
-      <category term="生活所得" scheme="http://xianwx.xyz/categories/%E7%94%9F%E6%B4%BB%E6%89%80%E5%BE%97/"/>
+      <category term="生活所得" scheme="http://www.xianwx.xyz/categories/%E7%94%9F%E6%B4%BB%E6%89%80%E5%BE%97/"/>
     
     
-      <category term="mac" scheme="http://xianwx.xyz/tags/mac/"/>
+      <category term="mac" scheme="http://www.xianwx.xyz/tags/mac/"/>
     
   </entry>
   
   <entry>
     <title>如何使用github + hexo搭建一个属于自己的博客</title>
-    <link href="http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/"/>
-    <id>http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</id>
+    <link href="http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/"/>
+    <id>http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2017-01-07T03:47:57.000Z</updated>
+    <updated>2017-01-07T12:54:35.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
 <h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
@@ -235,7 +235,7 @@
 <h2 id="11-图床"><a href="#11-图床" class="headerlink" title="11. 图床"></a>11. 图床</h2><p>到<a href="https://portal.qiniu.com/create" target="_blank" rel="external">https://portal.qiniu.com/create</a>注册一个账号<br>参考<a href="http://www.jianshu.com/p/6dce6094bf61" target="_blank" rel="external">如何使用七牛</a></p>
 <h2 id="12-如何保存自己的博客"><a href="#12-如何保存自己的博客" class="headerlink" title="12. 如何保存自己的博客"></a>12. 如何保存自己的博客</h2><p>今天想了一下怎么保存，思路是：<br>    相同的仓库下新建一个目录，或者新建一个仓库<br>    clone下来跟blog关联（还没开始的先clone下来然后hexo init那个文件夹，已经init过了clone下来然后把东西拷贝过去）<br>    如果跟博客是相同的目录，checkout到保存的分支，反正使用hexo d是会推送到master分支的，也指定好仓库的，所以不需要担心<br>    每次有修改push一下就好了。</p>
 <h2 id="13-about-me-and-tabs"><a href="#13-about-me-and-tabs" class="headerlink" title="13. about me and tabs"></a>13. about me and tabs</h2><p>想写about me的话，使用hexo new about me.</p>
-]]></content>
+<h2 id="14-如何绑定域名"><a href="#14-如何绑定域名" class="headerlink" title="14. 如何绑定域名"></a>14. 如何绑定域名</h2>]]></content>
     
     <summary type="html">
     
@@ -243,17 +243,17 @@
     
     </summary>
     
-      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="hexo" scheme="http://xianwx.xyz/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>hello world</title>
-    <link href="http://xianwx.xyz/2016/08/27/hello-world/"/>
-    <id>http://xianwx.xyz/2016/08/27/hello-world/</id>
+    <link href="http://www.xianwx.xyz/2016/08/27/hello-world/"/>
+    <id>http://www.xianwx.xyz/2016/08/27/hello-world/</id>
     <published>2016-08-27T09:13:42.000Z</published>
     <updated>2016-09-16T14:21:19.000Z</updated>
     
@@ -267,10 +267,10 @@
     
     </summary>
     
-      <category term="个人牢骚" scheme="http://xianwx.xyz/categories/%E4%B8%AA%E4%BA%BA%E7%89%A2%E9%AA%9A/"/>
+      <category term="个人牢骚" scheme="http://www.xianwx.xyz/categories/%E4%B8%AA%E4%BA%BA%E7%89%A2%E9%AA%9A/"/>
     
     
-      <category term="随笔" scheme="http://xianwx.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://www.xianwx.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
