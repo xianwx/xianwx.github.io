@@ -20,7 +20,7 @@
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layer:setString()</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>使用这种注入的方法，可以大幅度减少代码的重复量，也可以不用增加很多公用的方法，安全且高效。<br>注入的方法重点是ext的return 函数，对于.的方法需要有另外的写法。</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>使用这种注入的方法，可以大幅度减少代码的重复量，也可以不用增加很多公用的方法，安全且高效。<br>注入的方法重点是ext的return 函数，对于<strong>使用.</strong>的方法需要有另外的写法。<br>等空闲时间，我会整理一个管理scene layer的框架，包括读取csb等框架传到github上。</p>
 ]]></content>
     </entry>
     
