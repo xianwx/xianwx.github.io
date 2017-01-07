@@ -15,22 +15,16 @@
 
 
 
-<meta name="description" content="昵称：禹子歆真实姓名：xianwx
-经历大学少小离家，在福建读的大学，学校名字是华侨大学(没错，就是那个CUBA天下第一的华侨大学)，认识了一群朋友，当时的我并不觉得自己可以做一个程序员，就一直没往这方面努力。临了毕业找起工作慌了，浑浑噩噩被一同学拉去做了游戏，开始了做游戏的不归路。
-工作厦门吉比特刚毕业的时候代码都写不顺溜，用Flex，lua做客户端，lua和C#做服务器，做了一款TCG网页游戏">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about me">
-<meta property="og:url" content="https://xianwx.github.io/about/index.html">
+<meta name="description" content="分别管理公司以及个人的ssh-key">
+<meta property="og:type" content="article">
+<meta property="og:title" content="更好的管理你的git SSH-Key">
+<meta property="og:url" content="https://xianwx.github.io/2017/01/07/manage-your-git-ssh-key/index.html">
 <meta property="og:site_name" content="yuzixin's blog">
-<meta property="og:description" content="昵称：禹子歆真实姓名：xianwx
-经历大学少小离家，在福建读的大学，学校名字是华侨大学(没错，就是那个CUBA天下第一的华侨大学)，认识了一群朋友，当时的我并不觉得自己可以做一个程序员，就一直没往这方面努力。临了毕业找起工作慌了，浑浑噩噩被一同学拉去做了游戏，开始了做游戏的不归路。
-工作厦门吉比特刚毕业的时候代码都写不顺溜，用Flex，lua做客户端，lua和C#做服务器，做了一款TCG网页游戏">
-<meta property="og:updated_time" content="2016-09-16T14:10:57.000Z">
+<meta property="og:description" content="分别管理公司以及个人的ssh-key">
+<meta property="og:updated_time" content="2017-01-07T07:29:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about me">
-<meta name="twitter:description" content="昵称：禹子歆真实姓名：xianwx
-经历大学少小离家，在福建读的大学，学校名字是华侨大学(没错，就是那个CUBA天下第一的华侨大学)，认识了一群朋友，当时的我并不觉得自己可以做一个程序员，就一直没往这方面努力。临了毕业找起工作慌了，浑浑噩噩被一同学拉去做了游戏，开始了做游戏的不归路。
-工作厦门吉比特刚毕业的时候代码都写不顺溜，用Flex，lua做客户端，lua和C#做服务器，做了一款TCG网页游戏">
+<meta name="twitter:title" content="更好的管理你的git SSH-Key">
+<meta name="twitter:description" content="分别管理公司以及个人的ssh-key">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -62,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>about me | yuzixin&#39;s blog</title>
+<title>更好的管理你的git SSH-Key | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -72,7 +66,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -275,11 +269,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-manage-your-git-ssh-key" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-      <time datetime="2016-08-27T11:18:59.000Z" itemprop="datePublished">2016-08-27</time>
+      <a href="/2017/01/07/manage-your-git-ssh-key/" class="article-date">
+      <time datetime="2017-01-07T06:59:38.000Z" itemprop="datePublished">2017-01-07</time>
 </a>
 
 
@@ -294,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      about me
+      更好的管理你的git SSH-Key
     </h1>
   
 
@@ -302,8 +296,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -311,35 +313,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
-
-
           
-          
-        <p>昵称：禹子歆<br>真实姓名：xianwx</p>
-<h2 id="经历"><a href="#经历" class="headerlink" title="经历"></a>经历</h2><h3 id="大学"><a href="#大学" class="headerlink" title="大学"></a>大学</h3><p>少小离家，在福建读的大学，学校名字是<strong><a href="http://www.hqu.edu.cn/" target="_blank" rel="external">华侨大学</a>(没错，就是那个CUBA天下第一的华侨大学)</strong>，认识了一群朋友，当时的我并不觉得自己可以做一个程序员，就一直没往这方面努力。临了毕业找起工作慌了，浑浑噩噩被一同学拉去做了游戏，开始了做游戏的不归路。</p>
-<h2 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h2><h3 id="厦门吉比特"><a href="#厦门吉比特" class="headerlink" title="厦门吉比特"></a><a href="http://www.g-bits.com/" target="_blank" rel="external">厦门吉比特</a></h3><p>刚毕业的时候代码都写不顺溜，用<strong>Flex</strong>，<strong>lua</strong>做客户端，<strong>lua</strong>和<strong>C#</strong>做服务器，做了一款TCG网页游戏<a href="http://www.lztcg.com/" target="_blank" rel="external">《乱战》</a>，后来觉得自己不太想做程序员，遂退坑来了杭州。</p>
-<h3 id="杭州银江实业"><a href="#杭州银江实业" class="headerlink" title="杭州银江实业"></a>杭州银江实业</h3><p>刚来杭州那会想找文案方面的工作，后还是走向了程序的道路，在一家公司用<strong>Flex</strong>做客户端，<strong>Java</strong>做服务端，做了个智能机房监控软件。呆了一年后觉得还是做游戏有生命力，遂又脱坑。</p>
-<h3 id="杭州皮匠科技有限公司"><a href="#杭州皮匠科技有限公司" class="headerlink" title="杭州皮匠科技有限公司"></a><a href="http://www.3pjgames.com/" target="_blank" rel="external">杭州皮匠科技有限公司</a></h3><p>是一家正在成长的公司，专注手游，我在的团队使用<strong>quick-cocos2dx</strong>我也觉得近几年以及往后几年都是手游的成长期，有很大的市场，决心扑入手游大坑，可是苦于项目一直被投资人枪毙，最近才开始大力研发一款项目，期间作为客户端主要开发者之一，学到了很多知识。</p>
-<h2 id="现在的我"><a href="#现在的我" class="headerlink" title="现在的我"></a>现在的我</h2><p>来杭州后讨了个女朋友，最近在热恋中。以后打算坚定的做程序员了，所以在开始努力学习。</p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p><strong>你们可曾看到过如此详尽，如此废话的about me？now you see, 请围笑:)</strong></p>
-<p>有问题，有想法，欢迎给我留言。</p>
-<ul class="ds-recent-visitors" data-num-items="30" data-avatar-size="56"></ul>
+        <p>   日常工作中，我们经常碰到又想写公司的项目，又想自己维护自己的项目，公司的项目基本都在gitlab上，自己的项目在github上，所以我们需要配置不同的SSH-Key来对应不同的环境。</p>
+<h2 id="1-设置一个默认的全局name和email"><a href="#1-设置一个默认的全局name和email" class="headerlink" title="1. 设置一个默认的全局name和email"></a>1. 设置一个默认的全局name和email</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"your name"</span></div><div class="line">git config --global user.email <span class="string">"your email addr"</span></div></pre></td></tr></table></figure>
+<p>如果不设置这个，已经clone过的每个项目都需要去手动设置一下归属到哪个账户（当然，如果你是用那个clone下来的倒没事，像我是已经clone过了，不得不设置啊）</p>
+<h2 id="2-生成SSH-Key"><a href="#2-生成SSH-Key" class="headerlink" title="2. 生成SSH-Key"></a>2. 生成SSH-Key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your company email"</span> <span class="_">-f</span> ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
+<p>一般都叫id_rsa，第一个先弄公司的好了，然后再对应的公司的账户下边加上id_rsa.pub里的内容<br>再生成github的SSH-Key：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your github email"</span> <span class="_">-f</span> ~/.ssh/my_rsa</div></pre></td></tr></table></figure>
+<p>同上，把my_rsa.pub里的内容加到github服务器的配置中。</p>
+<h2 id="3-添加私钥"><a href="#3-添加私钥" class="headerlink" title="3. 添加私钥"></a>3. 添加私钥</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa </div><div class="line">$ ssh-add ~/.ssh/my_rsa</div></pre></td></tr></table></figure>
+<p>上面一步执行如果失败，并且提示的是”Could not open a connection to your authentication agent”,执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent bash</div></pre></td></tr></table></figure></p>
+<p>添加成功过后，可以执行下面这条查看结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add <span class="_">-l</span></div></pre></td></tr></table></figure></p>
+<h2 id="4-修改host配置"><a href="#4-修改host配置" class="headerlink" title="4. 修改host配置"></a>4. 修改host配置</h2><p>打开~/.ssh里的config文件（如果没有就新建一个，没有后缀名）<br>加上以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># gitlab</div><div class="line">Host gitlab.com</div><div class="line">    HostName 公司gitlab地址</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/id_rsa</div><div class="line">    User 你想要的名字</div><div class="line"># github</div><div class="line">Host github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/github_rsa</div><div class="line">    User 你github要显示的名字</div></pre></td></tr></table></figure></p>
+<p>测试一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<p>也可以试试公司的网址，如果出现Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access.就可以了。</p>
+<h2 id="5-对应账号"><a href="#5-对应账号" class="headerlink" title="5. 对应账号"></a>5. 对应账号</h2><p>如果已经设置了global的用户名和email，就得到不想用默认账户对应的项目文件夹下执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config user.name <span class="string">"your github name"</span></div><div class="line">$ git config user.email <span class="string">"your github email"</span></div></pre></td></tr></table></figure></p>
+<p>这样就可以使用github的账号了。如果不想有默认的而且设置过，可以执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global --unset user.name</div><div class="line">$ git config --global --unset user.email</div></pre></td></tr></table></figure></p>
+
       
     </div>
     <div class="article-content">
@@ -453,10 +443,59 @@
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/07/manage-your-git-ssh-key/">更好的管理你的git SSH-Key</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
+        <p><span>发布时间:</span>2017-01-07, 14:59:38</p>
+        <p><span>最后更新:</span>2017-01-07, 15:29:52</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/07/manage-your-git-ssh-key/" title="更好的管理你的git SSH-Key">https://xianwx.github.io/2017/01/07/manage-your-git-ssh-key/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://xianwx.github.io/2017/01/07/manage-your-git-ssh-key/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/01/07/ext-layer-in-quick-cocos/">
+                    给lua文件注入插件的方法
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-设置一个默认的全局name和email"><span class="toc-number">1.</span> <span class="toc-text">1. 设置一个默认的全局name和email</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-生成SSH-Key"><span class="toc-number">2.</span> <span class="toc-text">2. 生成SSH-Key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-添加私钥"><span class="toc-number">3.</span> <span class="toc-text">3. 添加私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-修改host配置"><span class="toc-number">4.</span> <span class="toc-text">4. 修改host配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-对应账号"><span class="toc-number">5.</span> <span class="toc-text">5. 对应账号</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -465,7 +504,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="about/index.html" data-title="about me" data-url="https://xianwx.github.io/about/index.html"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/01/07/manage-your-git-ssh-key/" data-title="更好的管理你的git SSH-Key" data-url="https://xianwx.github.io/2017/01/07/manage-your-git-ssh-key/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -486,6 +525,24 @@
 </div>
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/01/07/ext-layer-in-quick-cocos/" title="下一篇: 给lua文件注入插件的方法">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/01/07/manage-your-git-ssh-key/">更好的管理你的git SSH-Key</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/07/ext-layer-in-quick-cocos/">给lua文件注入插件的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/lua-multiple-inheritance/">lua的元表以及多继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/duoshuo-style/">自定义自己的评论系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/power-up-your-quick-look/">加强你的quick look</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/build-hexo-blog-with-github-pages/">如何使用github + hexo搭建一个属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/hello-world/">hello world</a></li></ul>
 
 
 
