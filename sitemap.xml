@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xianwx.github.io/2016/09/23/lua-multiple-inheritance/</loc>
+    <loc>https://xianwx.github.io/2017/01/07/ext-layer-in-quick-cocos/</loc>
     
-    <lastmod>2016-10-06T10:07:46.000Z</lastmod>
+    <lastmod>2017-01-07T06:09:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/</loc>
     
-    <lastmod>2016-09-25T14:49:44.000Z</lastmod>
+    <lastmod>2017-01-07T03:47:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xianwx.github.io/2016/09/23/lua-multiple-inheritance/</loc>
+    
+    <lastmod>2016-10-06T10:07:46.000Z</lastmod>
     
   </url>
   

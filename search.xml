@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title><![CDATA[给lua文件注入插件的方法]]></title>
+      <url>https://xianwx.github.io/2017/01/07/ext-layer-in-quick-cocos/</url>
+      <content type="html"><![CDATA[<h2 id="1-初衷"><a href="#1-初衷" class="headerlink" title="1. 初衷"></a>1. 初衷</h2><p>好久没有更新博客了，之前写了lua元表相关的东西，如果对元表不理解的话，可以在站内搜索一下<strong>lua的元表以及多继承</strong>。<br>现在在用quick cocos在写一款游戏，等空闲了可以来更新一下躺过的坑。<br>闲话少说，现在用cocos开发，走的路子多是策划或者美术拼出界面(cocos studio)，然后到处csb文件程序加载，再对界面进行各项处理(creator没用过)。<br>于是问题来了，一般的做法，将csb读取过来作为layer的child，可能会出现非常多次的对其getChild（可能层次很深），对csb上的某个控件进行setString、setTexture等，怎么做比较好？</p>
+<h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h2><p>提供几个解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 写一个公用方法，获取csb的控件，每次都先取得控件后对其操作</div><div class="line">* 写很多个公用方法，对setString的操作啊，对setTexture的操作啊都写上</div><div class="line">* 写很多个local方法，代码一样</div><div class="line">* 也是写很多个公用方法，分成各个插件，layer自己选择要去组装哪些</div></pre></td></tr></table></figure></p>
+<h2 id="3-插件的实现方法"><a href="#3-插件的实现方法" class="headerlink" title="3. 插件的实现方法"></a>3. 插件的实现方法</h2><p>非常简单，只需要几步</p>
+<ul>
+<li><p>写插件，e.g:</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> ext = &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ext:setString</span><span class="params">()</span></span></div><div class="line">    <span class="comment">-- do set string</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(layer)</span></span></div><div class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(ext) <span class="keyword">do</span></div><div class="line">        <span class="comment">-- 这里加上assert是怕覆盖了原有的字段</span></div><div class="line">        <span class="built_in">assert</span>(<span class="keyword">not</span> layer[k], <span class="built_in">string</span>.format(<span class="string">"funciton %s exist"</span>, k))</div><div class="line">        layer[k] = v</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>注入</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> layer = display.newLayer()</div><div class="line"><span class="built_in">require</span>(<span class="string">"ext"</span>)(layer)</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用<br>这样就可以直接使用</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layer:setString()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>使用这种注入的方法，可以大幅度减少代码的重复量，也可以不用增加很多公用的方法，安全且高效。<br>注入的方法重点是ext的return 函数，对于.的方法需要有另外的写法。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[lua的元表以及多继承]]></title>
       <url>https://xianwx.github.io/2016/09/23/lua-multiple-inheritance/</url>
       <content type="html"><![CDATA[<p>最近做开发的时候，有个类想要继承自多个类，虽然这种情况基本说很少（好像也不少），但还是说一下如何在lua里实现多继承。<br>其实很简单，首先要了解lua元表，以及lua类的实现方法。</p>
@@ -84,7 +105,6 @@
 <p>安装插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
 <p>设置成功过后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d #deploy的缩写，首次会让你输入账号密码</div></pre></td></tr></table></figure></p>
 <p>等待上传成功，可以打开<strong><a href="http://xianwx.github.io">http://xianwx.github.io</a></strong>看效果啦！</p>
-<p>– todo 新建一个分支保存博客程序，避免换电脑的时候悲剧</p>
 <h2 id="8-添加多说"><a href="#8-添加多说" class="headerlink" title="8. 添加多说"></a>8. 添加多说</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">① 到http://duoshuo.com/create-site/新建一个站点</div><div class="line">② 站点地址填http://xianwx.github.io 这个，域名随便写个，比如我是yuzixin</div><div class="line"></div><div class="line">如果你使用跟我不一样的主题，跳过不看后面这步，去自己看主题里的配置方法。</div><div class="line">③ 打开yelee/_config.yml，找到duoshuo，把on的值改为true，domain: 写自己的域名（上边的yuzixin）</div></pre></td></tr></table></figure>
 <h2 id="9-接入打赏"><a href="#9-接入打赏" class="headerlink" title="9. 接入打赏"></a>9. 接入打赏</h2><p>打开themes/yelee/layout/_partial/article.ejs下边，在div模块加上下边代码<br><a href="https://xianwx.github.io/show/article.txt">代码段</a></p>
 <p>然后在主题的_config.yml里加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">donate:</div><div class="line">  enable: true</div><div class="line">  text: 会不会有人就是想不开要打赏我呢？这是个问题！</div><div class="line">  wechat: http://odkw6ym6r.bkt.clouddn.com/weixin.png</div><div class="line">  alipay: http://odkw6ym6r.bkt.clouddn.com/zhifubao.png</div></pre></td></tr></table></figure></p>
@@ -93,7 +113,6 @@
 <h2 id="11-图床"><a href="#11-图床" class="headerlink" title="11. 图床"></a>11. 图床</h2><p>到<a href="https://portal.qiniu.com/create" target="_blank" rel="external">https://portal.qiniu.com/create</a>注册一个账号<br>参考<a href="http://www.jianshu.com/p/6dce6094bf61" target="_blank" rel="external">如何使用七牛</a></p>
 <h2 id="12-如何保存自己的博客"><a href="#12-如何保存自己的博客" class="headerlink" title="12. 如何保存自己的博客"></a>12. 如何保存自己的博客</h2><p>今天想了一下怎么保存，思路是：<br>    相同的仓库下新建一个目录，或者新建一个仓库<br>    clone下来跟blog关联（还没开始的先clone下来然后hexo init那个文件夹，已经init过了clone下来然后把东西拷贝过去）<br>    如果跟博客是相同的目录，checkout到保存的分支，反正使用hexo d是会推送到master分支的，也指定好仓库的，所以不需要担心<br>    每次有修改push一下就好了。</p>
 <h2 id="13-about-me-and-tabs"><a href="#13-about-me-and-tabs" class="headerlink" title="13. about me and tabs"></a>13. about me and tabs</h2><p>想写about me的话，使用hexo new about me.</p>
-<h2 id="14-剩下的一些杂七杂八的配置"><a href="#14-剩下的一些杂七杂八的配置" class="headerlink" title="14. 剩下的一些杂七杂八的配置"></a>14. 剩下的一些杂七杂八的配置</h2><p>预告：rss，写博客的方法，写about me，markdown语法，– todo 自己还需要研究的：购买域名<br>先欠着，往后补上，回家去咯~</p>
 ]]></content>
     </entry>
     
