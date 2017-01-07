@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://xianwx.github.io/"/>
+  <link href="http://xianwx.xyz/"/>
   <updated>2017-01-07T07:41:30.000Z</updated>
-  <id>https://xianwx.github.io/</id>
+  <id>http://xianwx.xyz/</id>
   
   <author>
     <name>禹子歆</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>更好的管理你的git SSH-Key</title>
-    <link href="https://xianwx.github.io/2017/01/07/manage-your-git-ssh-key/"/>
-    <id>https://xianwx.github.io/2017/01/07/manage-your-git-ssh-key/</id>
+    <link href="http://xianwx.xyz/2017/01/07/manage-your-git-ssh-key/"/>
+    <id>http://xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</id>
     <published>2017-01-07T06:59:38.000Z</published>
     <updated>2017-01-07T07:41:30.000Z</updated>
     
@@ -46,17 +46,17 @@
     
     </summary>
     
-      <category term="技术学习" scheme="https://xianwx.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="git" scheme="https://xianwx.github.io/tags/git/"/>
+      <category term="git" scheme="http://xianwx.xyz/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>给lua文件注入插件的方法</title>
-    <link href="https://xianwx.github.io/2017/01/07/ext-layer-in-quick-cocos/"/>
-    <id>https://xianwx.github.io/2017/01/07/ext-layer-in-quick-cocos/</id>
+    <link href="http://xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/"/>
+    <id>http://xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</id>
     <published>2017-01-07T03:54:39.000Z</published>
     <updated>2017-01-07T06:11:16.000Z</updated>
     
@@ -83,19 +83,19 @@
     
     </summary>
     
-      <category term="技术学习" scheme="https://xianwx.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="lua" scheme="https://xianwx.github.io/tags/lua/"/>
+      <category term="lua" scheme="http://xianwx.xyz/tags/lua/"/>
     
-      <category term="quick cocos" scheme="https://xianwx.github.io/tags/quick-cocos/"/>
+      <category term="quick cocos" scheme="http://xianwx.xyz/tags/quick-cocos/"/>
     
   </entry>
   
   <entry>
     <title>lua的元表以及多继承</title>
-    <link href="https://xianwx.github.io/2016/09/23/lua-multiple-inheritance/"/>
-    <id>https://xianwx.github.io/2016/09/23/lua-multiple-inheritance/</id>
+    <link href="http://xianwx.xyz/2016/09/23/lua-multiple-inheritance/"/>
+    <id>http://xianwx.xyz/2016/09/23/lua-multiple-inheritance/</id>
     <published>2016-09-23T03:49:39.000Z</published>
     <updated>2017-01-07T06:46:23.000Z</updated>
     
@@ -122,17 +122,17 @@
     
     </summary>
     
-      <category term="技术学习" scheme="https://xianwx.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="lua" scheme="https://xianwx.github.io/tags/lua/"/>
+      <category term="lua" scheme="http://xianwx.xyz/tags/lua/"/>
     
   </entry>
   
   <entry>
     <title>自定义自己的评论系统</title>
-    <link href="https://xianwx.github.io/2016/09/16/duoshuo-style/"/>
-    <id>https://xianwx.github.io/2016/09/16/duoshuo-style/</id>
+    <link href="http://xianwx.xyz/2016/09/16/duoshuo-style/"/>
+    <id>http://xianwx.xyz/2016/09/16/duoshuo-style/</id>
     <published>2016-09-16T10:18:13.000Z</published>
     <updated>2016-09-17T03:55:10.000Z</updated>
     
@@ -167,19 +167,19 @@
     
     </summary>
     
-      <category term="技术学习" scheme="https://xianwx.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="多说" scheme="https://xianwx.github.io/tags/%E5%A4%9A%E8%AF%B4/"/>
+      <category term="多说" scheme="http://xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
     
-      <category term="hexo" scheme="https://xianwx.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="http://xianwx.xyz/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>加强你的quick look</title>
-    <link href="https://xianwx.github.io/2016/09/09/power-up-your-quick-look/"/>
-    <id>https://xianwx.github.io/2016/09/09/power-up-your-quick-look/</id>
+    <link href="http://xianwx.xyz/2016/09/09/power-up-your-quick-look/"/>
+    <id>http://xianwx.xyz/2016/09/09/power-up-your-quick-look/</id>
     <published>2016-09-09T02:21:17.000Z</published>
     <updated>2016-09-16T14:21:41.000Z</updated>
     
@@ -202,17 +202,17 @@
     
     </summary>
     
-      <category term="生活所得" scheme="https://xianwx.github.io/categories/%E7%94%9F%E6%B4%BB%E6%89%80%E5%BE%97/"/>
+      <category term="生活所得" scheme="http://xianwx.xyz/categories/%E7%94%9F%E6%B4%BB%E6%89%80%E5%BE%97/"/>
     
     
-      <category term="mac" scheme="https://xianwx.github.io/tags/mac/"/>
+      <category term="mac" scheme="http://xianwx.xyz/tags/mac/"/>
     
   </entry>
   
   <entry>
     <title>如何使用github + hexo搭建一个属于自己的博客</title>
-    <link href="https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/"/>
-    <id>https://xianwx.github.io/2016/09/08/build-hexo-blog-with-github-pages/</id>
+    <link href="http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/"/>
+    <id>http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
     <updated>2017-01-07T03:47:57.000Z</updated>
     
@@ -243,17 +243,17 @@
     
     </summary>
     
-      <category term="技术学习" scheme="https://xianwx.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+      <category term="技术学习" scheme="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="hexo" scheme="https://xianwx.github.io/tags/hexo/"/>
+      <category term="hexo" scheme="http://xianwx.xyz/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>hello world</title>
-    <link href="https://xianwx.github.io/2016/08/27/hello-world/"/>
-    <id>https://xianwx.github.io/2016/08/27/hello-world/</id>
+    <link href="http://xianwx.xyz/2016/08/27/hello-world/"/>
+    <id>http://xianwx.xyz/2016/08/27/hello-world/</id>
     <published>2016-08-27T09:13:42.000Z</published>
     <updated>2016-09-16T14:21:19.000Z</updated>
     
@@ -267,10 +267,10 @@
     
     </summary>
     
-      <category term="个人牢骚" scheme="https://xianwx.github.io/categories/%E4%B8%AA%E4%BA%BA%E7%89%A2%E9%AA%9A/"/>
+      <category term="个人牢骚" scheme="http://xianwx.xyz/categories/%E4%B8%AA%E4%BA%BA%E7%89%A2%E9%AA%9A/"/>
     
     
-      <category term="随笔" scheme="https://xianwx.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="http://xianwx.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
