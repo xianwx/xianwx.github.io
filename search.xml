@@ -135,7 +135,9 @@
 <h2 id="11-图床"><a href="#11-图床" class="headerlink" title="11. 图床"></a>11. 图床</h2><p>到<a href="https://portal.qiniu.com/create" target="_blank" rel="external">https://portal.qiniu.com/create</a>注册一个账号<br>参考<a href="http://www.jianshu.com/p/6dce6094bf61" target="_blank" rel="external">如何使用七牛</a></p>
 <h2 id="12-如何保存自己的博客"><a href="#12-如何保存自己的博客" class="headerlink" title="12. 如何保存自己的博客"></a>12. 如何保存自己的博客</h2><p>今天想了一下怎么保存，思路是：<br>    相同的仓库下新建一个目录，或者新建一个仓库<br>    clone下来跟blog关联（还没开始的先clone下来然后hexo init那个文件夹，已经init过了clone下来然后把东西拷贝过去）<br>    如果跟博客是相同的目录，checkout到保存的分支，反正使用hexo d是会推送到master分支的，也指定好仓库的，所以不需要担心<br>    每次有修改push一下就好了。</p>
 <h2 id="13-about-me-and-tabs"><a href="#13-about-me-and-tabs" class="headerlink" title="13. about me and tabs"></a>13. about me and tabs</h2><p>想写about me的话，使用hexo new about me.</p>
-<h2 id="14-如何绑定域名"><a href="#14-如何绑定域名" class="headerlink" title="14. 如何绑定域名"></a>14. 如何绑定域名</h2>]]></content>
+<h2 id="14-如何绑定域名"><a href="#14-如何绑定域名" class="headerlink" title="14. 如何绑定域名"></a>14. 如何绑定域名</h2><p>– todo 补全</p>
+<h2 id="15-国内镜像到coding-net"><a href="#15-国内镜像到coding-net" class="headerlink" title="15. 国内镜像到coding.net"></a>15. 国内镜像到coding.net</h2><p>– todo 补全</p>
+]]></content>
     </entry>
     
     <entry>

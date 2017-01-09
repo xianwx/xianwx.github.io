@@ -214,7 +214,7 @@
     <link href="http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/"/>
     <id>http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2017-01-07T12:54:35.000Z</updated>
+    <updated>2017-01-09T02:45:46.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
 <h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
@@ -235,7 +235,9 @@
 <h2 id="11-图床"><a href="#11-图床" class="headerlink" title="11. 图床"></a>11. 图床</h2><p>到<a href="https://portal.qiniu.com/create" target="_blank" rel="external">https://portal.qiniu.com/create</a>注册一个账号<br>参考<a href="http://www.jianshu.com/p/6dce6094bf61" target="_blank" rel="external">如何使用七牛</a></p>
 <h2 id="12-如何保存自己的博客"><a href="#12-如何保存自己的博客" class="headerlink" title="12. 如何保存自己的博客"></a>12. 如何保存自己的博客</h2><p>今天想了一下怎么保存，思路是：<br>    相同的仓库下新建一个目录，或者新建一个仓库<br>    clone下来跟blog关联（还没开始的先clone下来然后hexo init那个文件夹，已经init过了clone下来然后把东西拷贝过去）<br>    如果跟博客是相同的目录，checkout到保存的分支，反正使用hexo d是会推送到master分支的，也指定好仓库的，所以不需要担心<br>    每次有修改push一下就好了。</p>
 <h2 id="13-about-me-and-tabs"><a href="#13-about-me-and-tabs" class="headerlink" title="13. about me and tabs"></a>13. about me and tabs</h2><p>想写about me的话，使用hexo new about me.</p>
-<h2 id="14-如何绑定域名"><a href="#14-如何绑定域名" class="headerlink" title="14. 如何绑定域名"></a>14. 如何绑定域名</h2>]]></content>
+<h2 id="14-如何绑定域名"><a href="#14-如何绑定域名" class="headerlink" title="14. 如何绑定域名"></a>14. 如何绑定域名</h2><p>– todo 补全</p>
+<h2 id="15-国内镜像到coding-net"><a href="#15-国内镜像到coding-net" class="headerlink" title="15. 国内镜像到coding.net"></a>15. 国内镜像到coding.net</h2><p>– todo 补全</p>
+]]></content>
     
     <summary type="html">
     
