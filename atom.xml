@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xianwx.xyz/"/>
-  <updated>2017-01-07T07:41:30.000Z</updated>
+  <updated>2017-01-18T11:57:26.000Z</updated>
   <id>http://xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://xianwx.xyz/2017/01/18/test/"/>
+    <id>http://xianwx.xyz/2017/01/18/test/</id>
+    <published>2017-01-18T11:57:04.000Z</published>
+    <updated>2017-01-18T11:57:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一篇测试用的文章</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是一篇测试用的文章&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>更好的管理你的git SSH-Key</title>
