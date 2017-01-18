@@ -1,7 +1,0 @@
-http://xianwx.xyz/2017/01/07/manage-your-git-ssh-key/
-http://xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/
-http://xianwx.xyz/2016/09/23/lua-multiple-inheritance/
-http://xianwx.xyz/2016/09/16/duoshuo-style/
-http://xianwx.xyz/2016/09/09/power-up-your-quick-look/
-http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/
-http://xianwx.xyz/2016/08/27/hello-world/

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</loc>
+    <lastmod>2017-01-18T02:23:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>如何使用github + hexo搭建一个属于自己的博客</title>
+        <pubTime>2016-09-08T11:36:27.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</loc>
+    <lastmod>2017-01-07T07:41:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>更好的管理你的git SSH-Key</title>
+        <pubTime>2017-01-07T06:59:38.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xianwx.xyz/2016/09/23/lua-multiple-inheritance/</loc>
+    <lastmod>2017-01-07T06:46:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>lua的元表以及多继承</title>
+        <pubTime>2016-09-23T03:49:39.000Z</pubTime>
+        
+        <tag>lua</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</loc>
+    <lastmod>2017-01-07T06:11:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>给lua文件注入插件的方法</title>
+        <pubTime>2017-01-07T03:54:39.000Z</pubTime>
+        
+        <tag>lua</tag>
+         
+        <tag>quick cocos</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xianwx.xyz/2016/09/16/duoshuo-style/</loc>
+    <lastmod>2016-09-17T03:55:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>自定义自己的评论系统</title>
+        <pubTime>2016-09-16T10:18:13.000Z</pubTime>
+        
+        <tag>多说</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://xianwx.xyz/2016/09/09/power-up-your-quick-look/</loc>
+    <lastmod>2016-09-16T14:21:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>加强你的quick look</title>
+        <pubTime>2016-09-09T02:21:17.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活所得" url="http://xianwx.xyz/categories/%E7%94%9F%E6%B4%BB%E6%89%80%E5%BE%97/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xianwx.xyz/2016/08/27/hello-world/</loc>
+    <lastmod>2016-09-16T14:21:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>hello world</title>
+        <pubTime>2016-08-27T09:13:42.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+             
+              <breadCrumb title="个人牢骚" url="http://xianwx.xyz/categories/%E4%B8%AA%E4%BA%BA%E7%89%A2%E9%AA%9A/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>
