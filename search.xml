@@ -4,13 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[test]]></title>
-      <url>http://www.xianwx.xyz/2017/01/18/test/</url>
-      <content type="html"><![CDATA[<p>这是一篇测试用的文章, 现在测试同时传到git 和 coding</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[更好的管理你的git SSH-Key]]></title>
       <url>http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</url>
       <content type="html"><![CDATA[<p>   日常工作中，我们经常碰到又想写公司的项目，又想自己维护自己的项目，公司的项目基本都在gitlab上，自己的项目在github上，所以我们需要配置不同的SSH-Key来对应不同的环境。</p>
