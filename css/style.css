@@ -258,14 +258,6 @@ a {
   background: none;
   font-weight: bold;
 }
-#container .left-col .musicLay {
-  height: 180px;
-  background-color: #000;
-  position: absolute;
-  opacity: 0.7;
-  width: 100%;
-  z-index: 1000001;
-}
 #container .mid-col {
   position: absolute;
   right: 0;
