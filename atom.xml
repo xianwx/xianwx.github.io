@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2017-01-23T03:38:59.000Z</updated>
+  <updated>2018-05-19T02:47:20.823Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>持续完善hexo博客</title>
+    <link href="http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/"/>
+    <id>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</id>
+    <published>2018-05-19T02:07:33.000Z</published>
+    <updated>2018-05-19T02:47:20.823Z</updated>
+    
+    <content type="html"><![CDATA[<p>把博客搭建起来都一年多了，因为一直没啥人看，所以都懒得更新，现在想想，岂不是浪费了当初搭建的那半个多小时？</p>
+<p>以后如果对博客有啥修改，就统一在这里更新。</p>
+<p>update 2018-05-19:</p>
+<h2 id="一般博客都需要有的一个功能：置顶"><a href="#一般博客都需要有的一个功能：置顶" class="headerlink" title="一般博客都需要有的一个功能：置顶"></a>一般博客都需要有的一个功能：置顶</h2><p>修改<code>node_modules/hexo-generator-index/lib/generator.js</code><br>加上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></div><div class="line">            <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
+<p>即可以用top值（默认0）来进行排序，数字越大的，就会排在越前面，top相等则以日期排序<br>参考<a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Hexo搭建博客教程</a></p>
+<h2 id="一般人都喜欢干的事情：添加音乐"><a href="#一般人都喜欢干的事情：添加音乐" class="headerlink" title="一般人都喜欢干的事情：添加音乐"></a>一般人都喜欢干的事情：添加音乐</h2><p>好久之前就给自己博客加了音乐，但是！<br>我完全忘了是怎么加的了！</p>
+<ul>
+<li>打开网易云网页版</li>
+<li>登陆</li>
+<li>打开自己的歌单，有个生成外链播放器的按钮</li>
+<li>获取到外链代码，修改<code>layout/_partial/left-col.ejs</code>比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"music-area"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"switch-area"</span>&gt;</div><div class="line">    &lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=290 height=310 src="//music.163.com/outchain/player?type=0&amp;id=523244238&amp;auto=1&amp;height=380&amp;qlrc=1"&gt;&lt;/iframe&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      持续性博客作死记录
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>更好的管理你的git SSH-Key</title>
@@ -170,9 +204,9 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="多说" scheme="http://www.xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
-    
       <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
+    
+      <category term="多说" scheme="http://www.xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
     
   </entry>
   
@@ -214,7 +248,7 @@
     <link href="http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/"/>
     <id>http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2017-01-18T02:23:53.000Z</updated>
+    <updated>2018-05-19T02:04:55.792Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
 <h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
@@ -255,7 +289,7 @@
     <link href="http://www.xianwx.xyz/2016/08/27/hello-world/"/>
     <id>http://www.xianwx.xyz/2016/08/27/hello-world/</id>
     <published>2016-08-27T09:13:42.000Z</published>
-    <updated>2016-09-16T14:21:19.000Z</updated>
+    <updated>2018-05-19T02:00:05.006Z</updated>
     
     <content type="html"><![CDATA[<p>一直想弄个自己的博客，但是去了很多博客网站都觉得冗余信息太多，我需要的是漂漂亮亮的简洁的博客，于是找到了hexo + github.</p>
 <p>慢慢会补上各个博文的，github也会慢慢上传些代码。</p>

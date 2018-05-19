@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
+    
+    <lastmod>2018-05-19T02:47:20.823Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</loc>
+    
+    <lastmod>2018-05-19T02:04:55.792Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2016/08/27/hello-world/</loc>
+    
+    <lastmod>2018-05-19T02:00:05.006Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</loc>
     
     <lastmod>2017-01-23T03:38:59.000Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://www.xianwx.xyz/baidu_verify_EcI8fNydbY.html</loc>
     
     <lastmod>2017-01-18T10:42:18.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</loc>
-    
-    <lastmod>2017-01-18T02:23:53.000Z</lastmod>
     
   </url>
   
@@ -61,13 +75,6 @@
     <loc>http://www.xianwx.xyz/2016/09/09/power-up-your-quick-look/</loc>
     
     <lastmod>2016-09-16T14:21:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xianwx.xyz/2016/08/27/hello-world/</loc>
-    
-    <lastmod>2016-09-16T14:21:19.000Z</lastmod>
     
   </url>
   

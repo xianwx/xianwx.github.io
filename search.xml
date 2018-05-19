@@ -4,6 +4,24 @@
   
     
     <entry>
+      <title><![CDATA[持续完善hexo博客]]></title>
+      <url>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</url>
+      <content type="html"><![CDATA[<p>把博客搭建起来都一年多了，因为一直没啥人看，所以都懒得更新，现在想想，岂不是浪费了当初搭建的那半个多小时？</p>
+<p>以后如果对博客有啥修改，就统一在这里更新。</p>
+<p>update 2018-05-19:</p>
+<h2 id="一般博客都需要有的一个功能：置顶"><a href="#一般博客都需要有的一个功能：置顶" class="headerlink" title="一般博客都需要有的一个功能：置顶"></a>一般博客都需要有的一个功能：置顶</h2><p>修改<code>node_modules/hexo-generator-index/lib/generator.js</code><br>加上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></div><div class="line">            <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
+<p>即可以用top值（默认0）来进行排序，数字越大的，就会排在越前面，top相等则以日期排序<br>参考<a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Hexo搭建博客教程</a></p>
+<h2 id="一般人都喜欢干的事情：添加音乐"><a href="#一般人都喜欢干的事情：添加音乐" class="headerlink" title="一般人都喜欢干的事情：添加音乐"></a>一般人都喜欢干的事情：添加音乐</h2><p>好久之前就给自己博客加了音乐，但是！<br>我完全忘了是怎么加的了！</p>
+<ul>
+<li>打开网易云网页版</li>
+<li>登陆</li>
+<li>打开自己的歌单，有个生成外链播放器的按钮</li>
+<li>获取到外链代码，修改<code>layout/_partial/left-col.ejs</code>比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"music-area"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"switch-area"</span>&gt;</div><div class="line">    &lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=290 height=310 src="//music.163.com/outchain/player?type=0&amp;id=523244238&amp;auto=1&amp;height=380&amp;qlrc=1"&gt;&lt;/iframe&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[更好的管理你的git SSH-Key]]></title>
       <url>http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</url>
       <content type="html"><![CDATA[<p>   日常工作中，我们经常碰到又想写公司的项目，又想自己维护自己的项目，公司的项目基本都在gitlab上，自己的项目在github上，所以我们需要配置不同的SSH-Key来对应不同的环境。</p>
