@@ -1,3 +1,4 @@
+http://www.xianwx.xyz/2018/05/19/git-commond/
 http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/
 http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/
 http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/

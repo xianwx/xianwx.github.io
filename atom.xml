@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-05-19T02:47:20.823Z</updated>
+  <updated>2018-05-19T03:22:24.682Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git常用命令记录</title>
+    <link href="http://www.xianwx.xyz/2018/05/19/git-commond/"/>
+    <id>http://www.xianwx.xyz/2018/05/19/git-commond/</id>
+    <published>2018-05-19T02:53:12.000Z</published>
+    <updated>2018-05-19T03:22:24.682Z</updated>
+    
+    <content type="html"><![CDATA[<p>可能文章的描述会让大家觉得奇怪，程序猿嘛，应该是“除了使用命令操作，有时候还需要客户端。”才对嘛。<br>但是日常工作中其实，客户端用的居多，毕竟比对啊提交啊什么的，用起来还是很方便很直观的。<br>此处推荐常用软件：<a href="https://git-fork.com/" target="_blank" rel="external">fork</a><br>优点是：</p>
+<ul>
+<li>免费</li>
+<li>有夜晚主题，不用被骚死tree亮瞎眼</li>
+<li>速度快</li>
+<li>一直在维护中，给官方提bug也很乐于解决。</li>
+<li>从它很不好用一直用到现在，感受到它愈发趋于完善，真的很欣慰。</li>
+</ul>
+<p>一般客户端用于：</p>
+<ul>
+<li>commit</li>
+<li>push/pull</li>
+<li>new branch</li>
+<li>fetch</li>
+<li>merge</li>
+<li>stash/use stash</li>
+<li>cherry-pick</li>
+</ul>
+<p>以下是命令介绍:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout [branch] -- [file name] 重指定分支copy指定文件到当前branch</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard [branch]            重置当前到指定分支</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset [branch]~[commit times]    丢弃指定分支指定次数的提交</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      除了使用客户端操作，有时候还需要命令。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="git" scheme="http://www.xianwx.xyz/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>持续完善hexo博客</title>
