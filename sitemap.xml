@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
-    
-    <lastmod>2018-05-19T02:47:20.823Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</loc>
     
-    <lastmod>2018-05-19T02:04:55.792Z</lastmod>
+    <lastmod>2018-05-19T02:49:01.604Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.xianwx.xyz/2016/08/27/hello-world/</loc>
     
-    <lastmod>2018-05-19T02:00:05.006Z</lastmod>
+    <lastmod>2018-05-19T02:48:52.082Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
+    
+    <lastmod>2018-05-19T02:47:20.823Z</lastmod>
     
   </url>
   

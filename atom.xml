@@ -32,7 +32,7 @@
 <li>打开网易云网页版</li>
 <li>登陆</li>
 <li>打开自己的歌单，有个生成外链播放器的按钮</li>
-<li>获取到外链代码，修改<code>layout/_partial/left-col.ejs</code>比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"music-area"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"switch-area"</span>&gt;</div><div class="line">    &lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=290 height=310 src="//music.163.com/outchain/player?type=0&amp;id=523244238&amp;auto=1&amp;height=380&amp;qlrc=1"&gt;&lt;/iframe&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></li>
+<li>获取到外链代码，修改<code>layout/_partial/left-col.ejs</code>比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"music-area"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"switch-area"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">290</span> <span class="attr">height</span>=<span class="string">310</span> <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=523244238&amp;auto=1&amp;height=380&amp;qlrc=1"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
     
@@ -248,7 +248,7 @@
     <link href="http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/"/>
     <id>http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</id>
     <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2018-05-19T02:04:55.792Z</updated>
+    <updated>2018-05-19T02:49:01.604Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
 <h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
@@ -289,7 +289,7 @@
     <link href="http://www.xianwx.xyz/2016/08/27/hello-world/"/>
     <id>http://www.xianwx.xyz/2016/08/27/hello-world/</id>
     <published>2016-08-27T09:13:42.000Z</published>
-    <updated>2018-05-19T02:00:05.006Z</updated>
+    <updated>2018-05-19T02:48:52.082Z</updated>
     
     <content type="html"><![CDATA[<p>一直想弄个自己的博客，但是去了很多博客网站都觉得冗余信息太多，我需要的是漂漂亮亮的简洁的博客，于是找到了hexo + github.</p>
 <p>慢慢会补上各个博文的，github也会慢慢上传些代码。</p>
