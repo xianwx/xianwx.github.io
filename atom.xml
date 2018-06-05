@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-05-19T03:22:24.682Z</updated>
+  <updated>2018-06-05T03:44:48.738Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LuaJavaBridge</title>
+    <link href="http://www.xianwx.xyz/2018/06/05/LuaJavaBridge/"/>
+    <id>http://www.xianwx.xyz/2018/06/05/LuaJavaBridge/</id>
+    <published>2018-06-05T02:06:04.000Z</published>
+    <updated>2018-06-05T03:44:48.738Z</updated>
+    
+    <content type="html"><![CDATA[<p>用quick cocos开发游戏的时候，如果你有接入过SDK，或者做过复制到剪贴板，获取设备信息等，肯定就会碰到Lua调用Java层的需求。<br>于是就需要用到：LuaJavaBridge。</p>
+<p>在使用require “framework”过后，可以直接使用luaj（具体可以查看luaj.lua）<br>这篇文章主要记录如何使用。</p>
+<h2 id="1-使用"><a href="#1-使用" class="headerlink" title="1. 使用"></a>1. 使用</h2><p>luaj和luaoc都是调用的static方法<br>所以，在Java层加上一个public的static方法，如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testLuaj</span><span class="params">()</span></span>&#123;</div><div class="line">    Log.i(<span class="string">"Luaj"</span>, <span class="string">"testLuaj"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>quick cocos运行的主activity是AppActivity，完整类名称为：org/cocos2dx/lua/AppActivity<br>所以，在lua层可以使用如下代码调用：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">luaj.callStaticMethod(<span class="string">"org/cocos2dx/lua/AppActivity"</span>,<span class="string">"testLuaj"</span>,&#123;&#125;,<span class="string">"()V"</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="2-参数介绍"><a href="#2-参数介绍" class="headerlink" title="2. 参数介绍"></a>2. 参数介绍</h2><p>第一个参数是完整的类名称，“.”需要使用“/”，如”org/cocos2dx/lua/AppActivity”<br>第二个参数是方法名，如”testLuaj”<br>第三个参数是参数，无参数的时候使用空table<br>第四个参数指定参数的类型和返回类型的签名</p>
+<h2 id="3-参数类型"><a href="#3-参数类型" class="headerlink" title="3. 参数类型"></a>3. 参数类型</h2><p>签名                                         解释<br>()V                             参数：无，返回值：无<br>(I)V                            参数：int，返回值：无<br>(Ljava/lang/String;)Z           参数：字符串，返回值：布尔值<br>(IF)Ljava/lang/String;          参数：整数、浮点数，返回值：字符串</p>
+<p>类型名                 类型<br>I                       整数，或者 Lua function<br>F                       浮点数<br>Z                       布尔值<br>Ljava/lang/String;      字符串<br>V                       Void 空，仅用于指定一个 Java 方法不返回任何值</p>
+<h2 id="4-error-code"><a href="#4-error-code" class="headerlink" title="4. error code"></a>4. error code</h2><p>错误代码                            描述<br>-1                          不支持的参数类型或返回值类型<br>-2                          无效的签名<br>-3                          没有找到指定的方法<br>-4                          Java 方法执行时抛出了异常<br>-5                          Java 虚拟机出错<br>-6                          Java 虚拟机出错</p>
+<ul>
+<li>附：参数类型和error code懒得自己写，从<a href="https://blog.csdn.net/li15225271052/article/details/70148609" target="_blank" rel="external">Vincent__Lee的CSDN博客</a>拷贝过来的。</li>
+</ul>
+<h2 id="5-返回值"><a href="#5-返回值" class="headerlink" title="5. 返回值"></a>5. 返回值</h2><p>luaj有两个返回值，一个是调用结果，一个是返回值。<br>如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getProvider</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"TapTap"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Ljava/lang/String;的;是不可省略的</span></div><div class="line"><span class="keyword">local</span> ok, result = luaj.callStaticMethod(<span class="string">"org/cocos2dx/lua/AppActivity"</span>, <span class="string">"getProvider"</span>, &#123;&#125;, <span class="string">"()Ljava/lang/String;"</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"执行结果："</span>, ok)</div><div class="line"><span class="built_in">print</span>(<span class="string">"provider: "</span>, result)</div></pre></td></tr></table></figure>
+<h2 id="6-特别介绍"><a href="#6-特别介绍" class="headerlink" title="6. 特别介绍"></a>6. 特别介绍</h2><p>可以将lua的方法作为int类型参数传入Java方法<br>也可以把table转换为json传入<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testLuaCallback</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> callback, <span class="keyword">final</span> String args)</span></span>&#123;</div><div class="line">    AppActivity.activity.runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                JSONObject argsJ = <span class="keyword">new</span> JSONObject(args);</div><div class="line"></div><div class="line">                <span class="comment">// 可以通过这种方法获取lua传入的值</span></div><div class="line">                String testId = argsJ.getInt(<span class="string">"id"</span>)</div><div class="line">                String testVal = argsJ.getString(<span class="string">"val"</span>);</div><div class="line"></div><div class="line">                <span class="comment">// ok为传入到lua回调的参数</span></div><div class="line">                Cocos2dxLuaJavaBridge.callLuaFunctionWithString(callback, <span class="string">"ok"</span>);</div><div class="line">                Cocos2dxLuaJavaBridge.releaseLuaFunction(callback);</div><div class="line"></div><div class="line">            &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">callback</span><span class="params">(result)</span></span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"result"</span>) <span class="comment">-- 会打印出ok</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">local</span> args = json.encode(&#123; id = <span class="number">1</span>, val = <span class="string">"test"</span> &#125;)</div><div class="line">luaj.callStaticMethod(<span class="string">"org/cocos2dx/lua/AppActivity"</span>, <span class="string">"testLuaCallback"</span>, &#123;callback, args&#125;, <span class="string">"(ILjava/lang/String;)V"</span>)</div></pre></td></tr></table></figure>
+<h2 id="7-注意"><a href="#7-注意" class="headerlink" title="7. 注意"></a>7. 注意</h2><p>直接使用LuaObjcBridge的时候要注意，参数必须是3个<br>LuaObjcBridge.callStaticMethod(“AppController”, “getProvider”)<br>会导致执行失败<br>LuaObjcBridge.callStaticMethod(“AppController”, “getProvider”, nil)<br>luaoc.callStaticMethod就是3个参数，少传一个是自动帮你传了nil过去，所以不会出错。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      让Lua和Java互操
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="cocos" scheme="http://www.xianwx.xyz/tags/cocos/"/>
+    
+  </entry>
   
   <entry>
     <title>git常用命令记录</title>
@@ -246,9 +284,9 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
-    
       <category term="多说" scheme="http://www.xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
+    
+      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
     
   </entry>
   
