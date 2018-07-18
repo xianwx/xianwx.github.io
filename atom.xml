@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-18T10:01:26.885Z</updated>
+  <updated>2018-07-18T10:04:44.209Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.xianwx.xyz/2018/07/18/mac-command/"/>
     <id>http://www.xianwx.xyz/2018/07/18/mac-command/</id>
     <published>2018-07-18T09:48:48.000Z</published>
-    <updated>2018-07-18T10:01:26.885Z</updated>
+    <updated>2018-07-18T10:04:44.209Z</updated>
     
     <content type="html"><![CDATA[<p>为了拥有友好的开发环境，毅然选择了Mac，现在60键的键盘爽到飞起。<br>扯远了扯远了，还是正经记录吧。</p>
 <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>如果不管命令执行是否成功都往下执行，可以用;分割多个语句放在一行执行，如果希望前面的执行成功才执行后面的语句，用&amp;&amp;分割语句。</p>
@@ -30,8 +30,8 @@
 <h1 id="ftp命令"><a href="#ftp命令" class="headerlink" title="ftp命令"></a>ftp命令</h1><p>Mac系统10.x过后没有ftp命令，用以下3个命令开起来：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">brew install telnet</div><div class="line">brew install inetutils</div><div class="line">brew link --overwrite inetutils</div></pre></td></tr></table></figure>
 <h1 id="MySQL-workbench的使用"><a href="#MySQL-workbench的使用" class="headerlink" title="MySQL workbench的使用"></a>MySQL workbench的使用</h1><p>1. 创建连接</p>
-<p><img src="https://coding.net/u/xianwx/p/xianwx/git/blob/master/img/35B48DAD4E40D85B51F961F42CFDDD2A.jpg" alt=""></p>
-<p>2. 创建默认的schema<br><img src="https://coding.net/u/xianwx/p/xianwx/git/blob/master/img/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg" alt=""></p>
+<p><img src="/images/35B48DAD4E40D85B51F961F42CFDDD2A.jpg" alt=""></p>
+<p>2. 创建默认的schema<br><img src="/images/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg" alt=""></p>
 <p>3. 右键新创建的schema，set as default schema</p>
 <p>4. 可以开始创建table了。</p>
 ]]></content>
