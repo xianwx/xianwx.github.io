@@ -15,15 +15,19 @@
 
 
 
-<meta name="description" content="写了总比忘了好">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuzixin's blog">
-<meta property="og:url" content="http://www.xianwx.xyz/tags/cocos/index.html">
+<meta name="description" content="使用Mac的时候碰到的一些事情的记录。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac使用记录">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/07/18/mac-command/index.html">
 <meta property="og:site_name" content="yuzixin's blog">
-<meta property="og:description" content="写了总比忘了好">
+<meta property="og:description" content="使用Mac的时候碰到的一些事情的记录。">
+<meta property="og:image" content="http://www.xianwx.xyz/public/img/35B48DAD4E40D85B51F961F42CFDDD2A.jpg">
+<meta property="og:image" content="http://www.xianwx.xyz/public/img/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg">
+<meta property="og:updated_time" content="2018-07-18T09:56:17.371Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuzixin's blog">
-<meta name="twitter:description" content="写了总比忘了好">
+<meta name="twitter:title" content="Mac使用记录">
+<meta name="twitter:description" content="使用Mac的时候碰到的一些事情的记录。">
+<meta name="twitter:image" content="http://www.xianwx.xyz/public/img/35B48DAD4E40D85B51F961F42CFDDD2A.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -55,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: cocos | yuzixin&#39;s blog</title>
+<title>Mac使用记录 | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,9 +69,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -275,60 +279,304 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-mac-command" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2018/06/05/LuaJavaBridge/" class="archive-article-date">
-      <time datetime="2018-06-05T02:06:04.000Z" itemprop="datePublished">06-05</time>
+    <div class="article-meta">
+      <a href="/2018/07/18/mac-command/" class="article-date">
+      <time datetime="2018-07-18T09:48:48.000Z" itemprop="datePublished">2018-07-18</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/05/LuaJavaBridge/">LuaJavaBridge</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mac使用记录
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos/">cocos</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+          
+        <p>为了拥有友好的开发环境，毅然选择了Mac，现在60键的键盘爽到飞起。<br>扯远了扯远了，还是正经记录吧。</p>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>如果不管命令执行是否成功都往下执行，可以用;分割多个语句放在一行执行，如果希望前面的执行成功才执行后面的语句，用&amp;&amp;分割语句。</p>
+<p>在 fish里 &amp;&amp; 用 and代替</p>
+<p>在macOS High Sierra里，finder可以用快捷键来显示和隐藏文件夹了：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Command + Shift + .</div></pre></td></tr></table></figure></p>
+<p>或者使用命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">defaults write com.apple.finder AppleShowAllFiles -bool <span class="literal">true</span></div></pre></td></tr></table></figure></p>
+<h1 id="ftp命令"><a href="#ftp命令" class="headerlink" title="ftp命令"></a>ftp命令</h1><p>Mac系统10.x过后没有ftp命令，用以下3个命令开起来：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">brew install telnet</div><div class="line">brew install inetutils</div><div class="line">brew link --overwrite inetutils</div></pre></td></tr></table></figure>
+<h1 id="MySQL-workbench的使用"><a href="#MySQL-workbench的使用" class="headerlink" title="MySQL workbench的使用"></a>MySQL workbench的使用</h1><p>1. 创建连接</p>
+<p><img src="public/img/35B48DAD4E40D85B51F961F42CFDDD2A.jpg" alt=""></p>
+<p>2. 创建默认的schema<br><img src="public/img/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg" alt=""></p>
+<p>3. 右键新创建的schema，set as default schema</p>
+<p>4. 可以开始创建table了。</p>
 
+      
+    </div>
+    <div class="article-content">
+      
+        
+          <!-- css -->
+          <style type="text/css">
+              .center {
+                  text-align: center;
+              }
+              .hidden {
+                  display: none;
+              }
+            .donate_bar a.btn_donate{
+              display: inline-block;
+              width: 82px;
+              height: 82px;
+              background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+              _background: url("http://7xsl28.com1.z0.glb.clouddn.com/btn_reward.gif") no-repeat;
+
+              <!-- http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif
+                   因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+                 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+                 嵌入其它博客时不一定要它们。 -->
+              -webkit-transition: background 0s;
+              -moz-transition: background 0s;
+              -o-transition: background 0s;
+              -ms-transition: background 0s;
+              transition: background 0s;
+              <!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+            }
+
+            .donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+            .donate_bar .donate_txt {
+              display: block;
+              color: #9d9d9d;
+              font: 14px/2 "Microsoft Yahei";
+            }
+            .bold{ font-weight: bold; }
+          </style>
+          <!-- /css -->
+
+            <!-- Donate Module -->
+            <div id="donate_module">
+
+          <!-- btn_donate & tips -->
+          <div id="donate_board" class="donate_bar center">
+              <br>
+              ------------------------------------------------------------------------------------------------------------------------------
+              <br>
+            <a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="点我走上人生巅峰"></a>
+            <span class="donate_txt">
+              会不会有人就是想不开要打赏我呢？这是个问题！
+            </span>
+              
+            
+          </div>
+          <!-- /btn_donate & tips -->
+
+          <!-- donate guide -->
+            
+          <div id="donate_guide" class="donate_bar center hidden">
+                <br>
+              ------------------------------------------------------------------------------------------------------------------------------
+              <br>
+
+            <a href="http://odkw6ym6r.bkt.clouddn.com/weixin_qr_code.png" title="用微信扫一扫哦~" class="fancybox" rel="article0">
+              <img src="http://odkw6ym6r.bkt.clouddn.com/weixin_qr_code.png" title="用微信转账羞辱他" height="190px" width="auto"/>
+            </a>
+                
+                &nbsp;&nbsp;
+
+            <a href="http://odkw6ym6r.bkt.clouddn.com/zhifubao_qr_code.png" title="用支付宝扫一扫即可~" class="fancybox" rel="article0">
+              <img src="http://odkw6ym6r.bkt.clouddn.com/zhifubao_qr_code.png" title="用支付宝转账羞辱他" height="190px" width="auto"/>
+            </a>
+
+            <span class="donate_txt">
+              会不会有人就是想不开要打赏我呢？这是个问题！
+            </span>
+
+          </div>
+          <!-- /donate guide -->
+
+          <!-- donate script -->
+          <script type="text/javascript">
+            document.getElementById('btn_donate').onclick = function() {
+              $('#donate_board').addClass('hidden');
+              $('#donate_guide').removeClass('hidden');
+            }
+
+            function donate_on_web(){
+              $('#donate').submit();
+                }
+
+            var original_window_onload = window.onload;
+                window.onload = function () {
+                    if (original_window_onload) {
+                        original_window_onload();
+                    }
+                    document.getElementById('donate_board_wdg').className = 'hidden';
+            }
+          </script>
+          <!-- /donate script -->
+        </div>
+        <!-- /Donate Module -->
+           
+      
+    </div>
+    
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/07/18/mac-command/">Mac使用记录</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
+        <p><span>发布时间:</span>2018-07-18, 17:48:48</p>
+        <p><span>最后更新:</span>2018-07-18, 17:56:17</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/18/mac-command/" title="Mac使用记录">http://www.xianwx.xyz/2018/07/18/mac-command/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/18/mac-command/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/06/05/LuaJavaBridge/">
+                    LuaJavaBridge
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#命令"><span class="toc-number">1.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ftp命令"><span class="toc-number">2.</span> <span class="toc-text">ftp命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-workbench的使用"><span class="toc-number">3.</span> <span class="toc-text">MySQL workbench的使用</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    <div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Mac使用记录　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
     
 
+    
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/18/mac-command/" data-title="Mac使用记录" data-url="http://www.xianwx.xyz/2018/07/18/mac-command/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"yuzixin"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+
+            ds.src = 'https://xianwx.github.io/js/embed.js';
+            /*上面是我自己的 embed.js 链接，请改为你自己的地址*/
+
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] 
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/06/05/LuaJavaBridge/" title="下一篇: LuaJavaBridge">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/mac-command/">Mac使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/05/LuaJavaBridge/">LuaJavaBridge</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/19/git-commond/">git常用命令记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/19/hexo-keep-pref/">持续完善hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/07/manage-your-git-ssh-key/">更好的管理你的git SSH-Key</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/07/ext-layer-in-quick-cocos/">给lua文件注入插件的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/lua-multiple-inheritance/">lua的元表以及多继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/duoshuo-style/">自定义自己的评论系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/power-up-your-quick-look/">加强你的quick look</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/build-hexo-blog-with-github-pages/">如何使用github + hexo搭建一个属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/hello-world/">hello world</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

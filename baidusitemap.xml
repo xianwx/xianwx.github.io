@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
+    <lastmod>2018-07-18T09:56:17.371Z</lastmod>
+    <data>
+        <display>
+        <title>Mac使用记录</title>
+        <pubTime>2018-07-18T09:48:48.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xianwx.xyz/2018/06/05/LuaJavaBridge/</loc>
     <lastmod>2018-06-05T03:44:48.738Z</lastmod>
     <data>
@@ -175,9 +195,9 @@
         <title>自定义自己的评论系统</title>
         <pubTime>2016-09-16T10:18:13.000Z</pubTime>
         
-        <tag>多说</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>多说</tag>
          
          
            
