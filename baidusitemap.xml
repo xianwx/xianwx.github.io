@@ -4,6 +4,158 @@
 
     
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/ssh-copy/</loc>
+    <lastmod>2018-07-18T10:39:30.960Z</lastmod>
+    <data>
+        <display>
+        <title>对远程服务器利用ssh传输文件</title>
+        <pubTime>2018-07-18T10:37:29.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Mac</tag>
+         
+        <tag>ssh</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/http-server-on-origin-linux/</loc>
+    <lastmod>2018-07-18T10:36:48.339Z</lastmod>
+    <data>
+        <display>
+        <title>给云服务器安装HTTP服务器</title>
+        <pubTime>2018-07-18T10:33:08.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>server</tag>
+         
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/skynet-server-on-origin-linux/</loc>
+    <lastmod>2018-07-18T10:32:36.811Z</lastmod>
+    <data>
+        <display>
+        <title>给远程云服务器部署skynet服务器</title>
+        <pubTime>2018-07-18T10:25:42.000Z</pubTime>
+        
+        <tag>server</tag>
+         
+        <tag>Linux</tag>
+         
+        <tag>skynet</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/root-user/</loc>
+    <lastmod>2018-07-18T10:24:53.389Z</lastmod>
+    <data>
+        <display>
+        <title>Linux root用户</title>
+        <pubTime>2018-07-18T10:22:19.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/tmux/</loc>
+    <lastmod>2018-07-18T10:21:53.153Z</lastmod>
+    <data>
+        <display>
+        <title>tmux的使用</title>
+        <pubTime>2018-07-18T10:16:47.000Z</pubTime>
+        
+        <tag>tmux</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/fix-gradle-project-sync-failed/</loc>
+    <lastmod>2018-07-18T10:15:38.918Z</lastmod>
+    <data>
+        <display>
+        <title>解决Gradle project sync failed. Please fix your project and try again.</title>
+        <pubTime>2018-07-18T10:09:49.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
+    <lastmod>2018-07-18T10:07:41.083Z</lastmod>
+    <data>
+        <display>
+        <title>持续完善hexo博客</title>
+        <pubTime>2018-05-19T02:07:33.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
     <lastmod>2018-07-18T10:04:44.209Z</lastmod>
     <data>
@@ -104,26 +256,6 @@
 
     
   <url>
-    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
-    <lastmod>2018-05-19T02:47:20.823Z</lastmod>
-    <data>
-        <display>
-        <title>持续完善hexo博客</title>
-        <pubTime>2018-05-19T02:07:33.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</loc>
     <lastmod>2017-01-23T03:38:59.000Z</lastmod>
     <data>
@@ -195,9 +327,9 @@
         <title>自定义自己的评论系统</title>
         <pubTime>2016-09-16T10:18:13.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
         <tag>多说</tag>
+         
+        <tag>hexo</tag>
          
          
            

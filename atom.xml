@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-18T10:04:44.209Z</updated>
+  <updated>2018-07-18T10:39:30.960Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,274 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对远程服务器利用ssh传输文件</title>
+    <link href="http://www.xianwx.xyz/2018/07/18/ssh-copy/"/>
+    <id>http://www.xianwx.xyz/2018/07/18/ssh-copy/</id>
+    <published>2018-07-18T10:37:29.000Z</published>
+    <updated>2018-07-18T10:39:30.960Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h1><p>利用scp传输文件：</p>
+<p>传输本地文件到远端：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /path/filename username@servername:/path</div></pre></td></tr></table></figure></p>
+<p>e.g：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp ~/Downloads/skynetx-ubuntu-v2.0.29.tar.gz ubuntu@你猜ip是啥:~/code/</div></pre></td></tr></table></figure></p>
+<p>然后输个密码就好了。</p>
+<p>传输远端文件到本地：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp username@servername:/path/filename /var/www/local_dir（本地目录）</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      ssh这么好用的吗！
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+      <category term="Mac" scheme="http://www.xianwx.xyz/tags/Mac/"/>
+    
+      <category term="ssh" scheme="http://www.xianwx.xyz/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给云服务器安装HTTP服务器</title>
+    <link href="http://www.xianwx.xyz/2018/07/18/http-server-on-origin-linux/"/>
+    <id>http://www.xianwx.xyz/2018/07/18/http-server-on-origin-linux/</id>
+    <published>2018-07-18T10:33:08.000Z</published>
+    <updated>2018-07-18T10:36:48.339Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li>Node的安装<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl <span class="_">-s</span>L https://deb.nodesource.com/setup_9.x | sudo -E bash -</div><div class="line">sudo apt-get install -y nodejs</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这种安装方法的好处是：直接安装在系统环境/usr/bin目录下，之后使用npm -g安装其他插件也会安装到/usr/lib/node_modules(需要使用sudo权限)</p>
+<ol>
+<li><p>软链接到项目文件夹下边</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln <span class="_">-s</span> /usr/lib/node_modules /YOUR_PROJ/</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装MySQL：使用下面三行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-server sudo apt install mysql-client sudo apt install libmysqlclient-dev</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用命令检查MySQL的安装是否成功：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo netstat -tap | grep mysql</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用以下命令进入MySQL状态：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -p你的密码</div></pre></td></tr></table></figure>
+</li>
+<li><p>为了可以远程访问MySQL，修改配置：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注释掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bind-address = 127.0.0.1</div></pre></td></tr></table></figure></p>
+<p>wq保存退出</p>
+<ol>
+<li><p>重新进入MySQL命令状态，执行以下两条代码：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">grant all on *.* to root@<span class="string">'%'</span> identified by <span class="string">'你的密码'</span> with grant option;</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
+</li>
+<li><p>quit MySQL命令行，执行重启命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/mysql restart</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>命令汇总：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo /etc/init.d/mysql start</div><div class="line">sudo /etc/init.d/mysql stop</div><div class="line">sudo /etc/init.d/mysql restart</div></pre></td></tr></table></figure></p>
+<ol>
+<li>使用MySQL workbench连接远程数据库执行创建数据库等操作。</li>
+<li><p>给Node安装MySQL插件</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g mysql</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动http服务器</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      我们不仅没有返回，而且还没有响应。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
+    
+      <category term="server" scheme="http://www.xianwx.xyz/tags/server/"/>
+    
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给远程云服务器部署skynet服务器</title>
+    <link href="http://www.xianwx.xyz/2018/07/18/skynet-server-on-origin-linux/"/>
+    <id>http://www.xianwx.xyz/2018/07/18/skynet-server-on-origin-linux/</id>
+    <published>2018-07-18T10:25:42.000Z</published>
+    <updated>2018-07-18T10:32:36.811Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了给策划能够外网调试，租了一台云服务器用来部署猫与剑的服务器，算是个备忘录吧，以及介绍如何在远程服务器上部署跟skynet有关的服务器。</p>
+<ol>
+<li>clone 代码</li>
+<li><p>给Ubuntu安装brew，命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install linuxbrew-wrapper</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行一下brew，等待成功。(不成功多试几次)</p>
+</li>
+<li><p>执行命令，修改环境变量：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="string">"/home/ubuntu/.linuxbrew/bin:<span class="variable">$PATH</span>"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>brew前置命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew doctor</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装luarocks，执行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt install luarocks</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装luarocks，执行命令 ： </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">luarocks install busted</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装luacheck，执行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">luarocks install luacheck</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>以上2条命令不行就加上sudo）</p>
+<ol>
+<li>下载sx.tar.gz。(在我coding里有存着)</li>
+<li><p>安装skynetx，执行命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo tar -ovxzf code/skynetx-ubuntu-v2.0.29.tar.gz -C /usr --strip-components 1</div></pre></td></tr></table></figure>
+</li>
+<li><p>我们游戏还需要个HTTP服务器，需要安装Node<br>[更新]Nodejs的安装使用其它方式，不采用下面做法了。<br><del>12. 安装Node，命令：sudo apt-get install nodejs</del><br><del>13. 安装npm，命令：sudo apt-get install npm</del><br><del>14. 安装完毕，可以执行nodejs —version查看安装结果</del><br><del>15. 这里使用的nodejs命令比较麻烦，想使用平常用的node命令，可以使用sudo ln -s /usr/bin/nodejs /usr/bin/node来软连接nodejs 到node</del></p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      不是私服，不是私服，不是私服。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="server" scheme="http://www.xianwx.xyz/tags/server/"/>
+    
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+      <category term="skynet" scheme="http://www.xianwx.xyz/tags/skynet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux root用户</title>
+    <link href="http://www.xianwx.xyz/2018/07/18/root-user/"/>
+    <id>http://www.xianwx.xyz/2018/07/18/root-user/</id>
+    <published>2018-07-18T10:22:19.000Z</published>
+    <updated>2018-07-18T10:24:53.389Z</updated>
+    
+    <content type="html"><![CDATA[<p>有时候在Linux上执行命令会碰到”Permission denied, are you root?”这种报错，这代表我们需要进入root用户执行命令，可以使用以下命令进入root<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -i</div></pre></td></tr></table></figure></p>
+<p>在root用户状态下，输入命令exit退出root用户状态。</p>
+<p>尤其跟别人共用一台云服务器的时候，好刺激。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      我是老大，你们都得听我的。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tmux的使用</title>
+    <link href="http://www.xianwx.xyz/2018/07/18/tmux/"/>
+    <id>http://www.xianwx.xyz/2018/07/18/tmux/</id>
+    <published>2018-07-18T10:16:47.000Z</published>
+    <updated>2018-07-18T10:21:53.153Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在给猫与剑做服务器，租了一台腾讯云服务器，要在上边搭建，每次ssh过去发现看不到log，不好创建tab等等问题，于是找了这个神器。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>在Mac上也可以使用tmux，想尝鲜可以在Mac上先安起来，安装方式：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install tmux</div></pre></td></tr></table></figure></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>tmux简单来说就是终端里的『窗口管理器』，如果我使用终端登录到远程主机并运行前台程序，那么这个窗口等于就被占用了，想要看一下 CPU 的使用率，就得再连接一次。但是如果在远程主机上运行 tmux，那么就可以开启多个控制台（类似于窗口），相当高效。如果想查看之前执行命令的log，比如redis的输出等，就很方便了。</p>
+<p>Seesion 可以有效地分离工作环境。</p>
+<ul>
+<li><p>tmux new -s session_name<br>创建一个叫做 session_name 的 tmux session</p>
+</li>
+<li><p>tmux attach -t session_name<br>重新开启叫做 session_name 的 tmux session</p>
+</li>
+<li><p>tmux switch -t session_name<br>转换到叫做 session_name 的 tmux session</p>
+</li>
+<li><p>tmux list-sessions<br>列出现有的所有 session</p>
+</li>
+<li><p>tmux detach (prefix + d)<br>离开当前开启的 session</p>
+</li>
+</ul>
+<p>我使用tmux new -s work创建一个叫work的session，关闭当前标签页，再使用tmux attach -t work，就可以重新看到之前的tmux session。</p>
+<p>Tmux 有一个含有标签的界面，但是它命名这些标签为 “Windows”。为了保持有序，可以重新命名所有我使用的 windows；</p>
+<ul>
+<li><p>tmux new-window (perfix + c)<br>创建一个新的 window</p>
+</li>
+<li><p>tmux select-window -t :0-9 (perfix + 0-9)<br>根据索引转到该 window</p>
+</li>
+<li><p>tmux rename-window (perfix + ,)<br>重命名当前 window</p>
+</li>
+</ul>
+<p>perfix为tmux的命令行模式，默认是Ctrl+b，比如new window，可以先按Ctrl+b，然后输入c。</p>
+<p>tmux模式下，tmux会监管鼠标的滚动事件。所以没法使用鼠标上下滚动看屏幕输出，这时候可以：</p>
+<ul>
+<li>Ctrl+b，输入:，即可进入命令行模式。</li>
+<li>输入命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setw -g mouse on</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果以上命令想使用配置文件配置，load配置文件的时候出现unknown option: mode-mouse错误；<br>可以用</p>
+<p>set-option -g mouse on<br>代替以上代码就OK了！</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>参考资料：</p>
+<ul>
+<li><a href="http://blog.jeswang.org/blog/2013/06/24/tmux-kuai-su-jiao-cheng/" target="_blank" rel="external">Tmux 快速教程</a></li>
+<li><a href="https://wdxtub.com/2016/03/30/tmux-guide/" target="_blank" rel="external">tmux指南</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      对Linux宝具，tmux咖喱棒！
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="tmux" scheme="http://www.xianwx.xyz/tags/tmux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决Gradle project sync failed. Please fix your project and try again.</title>
+    <link href="http://www.xianwx.xyz/2018/07/18/fix-gradle-project-sync-failed/"/>
+    <id>http://www.xianwx.xyz/2018/07/18/fix-gradle-project-sync-failed/</id>
+    <published>2018-07-18T10:09:49.000Z</published>
+    <updated>2018-07-18T10:15:38.918Z</updated>
+    
+    <content type="html"><![CDATA[<p>点击tools->Android->Sync Project with Gradle Files.</p>
+<p><img src="/images/2BBAF29B400EFFD28042FC244416C659.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      偶尔会碰到的Android studio的傲娇
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Android" scheme="http://www.xianwx.xyz/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac使用记录</title>
@@ -134,7 +402,7 @@
     <link href="http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/"/>
     <id>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</id>
     <published>2018-05-19T02:07:33.000Z</published>
-    <updated>2018-05-19T02:47:20.823Z</updated>
+    <updated>2018-07-18T10:07:41.083Z</updated>
     
     <content type="html"><![CDATA[<p>把博客搭建起来都一年多了，因为一直没啥人看，所以都懒得更新，现在想想，岂不是浪费了当初搭建的那半个多小时？</p>
 <p>以后如果对博客有啥修改，就统一在这里更新。</p>
@@ -146,8 +414,10 @@
 <li>打开网易云网页版</li>
 <li>登陆</li>
 <li>打开自己的歌单，有个生成外链播放器的按钮</li>
-<li>获取到外链代码，修改<code>layout/_partial/left-col.ejs</code>比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"music-area"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"switch-area"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">290</span> <span class="attr">height</span>=<span class="string">310</span> <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=523244238&amp;auto=1&amp;height=380&amp;qlrc=1"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></li>
+<li>获取到外链代码，修改<code>layout/_partial/left-col.ejs</code>比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;div id=<span class="string">"music-area"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"switch-area"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">290</span> <span class="attr">height</span>=<span class="string">310</span> <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=523244238&amp;auto=1&amp;height=380&amp;qlrc=1"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
+<h2 id="给博客文章插入图片"><a href="#给博客文章插入图片" class="headerlink" title="给博客文章插入图片"></a>给博客文章插入图片</h2><p>可以把图片放在source目录下边，比如新建一个images文件夹，既可以用这种方式访问到它们。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/images/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg)</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -318,9 +588,9 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
-    
       <category term="多说" scheme="http://www.xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
+    
+      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
     
   </entry>
   

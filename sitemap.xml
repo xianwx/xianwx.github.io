@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/ssh-copy/</loc>
+    
+    <lastmod>2018-07-18T10:39:30.960Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/http-server-on-origin-linux/</loc>
+    
+    <lastmod>2018-07-18T10:36:48.339Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/skynet-server-on-origin-linux/</loc>
+    
+    <lastmod>2018-07-18T10:32:36.811Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/root-user/</loc>
+    
+    <lastmod>2018-07-18T10:24:53.389Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/tmux/</loc>
+    
+    <lastmod>2018-07-18T10:21:53.153Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/18/fix-gradle-project-sync-failed/</loc>
+    
+    <lastmod>2018-07-18T10:15:38.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
+    
+    <lastmod>2018-07-18T10:07:41.083Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
     
     <lastmod>2018-07-18T10:04:44.209Z</lastmod>
@@ -33,13 +82,6 @@
     <loc>http://www.xianwx.xyz/2016/08/27/hello-world/</loc>
     
     <lastmod>2018-05-19T02:48:52.082Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
-    
-    <lastmod>2018-05-19T02:47:20.823Z</lastmod>
     
   </url>
   
