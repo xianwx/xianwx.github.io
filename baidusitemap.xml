@@ -4,16 +4,14 @@
 
     
   <url>
-    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
-    <lastmod>2018-07-19T06:11:20.013Z</lastmod>
+    <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
+    <lastmod>2018-07-19T07:26:31.317Z</lastmod>
     <data>
         <display>
-        <title>Node学习记录</title>
-        <pubTime>2018-07-19T02:22:25.000Z</pubTime>
+        <title>写cocos的时候一些踩雷记录</title>
+        <pubTime>2018-07-19T03:48:05.000Z</pubTime>
         
-        <tag>http</tag>
-         
-        <tag>Node</tag>
+        <tag>git</tag>
          
          
            
@@ -26,14 +24,36 @@
 
     
   <url>
-    <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
-    <lastmod>2018-07-19T03:49:26.539Z</lastmod>
+    <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
+    <lastmod>2018-07-19T07:17:17.022Z</lastmod>
     <data>
         <display>
-        <title>写cocos的时候一些踩雷记录</title>
-        <pubTime>2018-07-19T03:48:05.000Z</pubTime>
+        <title>Mac使用记录</title>
+        <pubTime>2018-07-18T09:48:48.000Z</pubTime>
         
-        <tag>git</tag>
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
+    <lastmod>2018-07-19T06:11:20.013Z</lastmod>
+    <data>
+        <display>
+        <title>Node学习记录</title>
+        <pubTime>2018-07-19T02:22:25.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
          
          
            
@@ -340,26 +360,6 @@
         <pubTime>2018-07-18T10:09:49.000Z</pubTime>
         
         <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
-    <lastmod>2018-07-18T10:04:44.209Z</lastmod>
-    <data>
-        <display>
-        <title>Mac使用记录</title>
-        <pubTime>2018-07-18T09:48:48.000Z</pubTime>
-        
-        <tag>Mac</tag>
          
          
            

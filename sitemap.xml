@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
+    <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
     
-    <lastmod>2018-07-19T06:11:20.013Z</lastmod>
+    <lastmod>2018-07-19T07:26:31.317Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
+    <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
     
-    <lastmod>2018-07-19T03:49:26.539Z</lastmod>
+    <lastmod>2018-07-19T07:17:17.022Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
+    
+    <lastmod>2018-07-19T06:11:20.013Z</lastmod>
     
   </url>
   
@@ -110,13 +117,6 @@
     <loc>http://www.xianwx.xyz/2018/07/18/fix-gradle-project-sync-failed/</loc>
     
     <lastmod>2018-07-18T10:15:38.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
-    
-    <lastmod>2018-07-18T10:04:44.209Z</lastmod>
     
   </url>
   
