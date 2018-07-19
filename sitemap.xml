@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
+    
+    <lastmod>2018-07-19T03:49:26.539Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/android-slash/</loc>
+    
+    <lastmod>2018-07-19T03:42:58.675Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</loc>
+    
+    <lastmod>2018-07-19T03:37:09.037Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
+    
+    <lastmod>2018-07-19T03:30:20.477Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-deal-post/</loc>
+    
+    <lastmod>2018-07-19T03:26:02.693Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/http-route/</loc>
+    
+    <lastmod>2018-07-19T03:16:06.030Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-connect-mysql/</loc>
+    
+    <lastmod>2018-07-19T03:03:55.815Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/how-to-use-curl/</loc>
+    
+    <lastmod>2018-07-19T02:59:17.666Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
+    
+    <lastmod>2018-07-19T02:54:37.642Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-start-server/</loc>
+    
+    <lastmod>2018-07-19T02:21:20.157Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.xianwx.xyz/2018/07/18/ssh-copy/</loc>
     
     <lastmod>2018-07-18T10:39:30.960Z</lastmod>
@@ -40,13 +110,6 @@
     <loc>http://www.xianwx.xyz/2018/07/18/fix-gradle-project-sync-failed/</loc>
     
     <lastmod>2018-07-18T10:15:38.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
-    
-    <lastmod>2018-07-18T10:07:41.083Z</lastmod>
     
   </url>
   
@@ -110,13 +173,6 @@
     <loc>http://www.xianwx.xyz/2016/09/23/lua-multiple-inheritance/</loc>
     
     <lastmod>2017-01-07T06:46:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</loc>
-    
-    <lastmod>2017-01-07T06:11:16.000Z</lastmod>
     
   </url>
   

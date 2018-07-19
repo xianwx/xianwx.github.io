@@ -4,6 +4,222 @@
 
     
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
+    <lastmod>2018-07-19T03:49:26.539Z</lastmod>
+    <data>
+        <display>
+        <title>写cocos的时候一些踩雷记录</title>
+        <pubTime>2018-07-19T03:48:05.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/android-slash/</loc>
+    <lastmod>2018-07-19T03:42:58.675Z</lastmod>
+    <data>
+        <display>
+        <title>Android设置应用启动页</title>
+        <pubTime>2018-07-19T03:34:12.000Z</pubTime>
+        
+        <tag>quick cocos</tag>
+         
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</loc>
+    <lastmod>2018-07-19T03:37:09.037Z</lastmod>
+    <data>
+        <display>
+        <title>给lua文件注入插件的方法</title>
+        <pubTime>2017-01-07T03:54:39.000Z</pubTime>
+        
+        <tag>lua</tag>
+         
+        <tag>quick cocos</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
+    <lastmod>2018-07-19T03:30:20.477Z</lastmod>
+    <data>
+        <display>
+        <title>Node学习记录</title>
+        <pubTime>2018-07-19T02:22:25.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-deal-post/</loc>
+    <lastmod>2018-07-19T03:26:02.693Z</lastmod>
+    <data>
+        <display>
+        <title>Node如何处理POST请求</title>
+        <pubTime>2018-07-19T03:16:55.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/http-route/</loc>
+    <lastmod>2018-07-19T03:16:06.030Z</lastmod>
+    <data>
+        <display>
+        <title>Node使用路由的方式处理请求</title>
+        <pubTime>2018-07-19T03:03:58.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-connect-mysql/</loc>
+    <lastmod>2018-07-19T03:03:55.815Z</lastmod>
+    <data>
+        <display>
+        <title>Node连接MySQL</title>
+        <pubTime>2018-07-19T03:01:58.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/how-to-use-curl/</loc>
+    <lastmod>2018-07-19T02:59:17.666Z</lastmod>
+    <data>
+        <display>
+        <title>怎么使用curl模拟http请求</title>
+        <pubTime>2018-07-19T02:55:44.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
+    <lastmod>2018-07-19T02:54:37.642Z</lastmod>
+    <data>
+        <display>
+        <title>持续完善hexo博客</title>
+        <pubTime>2018-05-19T02:07:33.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-start-server/</loc>
+    <lastmod>2018-07-19T02:21:20.157Z</lastmod>
+    <data>
+        <display>
+        <title>Node开启一个HTTP服务器</title>
+        <pubTime>2018-07-19T02:16:51.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xianwx.xyz/2018/07/18/ssh-copy/</loc>
     <lastmod>2018-07-18T10:39:30.960Z</lastmod>
     <data>
@@ -124,26 +340,6 @@
         <pubTime>2018-07-18T10:09:49.000Z</pubTime>
         
         <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</loc>
-    <lastmod>2018-07-18T10:07:41.083Z</lastmod>
-    <data>
-        <display>
-        <title>持续完善hexo博客</title>
-        <pubTime>2018-05-19T02:07:33.000Z</pubTime>
-        
-        <tag>hexo</tag>
          
          
            
@@ -298,28 +494,6 @@
 
     
   <url>
-    <loc>http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</loc>
-    <lastmod>2017-01-07T06:11:16.000Z</lastmod>
-    <data>
-        <display>
-        <title>给lua文件注入插件的方法</title>
-        <pubTime>2017-01-07T03:54:39.000Z</pubTime>
-        
-        <tag>lua</tag>
-         
-        <tag>quick cocos</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.xianwx.xyz/2016/09/16/duoshuo-style/</loc>
     <lastmod>2016-09-17T03:55:10.000Z</lastmod>
     <data>
@@ -327,9 +501,9 @@
         <title>自定义自己的评论系统</title>
         <pubTime>2016-09-16T10:18:13.000Z</pubTime>
         
-        <tag>多说</tag>
-         
         <tag>hexo</tag>
+         
+        <tag>多说</tag>
          
          
            

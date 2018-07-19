@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-18T10:39:30.960Z</updated>
+  <updated>2018-07-19T03:49:26.539Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,229 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写cocos的时候一些踩雷记录</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/quick-cocos/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/quick-cocos/</id>
+    <published>2018-07-19T03:48:05.000Z</published>
+    <updated>2018-07-19T03:49:26.539Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C-导出给LUA使用的时候"><a href="#C-导出给LUA使用的时候" class="headerlink" title="C++导出给LUA使用的时候"></a>C++导出给LUA使用的时候</h1><pre><code>在导出给lua使用的时候，如果父类没有导出，那父控件继承的公共方法将没有。
+比如 EffectLight 继承自 Effect Effect 继承自 Ref 如果不导出Effect 创建的EffectLight对象将没有retain方法，除非导出Effect。
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      平常吐槽不停，真到写起来的时候反而记不起来了……
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="git" scheme="http://www.xianwx.xyz/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android设置应用启动页</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/android-slash/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/android-slash/</id>
+    <published>2018-07-19T03:34:12.000Z</published>
+    <updated>2018-07-19T03:42:58.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>最简单的方法无非是在游戏里设置……这样苹果和安卓都有了，还好加各种特效。<br>重点说一下给安卓加启动图，思路是：加一个新的activity，sleep一会儿，再跳到主activity。<br>好，新建一个activity叫SplashActivity，继承自Activity，不要继承自cocos的activity，它会自动去帮你走AppDelegate……<br>参考以下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);</div><div class="line">    <span class="comment">// 常亮</span></div><div class="line">    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);</div><div class="line"></div><div class="line">    <span class="comment">// 横屏旋转</span></div><div class="line">    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);</div><div class="line"></div><div class="line">    <span class="comment">//隐藏虚拟按键，并且全屏</span></div><div class="line">    <span class="keyword">final</span> Window window = getWindow();</div><div class="line">    setHideVirtualKey(window);</div><div class="line">    window.getDecorView().setOnSystemUiVisibilityChangeListener(<span class="keyword">new</span> View.OnSystemUiVisibilityChangeListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSystemUiVisibilityChange</span><span class="params">(<span class="keyword">int</span> visibility)</span> </span>&#123;</div><div class="line">            setHideVirtualKey(window);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    Log.i(<span class="string">"LUA"</span>, <span class="string">"on splash activity create"</span>);</div><div class="line">           <span class="comment">/*mainLayout初始化*/</span></div><div class="line"></div><div class="line">    LinearLayout mainLayout = <span class="keyword">new</span> LinearLayout(<span class="keyword">this</span>);</div><div class="line">    mainLayout.setBackgroundColor(Color.WHITE);</div><div class="line">    mainLayout.setLayoutParams(<span class="keyword">new</span> LinearLayout.LayoutParams(-<span class="number">1</span>,-<span class="number">1</span>));</div><div class="line">    mainLayout.setGravity(<span class="number">17</span>); <span class="comment">// 17 的意义是 "CENTER"</span></div><div class="line">    <span class="comment">/*iv初始化*/</span></div><div class="line">    ImageView iv = <span class="keyword">new</span> ImageView(<span class="keyword">this</span>);</div><div class="line">    iv.setLayoutParams(<span class="keyword">new</span> LinearLayout.LayoutParams(-<span class="number">1</span>,-<span class="number">2</span>));</div><div class="line">    iv.setScaleType(ImageView.ScaleType.CENTER);<span class="comment">//居中显示</span></div><div class="line">    <span class="keyword">int</span> resId=<span class="keyword">this</span>.getResources().getIdentifier(<span class="string">"bg"</span>,<span class="string">"drawable"</span>,getPackageName());</div><div class="line">    iv.setImageResource(resId);</div><div class="line">    mainLayout.addView(iv);<span class="comment">//添加iv</span></div><div class="line">    setContentView(mainLayout);<span class="comment">//显示manLayout</span></div><div class="line"></div><div class="line">    Thread myThread=<span class="keyword">new</span> Thread()&#123;<span class="comment">//创建子线程</span></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                sleep(<span class="number">2000</span>);<span class="comment">//使程序休眠五秒</span></div><div class="line">                Log.i(<span class="string">"LUA"</span>, <span class="string">"splash sleep end"</span>);</div><div class="line">                Intent it=<span class="keyword">new</span> Intent(getApplicationContext(), AppActivity.class);<span class="comment">//启动MainActivity</span></div><div class="line">                startActivity(it);</div><div class="line">                finish();<span class="comment">//关闭当前活动</span></div><div class="line">            &#125;<span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    myThread.start();<span class="comment">//启动线程</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHideVirtualKey</span><span class="params">(Window window)</span></span>&#123;</div><div class="line">    <span class="comment">//保持布局状态</span></div><div class="line">    <span class="keyword">int</span> uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE|</div><div class="line">            <span class="comment">//布局位于状态栏下方</span></div><div class="line">            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION|</div><div class="line">            <span class="comment">//全屏</span></div><div class="line">            View.SYSTEM_UI_FLAG_FULLSCREEN|</div><div class="line">            <span class="comment">//隐藏导航栏</span></div><div class="line">            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|</div><div class="line">            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;</div><div class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT&gt;=<span class="number">19</span>)&#123;</div><div class="line">        uiOptions |= <span class="number">0x00001000</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        uiOptions |= View.SYSTEM_UI_FLAG_LOW_PROFILE;</div><div class="line">    &#125;</div><div class="line">    window.getDecorView().setSystemUiVisibility(uiOptions);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onResume();</div><div class="line">    <span class="keyword">final</span> Window window = getWindow();</div><div class="line">    setHideVirtualKey(window);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>大概做的事情就是，创建一个layout，然后在layout里创建一个ImageView，图片为bg，为了使ImageView居中，所以设置了父控件的gravity，显示完了，创建一个线程，sleep2秒钟，跳到AppActivity，splash这个activity横屏且隐藏状态栏和虚拟按钮。<br>最后，记得把<strong>AndroidManifest</strong>里的启动activity换成新建的这个activity。</p>
+<p>另外，为了让苹果的启动图时间久一点，可以在didFinishLaunchingWithOptions里加上一句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 启动图片延时: 1秒</div><div class="line">[NSThread sleepForTimeInterval:1];</div></pre></td></tr></table></figure></p>
+<p>经实测，1秒的效果蛮好的。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Logo还是要的嘛，虽然安卓喜欢不要脸的……
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
+    
+      <category term="Android" scheme="http://www.xianwx.xyz/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node如何处理POST请求</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/node-deal-post/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/node-deal-post/</id>
+    <published>2018-07-19T03:16:55.000Z</published>
+    <updated>2018-07-19T03:26:02.693Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// auth.js</span></div><div class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">auth</span>(<span class="params">req, res</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//暂存请求体信息</span></div><div class="line">    <span class="keyword">var</span> body = <span class="string">""</span>;</div><div class="line"> </div><div class="line">    <span class="comment">//请求链接</span></div><div class="line">    <span class="built_in">console</span>.log(req.url);</div><div class="line"> </div><div class="line">    <span class="comment">//每当接收到请求体数据，累加到post中</span></div><div class="line">    req.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">chunk</span>) </span>&#123;</div><div class="line">        body += chunk;  <span class="comment">//一定要使用+=，如果body=chunk，因为请求favicon.ico，body会等于&#123;&#125;</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"chunk:"</span>,chunk);</div><div class="line">    &#125;);</div><div class="line"> </div><div class="line">    <span class="comment">//在end事件触发后，通过querystring.parse将post解析为真正的POST请求格式，然后向客户端返回。</span></div><div class="line">    req.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// 解析参数</span></div><div class="line">        body = querystring.parse(body);  <span class="comment">//将一个字符串反序列化为一个对象</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"body:"</span>,body);</div><div class="line"></div><div class="line">        <span class="comment">// 设置响应头部信息及编码</span></div><div class="line">        res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html; charset=utf8'</span>&#125;);</div><div class="line">        <span class="keyword">var</span> data = &#123;<span class="string">"code"</span>:<span class="number">200</span>, <span class="string">"msg"</span>:<span class="string">"success"</span>, <span class="string">"token"</span>:<span class="string">"token_"</span> + body.username + <span class="string">"_"</span> + body.password&#125;;</div><div class="line">        res.end(<span class="built_in">JSON</span>.stringify(data));</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">exports.auth = auth;</div></pre></td></tr></table></figure>
+<p><img src="/images/9F401EAC8A9114C972DCC8812E80871D.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      不给参数就捣蛋！
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
+    
+      <category term="Node" scheme="http://www.xianwx.xyz/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node使用路由的方式处理请求</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/http-route/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/http-route/</id>
+    <published>2018-07-19T03:03:58.000Z</published>
+    <updated>2018-07-19T03:16:06.030Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> auth = <span class="built_in">require</span>(<span class="string">'./auth'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> pathname = url.parse(request.url).pathname;</div><div class="line">    <span class="keyword">var</span> routeurl = &#123;</div><div class="line">        <span class="string">'/auth'</span> : auth.auth</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    connection.connect();</div><div class="line"></div><div class="line">    <span class="keyword">if</span>( <span class="keyword">typeof</span> routeurl[pathname]=== <span class="string">'function'</span> )&#123;</div><div class="line">        routeurl[pathname](request, response);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'404 not found!'</span>);</div><div class="line">        response.end();</div><div class="line">    &#125;</div><div class="line">&#125;).listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'server has started...'</span>);</div></pre></td></tr></table></figure>
+<p>这样可以单独在auth文件里处理auth的逻辑，不用写一大堆东西在一个文件里了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      你干你的，我干我的，互不相干。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
+    
+      <category term="Node" scheme="http://www.xianwx.xyz/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node连接MySQL</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/node-connect-mysql/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/node-connect-mysql/</id>
+    <published>2018-07-19T03:01:58.000Z</published>
+    <updated>2018-07-19T03:03:55.815Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><h2 id="参考mysql安装，装5-7-22版本，注意它提示的密码，保存下来。"><a href="#参考mysql安装，装5-7-22版本，注意它提示的密码，保存下来。" class="headerlink" title="参考mysql安装，装5.7.22版本，注意它提示的密码，保存下来。"></a>参考<a href="https://blog.csdn.net/RunIntoLove/article/details/51422787" target="_blank" rel="external">mysql安装</a>，装5.7.22版本，注意它提示的密码，保存下来。</h2><h2 id="gui的使用参考MySQL-Workbench使用"><a href="#gui的使用参考MySQL-Workbench使用" class="headerlink" title="gui的使用参考MySQL Workbench使用"></a>gui的使用参考<a href="https://www.jianshu.com/p/dc58a4efdd84" target="_blank" rel="external">MySQL Workbench使用</a></h2><h1 id="Node-js里连接MySQL"><a href="#Node-js里连接MySQL" class="headerlink" title="Node.js里连接MySQL"></a>Node.js里连接MySQL</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</div><div class="line"><span class="keyword">var</span> connection = mysql.createConnection(&#123;</div><div class="line">    host        : <span class="string">'127.0.0.1'</span>,</div><div class="line">    port        : <span class="number">3306</span>,</div><div class="line">    user        : <span class="string">'root'</span>,</div><div class="line">    password    : <span class="string">'5429943'</span>,</div><div class="line">    database    : <span class="string">'center'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">connection.connect();</div></pre></td></tr></table></figure>
+<h1 id="相关报错处理"><a href="#相关报错处理" class="headerlink" title="相关报错处理"></a>相关报错处理</h1><p>对于报错：<code>Cannot find module &#39;mysql&#39; node.js</code><br>只需要执行：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln <span class="_">-s</span> /usr/<span class="built_in">local</span>/lib/node_modules /YOURPROJECTFOLDER/</div></pre></td></tr></table></figure></p>
+<p>在安装完成MySQL后，先去使用<code>MySQL Workbench</code>修改密码。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      出来混的，总是要存的。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
+    
+      <category term="Node" scheme="http://www.xianwx.xyz/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎么使用curl模拟http请求</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/how-to-use-curl/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/how-to-use-curl/</id>
+    <published>2018-07-19T02:55:44.000Z</published>
+    <updated>2018-07-19T02:59:17.666Z</updated>
+    
+    <content type="html"><![CDATA[<p>get方式请求：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl 地址:端口/路由</div></pre></td></tr></table></figure></p>
+<p>e.g:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl 127.0.0.1:3000/test_sql</div></pre></td></tr></table></figure></p>
+<p>post方式请求：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST <span class="_">-d</span> <span class="string">"参数名=实参&amp;参数名=实参"</span> 地址:端口/路由</div></pre></td></tr></table></figure></p>
+<p>e.g:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST <span class="_">-d</span> <span class="string">"username=xianwx&amp;password=test"</span> 127.0.0.1:3000/auth</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      我不仅仅是个伪装者，我是D员！（嘘）
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
+    
+      <category term="Node" scheme="http://www.xianwx.xyz/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node学习记录</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/node-learn-record/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/node-learn-record/</id>
+    <published>2018-07-19T02:22:25.000Z</published>
+    <updated>2018-07-19T03:30:20.477Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="开启HTTP服务器"><a href="#开启HTTP服务器" class="headerlink" title="开启HTTP服务器"></a>开启HTTP服务器</h1><pre><code>{% post_link node-start-server Node开启一个HTTP服务器 %}
+</code></pre><h1 id="如何使用curl"><a href="#如何使用curl" class="headerlink" title="如何使用curl"></a>如何使用curl</h1><pre><code>{% post_link how-to-use-curl 怎么使用curl模拟http请求 %}
+</code></pre><h1 id="Node如何使用路由形式"><a href="#Node如何使用路由形式" class="headerlink" title="Node如何使用路由形式"></a>Node如何使用路由形式</h1><pre><code>{% post_link http-route Node使用路由的方式处理请求 %}
+</code></pre><h1 id="Node如何处理POST请求"><a href="#Node如何处理POST请求" class="headerlink" title="Node如何处理POST请求"></a>Node如何处理POST请求</h1><pre><code>{% post_link node-deal-post Node如何处理POST请求 %}
+</code></pre><h1 id="Node如何连接MySQL"><a href="#Node如何连接MySQL" class="headerlink" title="Node如何连接MySQL"></a>Node如何连接MySQL</h1><pre><code>{% post_link node-connect-mysql Node连接MySQL %}
+</code></pre><h1 id="看书心得"><a href="#看书心得" class="headerlink" title="看书心得"></a>看书心得</h1><pre><code>* Node有很多别称，Nodejs，Node.js，NodeJS等，都可以表明它是Node
+* 设计高性能Web服务器的几个要点：事件驱动，非阻塞I/O
+* ajax的全称是AsynchronousJavascript+XML。即：异步传输+js+XML。是一种技术，只要是这样做的都可以称为ajax请求。
+* CommonJS规范的提出。
+
+—————————————————————————————我是萌萌哒的分割线—————————————————————————————
+
+* 上下文提供了exports对象用于导出当前模块的方法或者变量，并且是它唯一的导出的出口。
+* 在Node中一个文件就是一个模块，在模块中存在一个module对象，它代表模块自身，exports也是module的属性。将方法挂载在exports对象上作为属性即可定义导出的方式。
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      记录自己的无知、愚蠢以及碎碎念。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
+    
+      <category term="Node" scheme="http://www.xianwx.xyz/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Node开启一个HTTP服务器</title>
+    <link href="http://www.xianwx.xyz/2018/07/19/node-start-server/"/>
+    <id>http://www.xianwx.xyz/2018/07/19/node-start-server/</id>
+    <published>2018-07-19T02:16:51.000Z</published>
+    <updated>2018-07-19T02:21:20.157Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span> (<span class="string">'http'</span>);</div><div class="line"></div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>)</span>&#123;&#125;).listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'server has started...'</span>);</div></pre></td></tr></table></figure>
+<p>这样就成功开启了http的服务器，还可以看到命令台输出’server has started’。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      最简单的
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
+    
+      <category term="Node" scheme="http://www.xianwx.xyz/tags/Node/"/>
+    
+  </entry>
   
   <entry>
     <title>对远程服务器利用ssh传输文件</title>
@@ -402,7 +625,7 @@
     <link href="http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/"/>
     <id>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</id>
     <published>2018-05-19T02:07:33.000Z</published>
-    <updated>2018-07-18T10:07:41.083Z</updated>
+    <updated>2018-07-19T02:54:37.642Z</updated>
     
     <content type="html"><![CDATA[<p>把博客搭建起来都一年多了，因为一直没啥人看，所以都懒得更新，现在想想，岂不是浪费了当初搭建的那半个多小时？</p>
 <p>以后如果对博客有啥修改，就统一在这里更新。</p>
@@ -418,6 +641,9 @@
 </li>
 </ul>
 <h2 id="给博客文章插入图片"><a href="#给博客文章插入图片" class="headerlink" title="给博客文章插入图片"></a>给博客文章插入图片</h2><p>可以把图片放在source目录下边，比如新建一个images文件夹，既可以用这种方式访问到它们。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/images/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg)</div></pre></td></tr></table></figure></p>
+<p>参考：<a href="https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/" target="_blank" rel="external">Hexo博客搭建之在文章中插入图片</a></p>
+<h2 id="给博客文章引用站内其它文章"><a href="#给博客文章引用站内其它文章" class="headerlink" title="给博客文章引用站内其它文章"></a>给博客文章引用站内其它文章</h2>
+<p>e.g:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% post_link node-start-server Node开启一个HTTP服务器 %&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -476,9 +702,9 @@
     <link href="http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/"/>
     <id>http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</id>
     <published>2017-01-07T03:54:39.000Z</published>
-    <updated>2017-01-07T06:11:16.000Z</updated>
+    <updated>2018-07-19T03:37:09.037Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-初衷"><a href="#1-初衷" class="headerlink" title="1. 初衷"></a>1. 初衷</h2><p>好久没有更新博客了，之前写了lua元表相关的东西，如果对元表不理解的话，可以在站内搜索一下<strong>lua的元表以及多继承</strong>。<br>现在在用quick cocos在写一款游戏，等空闲了可以来更新一下躺过的坑。<br>闲话少说，现在用cocos开发，走的路子多是策划或者美术拼出界面(cocos studio)，然后到处csb文件程序加载，再对界面进行各项处理(creator没用过)。<br>于是问题来了，一般的做法，将csb读取过来作为layer的child，可能会出现非常多次的对其getChild（可能层次很深），对csb上的某个控件进行setString、setTexture等，怎么做比较好？</p>
+    <content type="html"><![CDATA[<h2 id="1-初衷"><a href="#1-初衷" class="headerlink" title="1. 初衷"></a>1. 初衷</h2><p>好久没有更新博客了，之前写了lua元表相关的东西，如果对元表不理解的话，可以在看一下<a href="/2016/09/23/lua-multiple-inheritance/" title="lua的元表以及多继承">lua的元表以及多继承</a>。<br>现在在用quick cocos在写一款游戏，等空闲了可以来更新一下躺过的坑。<br>闲话少说，现在用cocos开发，走的路子多是策划或者美术拼出界面(cocos studio)，然后到处csb文件程序加载，再对界面进行各项处理(creator没用过)。<br>于是问题来了，一般的做法，将csb读取过来作为layer的child，可能会出现非常多次的对其getChild（可能层次很深），对csb上的某个控件进行setString、setTexture等，怎么做比较好？</p>
 <h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h2><p>提供几个解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 写一个公用方法，获取csb的控件，每次都先取得控件后对其操作</div><div class="line">* 写很多个公用方法，对setString的操作啊，对setTexture的操作啊都写上</div><div class="line">* 写很多个local方法，代码一样</div><div class="line">* 也是写很多个公用方法，分成各个插件，layer自己选择要去组装哪些</div></pre></td></tr></table></figure></p>
 <h2 id="3-插件的实现方法"><a href="#3-插件的实现方法" class="headerlink" title="3. 插件的实现方法"></a>3. 插件的实现方法</h2><p>非常简单，只需要几步</p>
 <ul>
@@ -507,188 +733,6 @@
       <category term="lua" scheme="http://www.xianwx.xyz/tags/lua/"/>
     
       <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lua的元表以及多继承</title>
-    <link href="http://www.xianwx.xyz/2016/09/23/lua-multiple-inheritance/"/>
-    <id>http://www.xianwx.xyz/2016/09/23/lua-multiple-inheritance/</id>
-    <published>2016-09-23T03:49:39.000Z</published>
-    <updated>2017-01-07T06:46:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近做开发的时候，有个类想要继承自多个类，虽然这种情况基本说很少（好像也不少），但还是说一下如何在lua里实现多继承。<br>其实很简单，首先要了解lua元表，以及lua类的实现方法。</p>
-<h2 id="lua元表"><a href="#lua元表" class="headerlink" title="lua元表"></a>lua元表</h2><p>用lua的人都知道lua的table的强大，table有一套hashmap的查找机制，如果访问一个表中并不存在的字段，不会立即返回nil，而是先<code>触发一套查找机制，也是我们用以实现面向对象的方法</code>。<br>简单的描述：<code>元表就是用于查找的备用表。</code><br>比如：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> me = &#123;&#125;</div><div class="line"><span class="built_in">print</span>(me.money) <span class="comment">-- me中没有money字段，所以打印出来的会是nil</span></div></pre></td></tr></table></figure></p>
-<p>这里的执行结果很明显会是nil，没有疑问（因为我是个穷逼。<br>但是如果我设置了元表：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> fathermayun = &#123;</div><div class="line">    money = <span class="number">13000000000</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">local</span> me = &#123;&#125;</div><div class="line"><span class="built_in">setmetatable</span>(me, fathermayun)</div><div class="line"><span class="built_in">print</span>(me.money)</div></pre></td></tr></table></figure></p>
-<p>这里的执行结果是！！！！！！！<br><code>nil</code><br>为什么我没有拿到马云爸爸的钱？因为没有设置<code>__index</code></p>
-<h2 id="index"><a href="#index" class="headerlink" title="__index"></a>__index</h2><p>简单的描述：<code>是当table中一个元素不存在的时候，会触发寻找元表的__index元方法，如果不存在，则返回nil，如果存在，则返回结果。</code><br>所以，把上述代码改成<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> fathermayun = &#123;</div><div class="line">    money = <span class="number">13000000000</span></div><div class="line">&#125;</div><div class="line">fathermayun.__index = fathermayun</div><div class="line"><span class="keyword">local</span> me = &#123;&#125;</div><div class="line"><span class="built_in">setmetatable</span>(me, fathermayun)</div><div class="line"><span class="built_in">print</span>(me.money)</div></pre></td></tr></table></figure></p>
-<p>这里的执行结果将是13000000000，我终于有钱了:)<br>上面的执行过程是：<br>访问me.money-&gt;发现没有这个字段-&gt;me有元表-&gt;查找元表fathermayun-&gt;lua不会直接找fathermayun里的money字段-&gt;lua发现fathermayun有元方法<strong>index-&gt;调用元方法-&gt;发现元方法是个table，在元方法的table里寻找-&gt;获得money的值
-</strong>index有以下取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">表，会直接在表里找</div><div class="line">函数，返回函数的返回值</div></pre></td></tr></table></figure></p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>利用上述知识随手写了个实现面向对象的方法，不是很完善<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">class</span><span class="params">(super)</span></span></div><div class="line">    <span class="keyword">local</span> cls</div><div class="line">    <span class="keyword">if</span> super <span class="keyword">then</span></div><div class="line">        cls = &#123;&#125;</div><div class="line">        cls.super = super</div><div class="line">        <span class="built_in">setmetatable</span>(cls, &#123;__index = super&#125;)</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="comment">-- ctor是构造函数的命名</span></div><div class="line">        cls = &#123;ctor = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span> <span class="keyword">end</span>&#125;</div><div class="line">    <span class="keyword">end</span></div><div class="line"></div><div class="line">    cls.__index = cls</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">cls.new</span><span class="params">(...)</span></span></div><div class="line">        <span class="keyword">local</span> instance = <span class="built_in">setmetatable</span>(&#123;&#125;, cls)</div><div class="line">        instance:ctor(...)</div><div class="line">        <span class="keyword">return</span> instance</div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">return</span> cls</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
-<p>挺简单的，注释就不写了……让我们来测试一下<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> Test = class()</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test:doSomething</span><span class="params">()</span></span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"test doSomething"</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">local</span> test = Test.new()</div><div class="line">test:doSomething()</div></pre></td></tr></table></figure></p>
-<p>成功打印出”test doSomething”<br>接下来试试继承<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> Test = class()</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test:doSomething</span><span class="params">()</span></span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"test doSomething"</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">local</span> Test2 = class(Test)</div><div class="line"><span class="keyword">local</span> test = Test2.new()</div><div class="line">test:doSomething()</div></pre></td></tr></table></figure></p>
-<p>也可以成功打印出”test doSomething”，继承成功<br>为什么能继承成功？原因如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">在new的时候，创建一个table并返回，即创建一个实例，实例可以有自己的字段，比如Test类的doSomething，该字段是个函数，可以调用执行。实例的元表是cls，如果调用实例没有的字段，会去cls里找</div><div class="line">cls设置了元方法__index = cls</div><div class="line">如果没有super，则只有一个构造函数方法</div><div class="line">如果有super，cls的元表是super，元表的元方法也正确的设置了</div><div class="line">所以，在Test2是继承自Test的，它的实例test调用doSomething，找不到，去元表里找，元表发现自己有父类，去父类里找，成功找到。</div></pre></td></tr></table></figure></p>
-<h2 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h2><p>如果我想要继承多个父类，怎么办？<br>其实思路很简单，把<code>元方法改成函数即可。</code><br>举例子：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">search</span><span class="params">(key, tables)</span></span></div><div class="line">    <span class="keyword">for</span> _, super <span class="keyword">in</span> <span class="built_in">ipairs</span>(tables) <span class="keyword">do</span></div><div class="line">        <span class="keyword">if</span> super[key] <span class="keyword">then</span></div><div class="line">            <span class="keyword">return</span> super[key]</div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">nil</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">class</span><span class="params">(...)</span></span></div><div class="line">    <span class="keyword">local</span> cls = &#123; ctor = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span> <span class="keyword">end</span>&#125;</div><div class="line">    <span class="keyword">local</span> supers = &#123;...&#125;</div><div class="line">    <span class="built_in">setmetatable</span>(cls, &#123;__index = <span class="function"><span class="keyword">function</span> <span class="params">(_, key)</span></span></div><div class="line">        <span class="comment">-- 在查找table的时候，会把table的key传进来</span></div><div class="line">        <span class="keyword">return</span> search(key, supers)</div><div class="line">    <span class="keyword">end</span>&#125;)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">cls.new</span><span class="params">(...)</span></span></div><div class="line">        <span class="keyword">local</span> instance = &#123;&#125;</div><div class="line">        <span class="built_in">setmetatable</span>(instance, &#123;__index = cls&#125;)</div><div class="line">        instance:ctor(...)</div><div class="line">        <span class="keyword">return</span> instance</div><div class="line">    <span class="keyword">end</span></div><div class="line">    <span class="keyword">return</span> cls</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">local</span> Human = class()</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Human:life</span><span class="params">()</span></span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"almost 100 years."</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">local</span> Programmer = class()</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Programmer:coding</span><span class="params">()</span></span></div><div class="line">    <span class="built_in">print</span>(<span class="string">"sub 1 year."</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">local</span> My = class(Human, Programmer)</div><div class="line"><span class="keyword">local</span> yuzixin = My.new()</div><div class="line">yuzixin:life()</div><div class="line">yuzixin:coding()</div></pre></td></tr></table></figure></p>
-<p>成功打印出结果<br>almost 100 years.<br>sub 1 year.<br>为什么能继承成功？原因如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在yuzixin里找不到life和coding字段，去找元表cls，调用元方法__index</div><div class="line">__index调用函数search，把所有的父类都找一遍</div><div class="line">成功找到</div></pre></td></tr></table></figure>
-<p>多继承就这样成功啦！撒花！<br>注意写一次代码减少一年的生命哦……（悲伤doge脸</p>
-]]></content>
-    
-    <summary type="html">
-    
-      lua的元表以及多重继承的方法
-    
-    </summary>
-    
-      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="lua" scheme="http://www.xianwx.xyz/tags/lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义自己的评论系统</title>
-    <link href="http://www.xianwx.xyz/2016/09/16/duoshuo-style/"/>
-    <id>http://www.xianwx.xyz/2016/09/16/duoshuo-style/</id>
-    <published>2016-09-16T10:18:13.000Z</published>
-    <updated>2016-09-17T03:55:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天逛本博客主题的编写者的<a href="http://moxfive.xyz/" target="_blank" rel="external">博客</a>的时候，看到了他的评论系统效果十分的好看，于是好奇心起，也打算自己弄一个一样的。</p>
-<h2 id="1-已经做好的文件"><a href="#1-已经做好的文件" class="headerlink" title="1. 已经做好的文件"></a>1. 已经做好的文件</h2><p>在多说设置里用的<a href="https://xianwx.github.io/show/test.css" target="_blank" rel="external">css文件</a><br>样式的<a href="https://xianwx.github.io/show/embed.js" target="_blank" rel="external">ejs文件</a><br>本地修改的<a href="https://xianwx.github.io/show/duoshuo.txt" target="_blank" rel="external">ejs文件</a></p>
-<h2 id="2-把embed-js传到云端"><a href="#2-把embed-js传到云端" class="headerlink" title="2. 把embed.js传到云端"></a>2. 把embed.js传到云端</h2><p>把刚才下载的<code>样式的ejs文件</code>上传到一个任意的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">比如我是复制到本地blog/themes/yelee/source/js/下边，上传到git后访问的地址就是https://xianwx.github.io/js/embed.js)</div></pre></td></tr></table></figure></p>
-<h2 id="3-浏览器、系统标识"><a href="#3-浏览器、系统标识" class="headerlink" title="3. 浏览器、系统标识"></a>3. 浏览器、系统标识</h2><ul>
-<li>使用上边的<code>本地修改的ejs文件</code>，把内容整个拷贝粘贴到<code>yelee/layout/_partial/comments/duoshuo.ejs</code>（注：使用跟我一样主题的人用）</li>
-<li>其它主题的人：找到多说的ejs，给其控件的src赋值为你的embed.ejs的地址<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> duoshuoQuery = &#123;short_name:<span class="string">"&lt;%=theme.duoshuo.domain%&gt;"</span>&#125;;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ds = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">    ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</div><div class="line"></div><div class="line">    <span class="string">`ds.src = 'http://moxfive.xyz/resources/embed.js'`</span>;</div><div class="line">    <span class="comment">/*上面是我自己的 embed.js 链接，请改为你自己的地址*/</span></div><div class="line"></div><div class="line">    ds.charset = <span class="string">'UTF-8'</span>;</div><div class="line">    (<span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] </div><div class="line">     || <span class="built_in">document</span>.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="4-引入-Font-Awesome"><a href="#4-引入-Font-Awesome" class="headerlink" title="4. 引入 Font Awesome"></a>4. 引入 Font Awesome</h2><p>打开theme/你的主题/layout/_partial/head.ejs<br>输入<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><code>如果已经有了就不需要加了</code></p>
-<h2 id="5-添加css"><a href="#5-添加css" class="headerlink" title="5. 添加css"></a>5. 添加css</h2><p>打开<code>http://你的多说域名.duoshuo.com/admin/settings/</code><br>拷贝<code>样式的ejs文件</code>的内容<br>按照<a href="http://wsgzao.github.io/post/duoshuo/#多说后台自定义CSS" target="_blank" rel="external">后台添加css</a>里的步骤，添加自定义css</p>
-<h3 id="①-博主标志"><a href="#①-博主标志" class="headerlink" title="① 博主标志"></a>① 博主标志</h3><p>在评论里，点自己的头像，进入<a href="http://duoshuo.com/settings/avatar/页面，点自己名字，进入http://duoshuo.com/profile/你的uid/界面，复制你的uid" target="_blank" rel="external">http://duoshuo.com/settings/avatar/页面，点自己名字，进入http://duoshuo.com/profile/你的uid/界面，复制你的uid</a><br>打开刚才的embed.js文件，把你的uid复制到里边“你的uid”位置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sskadmin</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> ssk = <span class="string">''</span>;</div><div class="line">    <span class="keyword">if</span> (e.user_id == 你的uid) &#123;</div><div class="line">        <span class="keyword">if</span> (checkMobile()) &#123;</div><div class="line">            ssk = <span class="string">'&lt;span class="ua"&gt;&lt;span class="sskadmin"&gt;博主&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            ssk = <span class="string">'&lt;span class="ua"&gt;&lt;span class="sskadmin"&gt;博主&lt;/span&gt;&lt;/span&gt;'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (checkMobile()) &#123;</div><div class="line">            ssk = <span class="string">'&lt;br&gt;&lt;br&gt;'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ssk;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>并确保刚才添加到后台的css里有以下代码（刚才下的已经自带了）：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*博主标记 CSS*/</span></div><div class="line"><span class="selector-class">.sskadmin</span> &#123;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#00a67c</span><span class="meta">!important</span>;</div><div class="line">    <span class="attribute">border-color</span>: <span class="number">#01B171</span><span class="meta">!important</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</div><div class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">    <span class="attribute">opacity</span>: .<span class="number">4</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.sskadmin</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>以下内容上文提供的下载的css都已经有了，只是讲解其功能，不喜欢可以删掉</strong></p>
-<h3 id="②-鼠标悬停旋转头像"><a href="#②-鼠标悬停旋转头像" class="headerlink" title="② 鼠标悬停旋转头像"></a>② 鼠标悬停旋转头像</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*头像样式*/</span></div><div class="line"><span class="selector-id">#ds-reset</span> <span class="selector-class">.ds-avatar</span>&#123;<span class="attribute">background</span>:none <span class="meta">!important</span>; <span class="attribute">box-shadow</span>:none <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-reset</span> <span class="selector-class">.ds-avatar</span> <span class="selector-tag">img</span> , <span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-tag">ul</span><span class="selector-class">.ds-children</span> <span class="selector-class">.ds-avatar</span> <span class="selector-tag">img</span>&#123;<span class="attribute">width</span>:<span class="number">50px</span> <span class="meta">!important</span>;<span class="attribute">height</span>: <span class="number">50px</span> <span class="meta">!important</span>;-webkit-<span class="attribute">transition</span>: .<span class="number">9s</span>;-moz-<span class="attribute">transition</span>: .<span class="number">9s</span>;-o-<span class="attribute">transition</span>: .<span class="number">9s</span>;-ms-<span class="attribute">transition</span>: .<span class="number">9s</span>;<span class="attribute">padding</span>: <span class="number">2px</span>;<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;<span class="attribute">background</span>: <span class="number">#fff</span>;&#125;</div><div class="line"><span class="comment">/*鼠标悬停旋转头像*/</span></div><div class="line"><span class="selector-class">.ds-post</span>:hover <span class="selector-class">.ds-avatar</span> <span class="selector-tag">img</span>&#123;<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-webkit-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-moz-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-o-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-ms-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);<span class="attribute">border-radius</span>:<span class="number">30px</span> <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-reset</span> <span class="selector-class">.ds-avatar</span> <span class="selector-tag">img</span>:hover&#123;<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-webkit-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-moz-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-o-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);-ms-<span class="attribute">transform</span>:rotate(<span class="number">360deg</span>);<span class="attribute">border-radius</span>:<span class="number">30px</span> <span class="meta">!important</span>;&#125;</div></pre></td></tr></table></figure>
-<h3 id="③-通用样式"><a href="#③-通用样式" class="headerlink" title="③ 通用样式"></a>③ 通用样式</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-class">.ds-comment-body</span>, <span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-tag">ul</span><span class="selector-class">.ds-children</span> <span class="selector-class">.ds-comment-body</span>&#123;<span class="attribute">padding-left</span>:<span class="number">70px</span> <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-class">.ds-comment-body</span>, <span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-tag">ul</span><span class="selector-class">.ds-children</span> <span class="selector-class">.ds-comment-body</span>&#123;<span class="attribute">padding-left</span>:<span class="number">70px</span> <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-class">.ds-post</span>:hover&#123;<span class="attribute">background</span>:<span class="number">#eee</span> <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-tag">ul</span><span class="selector-class">.ds-children</span> <span class="selector-class">.ds-avatar</span>&#123;<span class="attribute">width</span>:<span class="number">50px</span> <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-class">.ds-replybox</span>&#123;<span class="attribute">padding</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">80px</span> <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-reset</span> <span class="selector-id">#ds-ctx</span> <span class="selector-class">.ds-ctx-entry</span> <span class="selector-class">.ds-ctx-body</span>&#123;<span class="attribute">margin-left</span>: <span class="number">68px</span> <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-recent-comments</span> <span class="selector-tag">li</span><span class="selector-class">.ds-comment</span>:nth-of-type(1)&#123;<span class="attribute">border</span>:none <span class="meta">!important</span>;&#125;</div><div class="line"><span class="selector-id">#ds-thread</span>&#123; </div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/** 多说最近留言样式 **/</span></div><div class="line"><span class="selector-id">#ds-recent-comments</span> <span class="selector-class">.ds-avatar</span> <span class="selector-tag">img</span>&#123;   </div><div class="line">    <span class="attribute">width</span>:<span class="number">54px</span>;<span class="attribute">height</span>:<span class="number">54px</span>; </div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>; </div><div class="line">    -webkit-<span class="attribute">border-radius</span>: <span class="number">50%</span>; </div><div class="line">    -moz-<span class="attribute">border-radius</span>:<span class="number">50%</span>;   </div><div class="line">    <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#3333</span>sf;<span class="comment">/*设置图像阴影效果*/</span>  </div><div class="line">    -webkit-<span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#3333</span>sf;   </div><div class="line">    -webkit-<span class="attribute">transition</span>: <span class="number">0.4s</span>;      </div><div class="line">    -webkit-<span class="attribute">transition</span>: -webkit-transform <span class="number">0.4s</span> ease-out;   </div><div class="line">    <span class="attribute">transition</span>: transform <span class="number">0.4s</span> ease-out;</div><div class="line">    -moz-<span class="attribute">transition</span>: -moz-transform <span class="number">0.4s</span> ease-out;   </div><div class="line">&#125;    </div><div class="line"><span class="selector-id">#ds-recent-comments</span> <span class="selector-class">.ds-avatar</span> <span class="selector-tag">img</span>:hover&#123;  </div><div class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#fff</span>; rgba(255,255,255,<span class="selector-class">.6</span>), inset 0 0 20px rgba(255,255,255,1);   </div><div class="line">    -webkit-<span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="number">#fff</span>; rgba(255,255,255,<span class="selector-class">.6</span>), inset 0 0 20px rgba(255,255,255,1);   </div><div class="line">    <span class="attribute">transform</span>: rotateZ(<span class="number">360deg</span>);</div><div class="line">    -webkit-<span class="attribute">transform</span>: rotateZ(<span class="number">360deg</span>);   </div><div class="line">    -moz-<span class="attribute">transform</span>: rotateZ(<span class="number">360deg</span>);   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="④-按钮样式"><a href="#④-按钮样式" class="headerlink" title="④ 按钮样式"></a>④ 按钮样式</h3><p>修改了透明度、背景、边框样式<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.ds-meta</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: .<span class="number">5</span>;</div><div class="line">    &#125;</div><div class="line"><span class="selector-class">.ds-meta</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"><span class="selector-id">#ds-thread</span> <span class="selector-id">#ds-reset</span> <span class="selector-tag">a</span><span class="selector-class">.ds-like-thread-button</span> &#123;</div><div class="line">    <span class="attribute">background-image</span>: none;</div><div class="line">    <span class="attribute">background-color</span>: <span class="number">#fee2d3</span>;</div><div class="line">    <span class="attribute">border</span>: none;</div><div class="line">    <span class="attribute">text-shadow</span>: none;</div><div class="line">    <span class="attribute">font-family</span>: inherit;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<h3 id="⑤-剩余自定义样式查看参考资料"><a href="#⑤-剩余自定义样式查看参考资料" class="headerlink" title="⑤ 剩余自定义样式查看参考资料"></a>⑤ 剩余自定义样式查看参考资料</h3><blockquote>
-<p><a href="http://moxfive.xyz/2015/09/29/duoshuo-style/" target="_blank" rel="external">多说样式折腾记录 — 添加 UA 浏览器标识、旋转头像等</a></p>
-</blockquote>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
-<p><a href="http://moxfive.xyz/2015/09/29/duoshuo-style/" target="_blank" rel="external">多说样式折腾记录 — 添加 UA 浏览器标识、旋转头像等</a><br><a href="https://wsgzao.github.io/post/duoshuo/#多说后台自定义CSS" target="_blank" rel="external">多说后台自定义css</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      多说样式美化
-    
-    </summary>
-    
-      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="多说" scheme="http://www.xianwx.xyz/tags/%E5%A4%9A%E8%AF%B4/"/>
-    
-      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>加强你的quick look</title>
-    <link href="http://www.xianwx.xyz/2016/09/09/power-up-your-quick-look/"/>
-    <id>http://www.xianwx.xyz/2016/09/09/power-up-your-quick-look/</id>
-    <published>2016-09-09T02:21:17.000Z</published>
-    <updated>2016-09-16T14:21:41.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="quick-look"><a href="#quick-look" class="headerlink" title="quick look"></a>quick look</h2><p>用mac的同学经常用<code>空格</code>键来预览一些文件的内容吧，在只想观看但是不打算修改内容的话用quick look正好，比如看文本，看psd的图片。<br>但是系统自带的只支持预览一些文本以及图像。</p>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. 安装brew</div><div class="line">    自行Google</div><div class="line">2. 安装brew cask</div><div class="line">    brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask</div><div class="line">3. 使用命令行来安装插件：brew cask install ***</div></pre></td></tr></table></figure>
-<h2 id="插件名收集"><a href="#插件名收集" class="headerlink" title="插件名收集"></a>插件名收集</h2><ul>
-<li>比如写博客要用到markdown，装个预览.md的插件吧：brew cask install qlmarkdown</li>
-<li>需要预览无后缀名的文件：brew cask install qlstephen</li>
-<li>程序员喜欢的，可以高亮代码的（可惜不能高亮lua：brew cask install qlcolorcode</li>
-<li>需要预览json的（也可以到<a href="http://www.kjson.com/jsoneditor/" target="_blank" rel="external">kjson</a>：brew cask install quicklook-json</li>
-<li>如果有安装BetterZip，安装这个可以通过BetterZip查看压缩文件的信息以及文件目录：brew cask install betterzipql</li>
-<li>做游戏的可能会需要预览csv文件：brew cask install quicklook-csv</li>
-<li>预览图片的时候显示分辨率和大小(过程中可能需要输入密码：brew cask install qlimagesize</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      让预览来的更多一些吧！
-    
-    </summary>
-    
-      <category term="生活所得" scheme="http://www.xianwx.xyz/categories/%E7%94%9F%E6%B4%BB%E6%89%80%E5%BE%97/"/>
-    
-    
-      <category term="mac" scheme="http://www.xianwx.xyz/tags/mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用github + hexo搭建一个属于自己的博客</title>
-    <link href="http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/"/>
-    <id>http://www.xianwx.xyz/2016/09/08/build-hexo-blog-with-github-pages/</id>
-    <published>2016-09-08T11:36:27.000Z</published>
-    <updated>2018-05-19T02:49:01.604Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>hexo是一个静态博客程序，基于Node.js。有很多主题，大多都简约优雅，适合技术人员以及一些不喜欢博客里充斥着广告，奇怪的布局的人。而且hexo用markdown写，语法比较简单。<br>github可以托管一个通过特殊的地址访问到的page，可以通过hexo创建好博客然后托管到github上，空间也基本足够。<br>我使用它是因为我写博客只是想记录一些东西，自己的记忆力太差。而且如果分享出来如果有人一起研究探讨，甚至能帮助到其他人，那是多么快乐的一件事情。</p>
-<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h2><p><strong>本文是for Mac</strong><br>Mac自带了<a href="https://git-scm.com/downloads" target="_blank" rel="external">git</a><br>配置好ssh<br>安装<a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a><br>确保npm安装成功</p>
-<h2 id="3-在github上创建创库"><a href="#3-在github上创建创库" class="headerlink" title="3. 在github上创建创库"></a>3. 在github上创建创库</h2><p>每个github账户都可以创建一个可以直接通过‘用户名.github.io’访问到的仓库。<br>步骤：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">① 在github上新建一个responsitory</div><div class="line">② 给仓库命名为自己的用户名.github.io</div><div class="line">③ 保存，过一小段时间就可以通过`用户名.github.io`访问了。</div><div class="line">④ clone到本地，本文假设clone到一个名为blog的文件夹下。</div></pre></td></tr></table></figure></p>
-<h2 id="4-安装hexo"><a href="#4-安装hexo" class="headerlink" title="4. 安装hexo"></a>4. 安装hexo</h2><p>使用命令行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g   #-g表示全局安装, npm默认为当前项目安装</div></pre></td></tr></table></figure></p>
-<h2 id="5-运行hexo"><a href="#5-运行hexo" class="headerlink" title="5. 运行hexo"></a>5. 运行hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd blog</div><div class="line">$ hexo init #初始化</div><div class="line">$ hexo g #这条是生成静态界面，也可以用hexo generate，g是缩写</div><div class="line">$ hexo s #hexo server的缩写，启动服务器，现在你可以打开`http://localhost:4040/`看到你的界面了，初始化会创建好一个页面</div></pre></td></tr></table></figure>
-<h2 id="6-设置你想要的主题"><a href="#6-设置你想要的主题" class="headerlink" title="6. 设置你想要的主题"></a>6. 设置你想要的主题</h2><p>我使用的主题是<strong><a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" rel="external">yelee</a></strong><br>很简单，运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/MOxFIVE/hexo-theme-yelee.git themes/yelee</div></pre></td></tr></table></figure></p>
-<p>然后修改blog下的_config.yml文件<br><code>theme: yelee</code></p>
-<h2 id="7-部署到github"><a href="#7-部署到github" class="headerlink" title="7. 部署到github"></a>7. 部署到github</h2><p>修改_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/xianwx/xianwx.github.io.git(这里改成你自己的刚才新建的github responsitory)</div><div class="line">  branch: master</div></pre></td></tr></table></figure></p>
-<p>安装插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
-<p>设置成功过后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d #deploy的缩写，首次会让你输入账号密码</div></pre></td></tr></table></figure></p>
-<p>等待上传成功，可以打开<strong><a href="http://xianwx.github.io" target="_blank" rel="external">http://xianwx.github.io</a></strong>看效果啦！</p>
-<h2 id="8-添加多说"><a href="#8-添加多说" class="headerlink" title="8. 添加多说"></a>8. 添加多说</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">① 到http://duoshuo.com/create-site/新建一个站点</div><div class="line">② 站点地址填http://xianwx.github.io 这个，域名随便写个，比如我是yuzixin</div><div class="line"></div><div class="line">如果你使用跟我不一样的主题，跳过不看后面这步，去自己看主题里的配置方法。</div><div class="line">③ 打开yelee/_config.yml，找到duoshuo，把on的值改为true，domain: 写自己的域名（上边的yuzixin）</div></pre></td></tr></table></figure>
-<h2 id="9-接入打赏"><a href="#9-接入打赏" class="headerlink" title="9. 接入打赏"></a>9. 接入打赏</h2><p>打开themes/yelee/layout/_partial/article.ejs下边，在div模块加上下边代码<br><a href="https://xianwx.github.io/show/article.txt" target="_blank" rel="external">代码段</a></p>
-<p>然后在主题的_config.yml里加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">donate:</div><div class="line">  enable: true</div><div class="line">  text: 会不会有人就是想不开要打赏我呢？这是个问题！</div><div class="line">  wechat: http://odkw6ym6r.bkt.clouddn.com/weixin.png</div><div class="line">  alipay: http://odkw6ym6r.bkt.clouddn.com/zhifubao.png</div></pre></td></tr></table></figure></p>
-<h2 id="10-插件配置"><a href="#10-插件配置" class="headerlink" title="10. 插件配置"></a>10. 插件配置</h2><p>在_config.yml里，有个plugins<br>在安装了插件过后，就可以在这里选择使用格式是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plugins: -hexo-generator-feed -hexo-generator-search</div></pre></td></tr></table></figure></p>
-<p>(我分行写会报错，只能一整行写过去)<br>更多plugins：<a href="https://hexo.io/plugins/" target="_blank" rel="external">https://hexo.io/plugins/</a></p>
-<h2 id="11-图床"><a href="#11-图床" class="headerlink" title="11. 图床"></a>11. 图床</h2><p>到<a href="https://portal.qiniu.com/create" target="_blank" rel="external">https://portal.qiniu.com/create</a>注册一个账号<br>参考<a href="http://www.jianshu.com/p/6dce6094bf61" target="_blank" rel="external">如何使用七牛</a></p>
-<h2 id="12-如何保存自己的博客"><a href="#12-如何保存自己的博客" class="headerlink" title="12. 如何保存自己的博客"></a>12. 如何保存自己的博客</h2><p>今天想了一下怎么保存，思路是：<br>    相同的仓库下新建一个目录，或者新建一个仓库<br>    clone下来跟blog关联（还没开始的先clone下来然后hexo init那个文件夹，已经init过了clone下来然后把东西拷贝过去）<br>    如果跟博客是相同的目录，checkout到保存的分支，反正使用hexo d是会推送到master分支的，也指定好仓库的，所以不需要担心<br>    每次有修改push一下就好了。</p>
-<h2 id="13-about-me-and-tabs"><a href="#13-about-me-and-tabs" class="headerlink" title="13. about me and tabs"></a>13. about me and tabs</h2><p>想写about me的话，使用hexo new about me.</p>
-<h2 id="14-如何绑定域名"><a href="#14-如何绑定域名" class="headerlink" title="14. 如何绑定域名"></a>14. 如何绑定域名</h2>]]></content>
-    
-    <summary type="html">
-    
-      自己的才是最好的！
-    
-    </summary>
-    
-      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hello world</title>
-    <link href="http://www.xianwx.xyz/2016/08/27/hello-world/"/>
-    <id>http://www.xianwx.xyz/2016/08/27/hello-world/</id>
-    <published>2016-08-27T09:13:42.000Z</published>
-    <updated>2018-05-19T02:48:52.082Z</updated>
-    
-    <content type="html"><![CDATA[<p>一直想弄个自己的博客，但是去了很多博客网站都觉得冗余信息太多，我需要的是漂漂亮亮的简洁的博客，于是找到了hexo + github.</p>
-<p>慢慢会补上各个博文的，github也会慢慢上传些代码。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      我的第一个页面。
-    
-    </summary>
-    
-      <category term="个人牢骚" scheme="http://www.xianwx.xyz/categories/%E4%B8%AA%E4%BA%BA%E7%89%A2%E9%AA%9A/"/>
-    
-    
-      <category term="随笔" scheme="http://www.xianwx.xyz/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
