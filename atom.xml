@@ -179,7 +179,7 @@
     <link href="http://www.xianwx.xyz/2018/07/19/node-learn-record/"/>
     <id>http://www.xianwx.xyz/2018/07/19/node-learn-record/</id>
     <published>2018-07-19T02:22:25.000Z</published>
-    <updated>2018-07-19T04:02:12.346Z</updated>
+    <updated>2018-07-19T06:11:20.013Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开启HTTP服务器"><a href="#开启HTTP服务器" class="headerlink" title="开启HTTP服务器"></a>开启HTTP服务器</h1><a href="/2018/07/19/node-start-server/" title="Node开启一个HTTP服务器">Node开启一个HTTP服务器</a>
 <h1 id="如何使用curl"><a href="#如何使用curl" class="headerlink" title="如何使用curl"></a>如何使用curl</h1><a href="/2018/07/19/how-to-use-curl/" title="怎么使用curl模拟http请求">怎么使用curl模拟http请求</a>
@@ -192,7 +192,7 @@
 <li>ajax的全称是AsynchronousJavascript+XML。即：异步传输+js+XML。是一种技术，只要是这样做的都可以称为ajax请求。</li>
 <li>CommonJS规范的提出。</li>
 </ul>
-<p>—————————————————————————————我是萌萌哒的分割线—————————————————————————————</p>
+<p>—————————我是萌萌哒的分割线—————————</p>
 <ul>
 <li>上下文提供了exports对象用于导出当前模块的方法或者变量，并且是它唯一的导出的出口。</li>
 <li>在Node中一个文件就是一个模块，在模块中存在一个module对象，它代表模块自身，exports也是module的属性。将方法挂载在exports对象上作为属性即可定义导出的方式。</li>
