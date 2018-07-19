@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
+    <lastmod>2018-07-19T04:02:12.346Z</lastmod>
+    <data>
+        <display>
+        <title>Node学习记录</title>
+        <pubTime>2018-07-19T02:22:25.000Z</pubTime>
+        
+        <tag>http</tag>
+         
+        <tag>Node</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
     <lastmod>2018-07-19T03:49:26.539Z</lastmod>
     <data>
@@ -31,9 +53,9 @@
         <title>Android设置应用启动页</title>
         <pubTime>2018-07-19T03:34:12.000Z</pubTime>
         
-        <tag>quick cocos</tag>
-         
         <tag>Android</tag>
+         
+        <tag>quick cocos</tag>
          
          
            
@@ -53,31 +75,9 @@
         <title>给lua文件注入插件的方法</title>
         <pubTime>2017-01-07T03:54:39.000Z</pubTime>
         
-        <tag>lua</tag>
-         
         <tag>quick cocos</tag>
          
-         
-           
-             
-              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xianwx.xyz/2018/07/19/node-learn-record/</loc>
-    <lastmod>2018-07-19T03:30:20.477Z</lastmod>
-    <data>
-        <display>
-        <title>Node学习记录</title>
-        <pubTime>2018-07-19T02:22:25.000Z</pubTime>
-        
-        <tag>http</tag>
-         
-        <tag>Node</tag>
+        <tag>lua</tag>
          
          
            
