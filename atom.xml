@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-19T07:26:31.317Z</updated>
+  <updated>2018-07-23T08:01:49.556Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu Linux 16.04下如何安装Jenkins</title>
+    <link href="http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/"/>
+    <id>http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/</id>
+    <published>2018-07-23T07:58:35.000Z</published>
+    <updated>2018-07-23T08:01:49.556Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><a href="/2018/07/23/linux-install-java/" title="Ubuntu Linux 16.04下如何安装Java">Ubuntu Linux 16.04下如何安装Java</a>
+<h1 id="安装Jenkins"><a href="#安装Jenkins" class="headerlink" title="安装Jenkins"></a>安装Jenkins</h1><p>很简单，只需要四个命令。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -</div><div class="line">sudo sh -c <span class="string">'echo deb http://pkg.jenkins.io/debian-stable binary/ &gt; /etc/apt/sources.list.d</span></div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install jenkins</div></pre></td></tr></table></figure></p>
+<p>（如果出现”subprocess installed post-installation script returned error exit status 1”，看另外一篇。）<br>等待安装完毕，即可反问Jenkins，默认端口8080，配置文件在<code>/etc/default/jenkins</code>里。<br>此时通过 ip:8080可以访问Jenkins，初次访问界面上会提供一个地址文件让你去看密码，取的密码后，新建一个admin的用户，就可以欢快的使用Jenkins了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      人人都爱Jenkins
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Linux JDK多版本管理</title>
+    <link href="http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/"/>
+    <id>http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/</id>
+    <published>2018-07-23T07:46:36.000Z</published>
+    <updated>2018-07-23T07:51:32.469Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近给远程Linux装Jenkins，已经预装好JDK 9，但是在安装Jenkins的时候一直出以下错误：</p>
+<p><img src="/images/3DF39BE8305CF58C4BD4F2A8E64249D4.jpg" alt="3DF39BE8305CF58C4BD4F2A8E64249D4"></p>
+<p>重点是：Found an incorrect Java version.原来是我的Java版本跟它要求的不符（妈蛋，我装的最新的啊！</p>
+<p>我只好查了一下我装的版本需求的JDK是什么版本，哦，是JDK8.</p>
+<p>8 我也有装啊兄弟！我们是自己人啊！干嘛报错啊！<br>于是运行：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>一检查，openjdk的版本是9，好的吧，我试试直接改环境变量<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/"</span> &gt;&gt; /etc/environment</div><div class="line"><span class="built_in">source</span> /etc/environment</div></pre></td></tr></table></figure></p>
+<p>然而并没有什么卵用。。。。敌人很火力很强，我们快支持不住了！</p>
+<p>但系，有个软件可以很方便的管理多版本，那就是——alternatives。</p>
+<p>执行命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div><div class="line">sudo update-alternatives --config javac</div></pre></td></tr></table></figure></p>
+<p>执行了用数字序号来选择版本，再次执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>来查看版本，发现已经被改了，nice！</p>
+<p>对alternatives的更多了解，请查看我参考的文章：<a href="http://www.cnblogs.com/fordreamxin/p/4287706.html" target="_blank" rel="external">linux jdk版本随时切换</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      你其实并不缺管理者
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+      <category term="alternatives" scheme="http://www.xianwx.xyz/tags/alternatives/"/>
+    
+      <category term="Java" scheme="http://www.xianwx.xyz/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu Linux 16.04下如何安装Java</title>
+    <link href="http://www.xianwx.xyz/2018/07/23/linux-install-java/"/>
+    <id>http://www.xianwx.xyz/2018/07/23/linux-install-java/</id>
+    <published>2018-07-23T07:34:57.000Z</published>
+    <updated>2018-07-23T07:48:44.960Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搜索可以安装的JDK包"><a href="#搜索可以安装的JDK包" class="headerlink" title="搜索可以安装的JDK包"></a>搜索可以安装的JDK包</h1><p>使用命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-cache search openjdk</div></pre></td></tr></table></figure></p>
+<p><img src="/images/BBDB7F41B79194165AD98AA280D9CC82.jpg" alt="BBDB7F41B79194165AD98AA280D9CC82"></p>
+<h1 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h1><p>sudo apt-get install openjdk-9-jre openjdk-9-jdk</p>
+<h1 id="配置JAVA-HOME"><a href="#配置JAVA-HOME" class="headerlink" title="配置JAVA_HOME"></a>配置JAVA_HOME</h1><p>安装完成可以执行命令来查看安装情况。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p><img src="/images/163CF94DE061CDF1CA25196DF29AE8AF.jpg" alt="163CF94DE061CDF1CA25196DF29AE8AF"></p>
+<p>然后在环境变量里设置JAVA_HOME的值，用命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"JAVA_HOME=YOUR_JDK_PATH"</span> &gt;&gt; /etc/environment</div><div class="line"><span class="built_in">source</span> /etc/environment</div></pre></td></tr></table></figure></p>
+<p>最后使用：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></div></pre></td></tr></table></figure></p>
+<p>来查看环境值设置的对不对。</p>
+<h1 id="多版本JDK切换"><a href="#多版本JDK切换" class="headerlink" title="多版本JDK切换"></a>多版本JDK切换</h1><a href="/2018/07/23/alternatives-manage-jdk/" title="Linux JDK多版本管理">Linux JDK多版本管理</a>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.linuxidc.com/Linux/2017-11/148941.htm" target="_blank" rel="external">如何在Ubuntu和Debian中安装OpenJDK Java 9/8</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      不装Java是不可能的，这辈子都不可能的。
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+      <category term="Java" scheme="http://www.xianwx.xyz/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>写cocos的时候一些踩雷记录</title>
@@ -60,9 +153,9 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Android" scheme="http://www.xianwx.xyz/tags/Android/"/>
-    
       <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
+    
+      <category term="Android" scheme="http://www.xianwx.xyz/tags/Android/"/>
     
   </entry>
   
@@ -329,11 +422,11 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
       <category term="http" scheme="http://www.xianwx.xyz/tags/http/"/>
     
       <category term="server" scheme="http://www.xianwx.xyz/tags/server/"/>
-    
-      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
     
   </entry>
   
@@ -388,9 +481,9 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="server" scheme="http://www.xianwx.xyz/tags/server/"/>
-    
       <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+      <category term="server" scheme="http://www.xianwx.xyz/tags/server/"/>
     
       <category term="skynet" scheme="http://www.xianwx.xyz/tags/skynet/"/>
     
@@ -618,122 +711,6 @@
     
     
       <category term="git" scheme="http://www.xianwx.xyz/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>持续完善hexo博客</title>
-    <link href="http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/"/>
-    <id>http://www.xianwx.xyz/2018/05/19/hexo-keep-pref/</id>
-    <published>2018-05-19T02:07:33.000Z</published>
-    <updated>2018-07-19T02:54:37.642Z</updated>
-    
-    <content type="html"><![CDATA[<p>把博客搭建起来都一年多了，因为一直没啥人看，所以都懒得更新，现在想想，岂不是浪费了当初搭建的那半个多小时？</p>
-<p>以后如果对博客有啥修改，就统一在这里更新。</p>
-<p>update 2018-05-19:</p>
-<h2 id="一般博客都需要有的一个功能：置顶"><a href="#一般博客都需要有的一个功能：置顶" class="headerlink" title="一般博客都需要有的一个功能：置顶"></a>一般博客都需要有的一个功能：置顶</h2><p>修改<code>node_modules/hexo-generator-index/lib/generator.js</code><br>加上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">posts.data = posts.data.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></div><div class="line">            <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
-<p>即可以用top值（默认0）来进行排序，数字越大的，就会排在越前面，top相等则以日期排序<br>参考<a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Hexo搭建博客教程</a></p>
-<h2 id="一般人都喜欢干的事情：添加音乐"><a href="#一般人都喜欢干的事情：添加音乐" class="headerlink" title="一般人都喜欢干的事情：添加音乐"></a>一般人都喜欢干的事情：添加音乐</h2><p>好久之前就给自己博客加了音乐，但是！<br>我完全忘了是怎么加的了！</p>
-<ul>
-<li>打开网易云网页版</li>
-<li>登陆</li>
-<li>打开自己的歌单，有个生成外链播放器的按钮</li>
-<li>获取到外链代码，修改<code>layout/_partial/left-col.ejs</code>比如：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;div id=<span class="string">"music-area"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"switch-area"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">marginwidth</span>=<span class="string">"0"</span> <span class="attr">marginheight</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">290</span> <span class="attr">height</span>=<span class="string">310</span> <span class="attr">src</span>=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=523244238&amp;auto=1&amp;height=380&amp;qlrc=1"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="给博客文章插入图片"><a href="#给博客文章插入图片" class="headerlink" title="给博客文章插入图片"></a>给博客文章插入图片</h2><p>可以把图片放在source目录下边，比如新建一个images文件夹，既可以用这种方式访问到它们。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](/images/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg)</div></pre></td></tr></table></figure></p>
-<p>参考：<a href="https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/" target="_blank" rel="external">Hexo博客搭建之在文章中插入图片</a></p>
-<h2 id="给博客文章引用站内其它文章"><a href="#给博客文章引用站内其它文章" class="headerlink" title="给博客文章引用站内其它文章"></a>给博客文章引用站内其它文章</h2>
-<p>e.g:<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% post_link node-start-server Node开启一个HTTP服务器 %&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      持续性博客作死记录
-    
-    </summary>
-    
-      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="hexo" scheme="http://www.xianwx.xyz/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>更好的管理你的git SSH-Key</title>
-    <link href="http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/"/>
-    <id>http://www.xianwx.xyz/2017/01/07/manage-your-git-ssh-key/</id>
-    <published>2017-01-07T06:59:38.000Z</published>
-    <updated>2017-01-23T03:38:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>   日常工作中，我们经常碰到又想写公司的项目，又想自己维护自己的项目，公司的项目基本都在gitlab上，自己的项目在github上，所以我们需要配置不同的SSH-Key来对应不同的环境。</p>
-<h2 id="1-设置一个默认的全局name和email"><a href="#1-设置一个默认的全局name和email" class="headerlink" title="1. 设置一个默认的全局name和email"></a>1. 设置一个默认的全局name和email</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"your name"</span></div><div class="line">git config --global user.email <span class="string">"your email addr"</span></div></pre></td></tr></table></figure>
-<p>如果不设置这个，已经clone过的每个项目都需要去手动设置一下归属到哪个账户（当然，如果你是用那个clone下来的倒没事，像我是已经clone过了，不得不设置啊）</p>
-<h2 id="2-生成SSH-Key"><a href="#2-生成SSH-Key" class="headerlink" title="2. 生成SSH-Key"></a>2. 生成SSH-Key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your company email"</span> <span class="_">-f</span> ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
-<p>一般都叫id_rsa，第一个先弄公司的好了，然后再对应的公司的账户下边加上id_rsa.pub里的内容<br>再生成github的SSH-Key：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your github email"</span> <span class="_">-f</span> ~/.ssh/my_rsa</div></pre></td></tr></table></figure>
-<p>同上，把my_rsa.pub里的内容加到github服务器的配置中。</p>
-<h2 id="3-添加私钥"><a href="#3-添加私钥" class="headerlink" title="3. 添加私钥"></a>3. 添加私钥</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa </div><div class="line">$ ssh-add ~/.ssh/my_rsa</div></pre></td></tr></table></figure>
-<p>上面一步执行如果失败，并且提示的是”Could not open a connection to your authentication agent”,执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent bash</div></pre></td></tr></table></figure></p>
-<p>添加成功过后，可以执行下面这条查看结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add <span class="_">-l</span></div></pre></td></tr></table></figure></p>
-<h2 id="4-修改host配置"><a href="#4-修改host配置" class="headerlink" title="4. 修改host配置"></a>4. 修改host配置</h2><p>打开~/.ssh里的config文件（如果没有就新建一个，没有后缀名）<br>加上以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># gitlab</div><div class="line">Host gitlab.com</div><div class="line">    HostName 公司gitlab地址</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/id_rsa</div><div class="line">    User 你想要的名字</div><div class="line"># github</div><div class="line">Host github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/github_rsa</div><div class="line">    User 你github要显示的名字</div></pre></td></tr></table></figure></p>
-<p>测试一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<p>也可以试试公司的网址，如果出现Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access.就可以了。</p>
-<h2 id="5-对应账号"><a href="#5-对应账号" class="headerlink" title="5. 对应账号"></a>5. 对应账号</h2><p>如果已经设置了global的用户名和email，就得到不想用默认账户对应的项目文件夹下执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config user.name <span class="string">"your github name"</span></div><div class="line">$ git config user.email <span class="string">"your github email"</span></div></pre></td></tr></table></figure></p>
-<p>这样就可以使用github的账号了。如果不想有默认的而且设置过，可以执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global --unset user.name</div><div class="line">$ git config --global --unset user.email</div></pre></td></tr></table></figure></p>
-<h2 id="6-对于本博客的修改"><a href="#6-对于本博客的修改" class="headerlink" title="6. 对于本博客的修改"></a>6. 对于本博客的修改</h2><p>在博客目录下边的.deploy_git下边里有config文件，这是hexo提交的时候对应的config文件，可以把.git下边的config里的user拷过来，顺便把这个url改成ssh的。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      分别管理公司以及个人的ssh-key
-    
-    </summary>
-    
-      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="git" scheme="http://www.xianwx.xyz/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>给lua文件注入插件的方法</title>
-    <link href="http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/"/>
-    <id>http://www.xianwx.xyz/2017/01/07/ext-layer-in-quick-cocos/</id>
-    <published>2017-01-07T03:54:39.000Z</published>
-    <updated>2018-07-19T03:37:09.037Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-初衷"><a href="#1-初衷" class="headerlink" title="1. 初衷"></a>1. 初衷</h2><p>好久没有更新博客了，之前写了lua元表相关的东西，如果对元表不理解的话，可以在看一下<a href="/2016/09/23/lua-multiple-inheritance/" title="lua的元表以及多继承">lua的元表以及多继承</a>。<br>现在在用quick cocos在写一款游戏，等空闲了可以来更新一下躺过的坑。<br>闲话少说，现在用cocos开发，走的路子多是策划或者美术拼出界面(cocos studio)，然后到处csb文件程序加载，再对界面进行各项处理(creator没用过)。<br>于是问题来了，一般的做法，将csb读取过来作为layer的child，可能会出现非常多次的对其getChild（可能层次很深），对csb上的某个控件进行setString、setTexture等，怎么做比较好？</p>
-<h2 id="2-解决方案"><a href="#2-解决方案" class="headerlink" title="2. 解决方案"></a>2. 解决方案</h2><p>提供几个解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 写一个公用方法，获取csb的控件，每次都先取得控件后对其操作</div><div class="line">* 写很多个公用方法，对setString的操作啊，对setTexture的操作啊都写上</div><div class="line">* 写很多个local方法，代码一样</div><div class="line">* 也是写很多个公用方法，分成各个插件，layer自己选择要去组装哪些</div></pre></td></tr></table></figure></p>
-<h2 id="3-插件的实现方法"><a href="#3-插件的实现方法" class="headerlink" title="3. 插件的实现方法"></a>3. 插件的实现方法</h2><p>非常简单，只需要几步</p>
-<ul>
-<li><p>写插件，e.g:</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> ext = &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ext:setString</span><span class="params">()</span></span></div><div class="line">    <span class="comment">-- do set string</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(layer)</span></span></div><div class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(ext) <span class="keyword">do</span></div><div class="line">        <span class="comment">-- 这里加上assert是怕覆盖了原有的字段</span></div><div class="line">        <span class="built_in">assert</span>(<span class="keyword">not</span> layer[k], <span class="built_in">string</span>.format(<span class="string">"funciton %s exist"</span>, k))</div><div class="line">        layer[k] = v</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>注入</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> layer = display.newLayer()</div><div class="line"><span class="built_in">require</span>(<span class="string">"ext"</span>)(layer)</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用<br>这样就可以直接使用</p>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layer:setString()</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h2><p>使用这种注入的方法，可以大幅度减少代码的重复量，也可以不用增加很多公用的方法，安全且高效。<br>注入的方法重点是ext的return 函数，对于<strong>使用.</strong>的方法需要有另外的写法。<br>等空闲时间，我会整理一个管理scene layer的框架，包括读取csb等框架传到github上。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      让代码变得更加简洁高效
-    
-    </summary>
-    
-      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
-    
-      <category term="lua" scheme="http://www.xianwx.xyz/tags/lua/"/>
     
   </entry>
   

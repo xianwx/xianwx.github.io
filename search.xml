@@ -4,6 +4,49 @@
   
     
     <entry>
+      <title><![CDATA[Ubuntu Linux 16.04下如何安装Jenkins]]></title>
+      <url>http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/</url>
+      <content type="html"><![CDATA[<h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><a href="/2018/07/23/linux-install-java/" title="Ubuntu Linux 16.04下如何安装Java">Ubuntu Linux 16.04下如何安装Java</a>
+<h1 id="安装Jenkins"><a href="#安装Jenkins" class="headerlink" title="安装Jenkins"></a>安装Jenkins</h1><p>很简单，只需要四个命令。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -</div><div class="line">sudo sh -c <span class="string">'echo deb http://pkg.jenkins.io/debian-stable binary/ &gt; /etc/apt/sources.list.d</span></div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install jenkins</div></pre></td></tr></table></figure></p>
+<p>（如果出现”subprocess installed post-installation script returned error exit status 1”，看另外一篇。）<br>等待安装完毕，即可反问Jenkins，默认端口8080，配置文件在<code>/etc/default/jenkins</code>里。<br>此时通过 ip:8080可以访问Jenkins，初次访问界面上会提供一个地址文件让你去看密码，取的密码后，新建一个admin的用户，就可以欢快的使用Jenkins了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux JDK多版本管理]]></title>
+      <url>http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/</url>
+      <content type="html"><![CDATA[<p>最近给远程Linux装Jenkins，已经预装好JDK 9，但是在安装Jenkins的时候一直出以下错误：</p>
+<p><img src="/images/3DF39BE8305CF58C4BD4F2A8E64249D4.jpg" alt="3DF39BE8305CF58C4BD4F2A8E64249D4"></p>
+<p>重点是：Found an incorrect Java version.原来是我的Java版本跟它要求的不符（妈蛋，我装的最新的啊！</p>
+<p>我只好查了一下我装的版本需求的JDK是什么版本，哦，是JDK8.</p>
+<p>8 我也有装啊兄弟！我们是自己人啊！干嘛报错啊！<br>于是运行：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>一检查，openjdk的版本是9，好的吧，我试试直接改环境变量<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/"</span> &gt;&gt; /etc/environment</div><div class="line"><span class="built_in">source</span> /etc/environment</div></pre></td></tr></table></figure></p>
+<p>然而并没有什么卵用。。。。敌人很火力很强，我们快支持不住了！</p>
+<p>但系，有个软件可以很方便的管理多版本，那就是——alternatives。</p>
+<p>执行命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div><div class="line">sudo update-alternatives --config javac</div></pre></td></tr></table></figure></p>
+<p>执行了用数字序号来选择版本，再次执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>来查看版本，发现已经被改了，nice！</p>
+<p>对alternatives的更多了解，请查看我参考的文章：<a href="http://www.cnblogs.com/fordreamxin/p/4287706.html" target="_blank" rel="external">linux jdk版本随时切换</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Ubuntu Linux 16.04下如何安装Java]]></title>
+      <url>http://www.xianwx.xyz/2018/07/23/linux-install-java/</url>
+      <content type="html"><![CDATA[<h1 id="搜索可以安装的JDK包"><a href="#搜索可以安装的JDK包" class="headerlink" title="搜索可以安装的JDK包"></a>搜索可以安装的JDK包</h1><p>使用命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-cache search openjdk</div></pre></td></tr></table></figure></p>
+<p><img src="/images/BBDB7F41B79194165AD98AA280D9CC82.jpg" alt="BBDB7F41B79194165AD98AA280D9CC82"></p>
+<h1 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h1><p>sudo apt-get install openjdk-9-jre openjdk-9-jdk</p>
+<h1 id="配置JAVA-HOME"><a href="#配置JAVA-HOME" class="headerlink" title="配置JAVA_HOME"></a>配置JAVA_HOME</h1><p>安装完成可以执行命令来查看安装情况。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p><img src="/images/163CF94DE061CDF1CA25196DF29AE8AF.jpg" alt="163CF94DE061CDF1CA25196DF29AE8AF"></p>
+<p>然后在环境变量里设置JAVA_HOME的值，用命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"JAVA_HOME=YOUR_JDK_PATH"</span> &gt;&gt; /etc/environment</div><div class="line"><span class="built_in">source</span> /etc/environment</div></pre></td></tr></table></figure></p>
+<p>最后使用：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></div></pre></td></tr></table></figure></p>
+<p>来查看环境值设置的对不对。</p>
+<h1 id="多版本JDK切换"><a href="#多版本JDK切换" class="headerlink" title="多版本JDK切换"></a>多版本JDK切换</h1><a href="/2018/07/23/alternatives-manage-jdk/" title="Linux JDK多版本管理">Linux JDK多版本管理</a>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.linuxidc.com/Linux/2017-11/148941.htm" target="_blank" rel="external">如何在Ubuntu和Debian中安装OpenJDK Java 9/8</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[写cocos的时候一些踩雷记录]]></title>
       <url>http://www.xianwx.xyz/2018/07/19/quick-cocos/</url>
       <content type="html"><![CDATA[<h1 id="C-导出给LUA使用的时候"><a href="#C-导出给LUA使用的时候" class="headerlink" title="C++导出给LUA使用的时候"></a>C++导出给LUA使用的时候</h1><p>在导出给lua使用的时候，如果父类没有导出，那父控件继承的公共方法将没有。<br>比如 EffectLight 继承自 Effect Effect 继承自 Ref 如果不导出Effect 创建的EffectLight对象将没有retain方法，除非导出Effect。</p>

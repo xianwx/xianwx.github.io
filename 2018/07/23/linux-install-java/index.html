@@ -15,16 +15,19 @@
 
 
 
-<meta name="description" content="我不仅仅是个伪装者，我是D员！（嘘）">
+<meta name="description" content="不装Java是不可能的，这辈子都不可能的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="怎么使用curl模拟http请求">
-<meta property="og:url" content="http://www.xianwx.xyz/2018/07/19/how-to-use-curl/index.html">
+<meta property="og:title" content="Ubuntu Linux 16.04下如何安装Java">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/07/23/linux-install-java/index.html">
 <meta property="og:site_name" content="yuzixin's blog">
-<meta property="og:description" content="我不仅仅是个伪装者，我是D员！（嘘）">
-<meta property="og:updated_time" content="2018-07-19T02:59:17.666Z">
+<meta property="og:description" content="不装Java是不可能的，这辈子都不可能的。">
+<meta property="og:image" content="http://www.xianwx.xyz/images/BBDB7F41B79194165AD98AA280D9CC82.jpg">
+<meta property="og:image" content="http://www.xianwx.xyz/images/163CF94DE061CDF1CA25196DF29AE8AF.jpg">
+<meta property="og:updated_time" content="2018-07-23T07:48:44.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="怎么使用curl模拟http请求">
-<meta name="twitter:description" content="我不仅仅是个伪装者，我是D员！（嘘）">
+<meta name="twitter:title" content="Ubuntu Linux 16.04下如何安装Java">
+<meta name="twitter:description" content="不装Java是不可能的，这辈子都不可能的。">
+<meta name="twitter:image" content="http://www.xianwx.xyz/images/BBDB7F41B79194165AD98AA280D9CC82.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -56,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>怎么使用curl模拟http请求 | yuzixin&#39;s blog</title>
+<title>Ubuntu Linux 16.04下如何安装Java | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -276,11 +279,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-how-to-use-curl" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-linux-install-java" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/19/how-to-use-curl/" class="article-date">
-      <time datetime="2018-07-19T02:55:44.000Z" itemprop="datePublished">2018-07-19</time>
+      <a href="/2018/07/23/linux-install-java/" class="article-date">
+      <time datetime="2018-07-23T07:34:57.000Z" itemprop="datePublished">2018-07-23</time>
 </a>
 
 
@@ -295,7 +298,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      怎么使用curl模拟http请求
+      Ubuntu Linux 16.04下如何安装Java
     </h1>
   
 
@@ -310,7 +313,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -321,10 +324,16 @@
       
           
           
-        <p>get方式请求：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl 地址:端口/路由</div></pre></td></tr></table></figure></p>
-<p>e.g:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl 127.0.0.1:3000/test_sql</div></pre></td></tr></table></figure></p>
-<p>post方式请求：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST <span class="_">-d</span> <span class="string">"参数名=实参&amp;参数名=实参"</span> 地址:端口/路由</div></pre></td></tr></table></figure></p>
-<p>e.g:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST <span class="_">-d</span> <span class="string">"username=xianwx&amp;password=test"</span> 127.0.0.1:3000/auth</div></pre></td></tr></table></figure></p>
+        <h1 id="搜索可以安装的JDK包"><a href="#搜索可以安装的JDK包" class="headerlink" title="搜索可以安装的JDK包"></a>搜索可以安装的JDK包</h1><p>使用命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-cache search openjdk</div></pre></td></tr></table></figure></p>
+<p><img src="/images/BBDB7F41B79194165AD98AA280D9CC82.jpg" alt="BBDB7F41B79194165AD98AA280D9CC82"></p>
+<h1 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h1><p>sudo apt-get install openjdk-9-jre openjdk-9-jdk</p>
+<h1 id="配置JAVA-HOME"><a href="#配置JAVA-HOME" class="headerlink" title="配置JAVA_HOME"></a>配置JAVA_HOME</h1><p>安装完成可以执行命令来查看安装情况。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p><img src="/images/163CF94DE061CDF1CA25196DF29AE8AF.jpg" alt="163CF94DE061CDF1CA25196DF29AE8AF"></p>
+<p>然后在环境变量里设置JAVA_HOME的值，用命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"JAVA_HOME=YOUR_JDK_PATH"</span> &gt;&gt; /etc/environment</div><div class="line"><span class="built_in">source</span> /etc/environment</div></pre></td></tr></table></figure></p>
+<p>最后使用：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></div></pre></td></tr></table></figure></p>
+<p>来查看环境值设置的对不对。</p>
+<h1 id="多版本JDK切换"><a href="#多版本JDK切换" class="headerlink" title="多版本JDK切换"></a>多版本JDK切换</h1><a href="/2018/07/23/alternatives-manage-jdk/" title="Linux JDK多版本管理">Linux JDK多版本管理</a>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.linuxidc.com/Linux/2017-11/148941.htm" target="_blank" rel="external">如何在Ubuntu和Debian中安装OpenJDK Java 9/8</a></p>
 
       
     </div>
@@ -440,13 +449,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/07/19/how-to-use-curl/">怎么使用curl模拟http请求</a></p>
+        <p><span>本文标题:</span><a href="/2018/07/23/linux-install-java/">Ubuntu Linux 16.04下如何安装Java</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
-        <p><span>发布时间:</span>2018-07-19, 10:55:44</p>
-        <p><span>最后更新:</span>2018-07-19, 10:59:17</p>
+        <p><span>发布时间:</span>2018-07-23, 15:34:57</p>
+        <p><span>最后更新:</span>2018-07-23, 15:48:44</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/07/19/how-to-use-curl/" title="怎么使用curl模拟http请求">http://www.xianwx.xyz/2018/07/19/how-to-use-curl/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/19/how-to-use-curl/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/23/linux-install-java/" title="Ubuntu Linux 16.04下如何安装Java">http://www.xianwx.xyz/2018/07/23/linux-install-java/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/23/linux-install-java/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -459,15 +468,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/07/19/node-connect-mysql/">
-                    Node连接MySQL
+                <a href="/2018/07/23/alternatives-manage-jdk/">
+                    Linux JDK多版本管理
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/07/19/node-learn-record/">
-                    Node学习记录
+                <a href="/2018/07/19/quick-cocos/">
+                    写cocos的时候一些踩雷记录
                 </a>
             </div>
         
@@ -479,7 +488,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索可以安装的JDK包"><span class="toc-number">1.</span> <span class="toc-text">搜索可以安装的JDK包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装JDK"><span class="toc-number">2.</span> <span class="toc-text">安装JDK</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置JAVA-HOME"><span class="toc-number">3.</span> <span class="toc-text">配置JAVA_HOME</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多版本JDK切换"><span class="toc-number">4.</span> <span class="toc-text">多版本JDK切换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
         
     </div>
     <style>
@@ -514,7 +523,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"怎么使用curl模拟http请求　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Ubuntu Linux 16.04下如何安装Java　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -526,7 +535,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/19/how-to-use-curl/" data-title="怎么使用curl模拟http请求" data-url="http://www.xianwx.xyz/2018/07/19/how-to-use-curl/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/23/linux-install-java/" data-title="Ubuntu Linux 16.04下如何安装Java" data-url="http://www.xianwx.xyz/2018/07/23/linux-install-java/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -552,7 +561,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/07/19/node-connect-mysql/" title="上一篇: Node连接MySQL">
+            <a href="/2018/07/23/alternatives-manage-jdk/" title="上一篇: Linux JDK多版本管理">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -560,7 +569,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/07/19/node-learn-record/" title="下一篇: Node学习记录">
+            <a href="/2018/07/19/quick-cocos/" title="下一篇: 写cocos的时候一些踩雷记录">
                 <i class="fa fa-angle-right"></i>
             </a>
         

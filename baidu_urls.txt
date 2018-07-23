@@ -1,3 +1,6 @@
+http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/
+http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/
+http://www.xianwx.xyz/2018/07/23/linux-install-java/
 http://www.xianwx.xyz/2018/07/19/quick-cocos/
 http://www.xianwx.xyz/2018/07/19/android-slash/
 http://www.xianwx.xyz/2018/07/19/node-deal-post/
@@ -5,6 +8,3 @@ http://www.xianwx.xyz/2018/07/19/http-route/
 http://www.xianwx.xyz/2018/07/19/node-connect-mysql/
 http://www.xianwx.xyz/2018/07/19/how-to-use-curl/
 http://www.xianwx.xyz/2018/07/19/node-learn-record/
-http://www.xianwx.xyz/2018/07/19/node-start-server/
-http://www.xianwx.xyz/2018/07/18/ssh-copy/
-http://www.xianwx.xyz/2018/07/18/http-server-on-origin-linux/

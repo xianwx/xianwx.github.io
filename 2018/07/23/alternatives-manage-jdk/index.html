@@ -15,16 +15,18 @@
 
 
 
-<meta name="description" content="我不仅仅是个伪装者，我是D员！（嘘）">
+<meta name="description" content="你其实并不缺管理者">
 <meta property="og:type" content="article">
-<meta property="og:title" content="怎么使用curl模拟http请求">
-<meta property="og:url" content="http://www.xianwx.xyz/2018/07/19/how-to-use-curl/index.html">
+<meta property="og:title" content="Linux JDK多版本管理">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/index.html">
 <meta property="og:site_name" content="yuzixin's blog">
-<meta property="og:description" content="我不仅仅是个伪装者，我是D员！（嘘）">
-<meta property="og:updated_time" content="2018-07-19T02:59:17.666Z">
+<meta property="og:description" content="你其实并不缺管理者">
+<meta property="og:image" content="http://www.xianwx.xyz/images/3DF39BE8305CF58C4BD4F2A8E64249D4.jpg">
+<meta property="og:updated_time" content="2018-07-23T07:51:32.469Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="怎么使用curl模拟http请求">
-<meta name="twitter:description" content="我不仅仅是个伪装者，我是D员！（嘘）">
+<meta name="twitter:title" content="Linux JDK多版本管理">
+<meta name="twitter:description" content="你其实并不缺管理者">
+<meta name="twitter:image" content="http://www.xianwx.xyz/images/3DF39BE8305CF58C4BD4F2A8E64249D4.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -56,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>怎么使用curl模拟http请求 | yuzixin&#39;s blog</title>
+<title>Linux JDK多版本管理 | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -276,11 +278,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-how-to-use-curl" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-alternatives-manage-jdk" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/19/how-to-use-curl/" class="article-date">
-      <time datetime="2018-07-19T02:55:44.000Z" itemprop="datePublished">2018-07-19</time>
+      <a href="/2018/07/23/alternatives-manage-jdk/" class="article-date">
+      <time datetime="2018-07-23T07:46:36.000Z" itemprop="datePublished">2018-07-23</time>
 </a>
 
 
@@ -295,7 +297,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      怎么使用curl模拟http请求
+      Linux JDK多版本管理
     </h1>
   
 
@@ -310,7 +312,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http/">http</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alternatives/">alternatives</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -321,10 +323,18 @@
       
           
           
-        <p>get方式请求：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl 地址:端口/路由</div></pre></td></tr></table></figure></p>
-<p>e.g:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl 127.0.0.1:3000/test_sql</div></pre></td></tr></table></figure></p>
-<p>post方式请求：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST <span class="_">-d</span> <span class="string">"参数名=实参&amp;参数名=实参"</span> 地址:端口/路由</div></pre></td></tr></table></figure></p>
-<p>e.g:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -X POST <span class="_">-d</span> <span class="string">"username=xianwx&amp;password=test"</span> 127.0.0.1:3000/auth</div></pre></td></tr></table></figure></p>
+        <p>最近给远程Linux装Jenkins，已经预装好JDK 9，但是在安装Jenkins的时候一直出以下错误：</p>
+<p><img src="/images/3DF39BE8305CF58C4BD4F2A8E64249D4.jpg" alt="3DF39BE8305CF58C4BD4F2A8E64249D4"></p>
+<p>重点是：Found an incorrect Java version.原来是我的Java版本跟它要求的不符（妈蛋，我装的最新的啊！</p>
+<p>我只好查了一下我装的版本需求的JDK是什么版本，哦，是JDK8.</p>
+<p>8 我也有装啊兄弟！我们是自己人啊！干嘛报错啊！<br>于是运行：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>一检查，openjdk的版本是9，好的吧，我试试直接改环境变量<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/"</span> &gt;&gt; /etc/environment</div><div class="line"><span class="built_in">source</span> /etc/environment</div></pre></td></tr></table></figure></p>
+<p>然而并没有什么卵用。。。。敌人很火力很强，我们快支持不住了！</p>
+<p>但系，有个软件可以很方便的管理多版本，那就是——alternatives。</p>
+<p>执行命令<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div><div class="line">sudo update-alternatives --config javac</div></pre></td></tr></table></figure></p>
+<p>执行了用数字序号来选择版本，再次执行<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>来查看版本，发现已经被改了，nice！</p>
+<p>对alternatives的更多了解，请查看我参考的文章：<a href="http://www.cnblogs.com/fordreamxin/p/4287706.html" target="_blank" rel="external">linux jdk版本随时切换</a></p>
 
       
     </div>
@@ -440,13 +450,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/07/19/how-to-use-curl/">怎么使用curl模拟http请求</a></p>
+        <p><span>本文标题:</span><a href="/2018/07/23/alternatives-manage-jdk/">Linux JDK多版本管理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
-        <p><span>发布时间:</span>2018-07-19, 10:55:44</p>
-        <p><span>最后更新:</span>2018-07-19, 10:59:17</p>
+        <p><span>发布时间:</span>2018-07-23, 15:46:36</p>
+        <p><span>最后更新:</span>2018-07-23, 15:51:32</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/07/19/how-to-use-curl/" title="怎么使用curl模拟http请求">http://www.xianwx.xyz/2018/07/19/how-to-use-curl/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/19/how-to-use-curl/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/23/alternatives-manage-jdk/" title="Linux JDK多版本管理">http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -459,15 +469,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/07/19/node-connect-mysql/">
-                    Node连接MySQL
+                <a href="/2018/07/23/linux-install-jenkins/">
+                    Ubuntu Linux 16.04下如何安装Jenkins
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/07/19/node-learn-record/">
-                    Node学习记录
+                <a href="/2018/07/23/linux-install-java/">
+                    Ubuntu Linux 16.04下如何安装Java
                 </a>
             </div>
         
@@ -514,7 +524,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"怎么使用curl模拟http请求　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Linux JDK多版本管理　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -526,7 +536,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/19/how-to-use-curl/" data-title="怎么使用curl模拟http请求" data-url="http://www.xianwx.xyz/2018/07/19/how-to-use-curl/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/23/alternatives-manage-jdk/" data-title="Linux JDK多版本管理" data-url="http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -552,7 +562,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/07/19/node-connect-mysql/" title="上一篇: Node连接MySQL">
+            <a href="/2018/07/23/linux-install-jenkins/" title="上一篇: Ubuntu Linux 16.04下如何安装Jenkins">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -560,7 +570,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/07/19/node-learn-record/" title="下一篇: Node学习记录">
+            <a href="/2018/07/23/linux-install-java/" title="下一篇: Ubuntu Linux 16.04下如何安装Java">
                 <i class="fa fa-angle-right"></i>
             </a>
         

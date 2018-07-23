@@ -4,6 +4,67 @@
 
     
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/</loc>
+    <lastmod>2018-07-23T08:01:49.556Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu Linux 16.04下如何安装Jenkins</title>
+        <pubTime>2018-07-23T07:58:35.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/</loc>
+    <lastmod>2018-07-23T07:51:32.469Z</lastmod>
+    <data>
+        <display>
+        <title>Linux JDK多版本管理</title>
+        <pubTime>2018-07-23T07:46:36.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>alternatives</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/23/linux-install-java/</loc>
+    <lastmod>2018-07-23T07:48:44.960Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu Linux 16.04下如何安装Java</title>
+        <pubTime>2018-07-23T07:34:57.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xianwx.xyz/2018/07/19/quick-cocos/</loc>
     <lastmod>2018-07-19T07:26:31.317Z</lastmod>
     <data>
@@ -73,9 +134,9 @@
         <title>Android设置应用启动页</title>
         <pubTime>2018-07-19T03:34:12.000Z</pubTime>
         
-        <tag>Android</tag>
-         
         <tag>quick cocos</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -95,9 +156,9 @@
         <title>给lua文件注入插件的方法</title>
         <pubTime>2017-01-07T03:54:39.000Z</pubTime>
         
-        <tag>quick cocos</tag>
-         
         <tag>lua</tag>
+         
+        <tag>quick cocos</tag>
          
          
            
@@ -271,11 +332,11 @@
         <title>给云服务器安装HTTP服务器</title>
         <pubTime>2018-07-18T10:33:08.000Z</pubTime>
         
+        <tag>Linux</tag>
+         
         <tag>http</tag>
          
         <tag>server</tag>
-         
-        <tag>Linux</tag>
          
          
            
@@ -295,9 +356,9 @@
         <title>给远程云服务器部署skynet服务器</title>
         <pubTime>2018-07-18T10:25:42.000Z</pubTime>
         
-        <tag>server</tag>
-         
         <tag>Linux</tag>
+         
+        <tag>server</tag>
          
         <tag>skynet</tag>
          
