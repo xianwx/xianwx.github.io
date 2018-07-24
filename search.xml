@@ -25,6 +25,7 @@
 </ol>
 <h1 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h1><p>先查看进程id：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div></pre></td></tr></table></figure></p>
 <p>kill：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="built_in">kill</span> 90986</div></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://sebastianblade.com/share-macos-shadowsocks-proxy-to-other-device/" target="_blank" rel="external">共享 macOS 上的 ShadowSocks 代理给其他设备</a><br><a href="https://www.cnblogs.com/DeviLeo/p/6033591.html" target="_blank" rel="external">Mac上配置Privoxy</a><br><a href="https://blog.csdn.net/yanzi1225627/article/details/51064306" target="_blank" rel="external">Mac上Privoxy将shadowsocks的socks5代理转为http代理</a></p>
 ]]></content>
     </entry>
     

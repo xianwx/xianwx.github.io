@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</loc>
+    <lastmod>2018-07-24T03:26:41.202Z</lastmod>
+    <data>
+        <display>
+        <title>Mac通过Privoxy共享shadowsocks代理给其它设备</title>
+        <pubTime>2018-07-24T03:09:31.000Z</pubTime>
+        
+        <tag>mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.xianwx.xyz/2018/07/18/ssh-copy/</loc>
     <lastmod>2018-07-24T03:22:24.939Z</lastmod>
     <data>
@@ -34,26 +54,6 @@
         <display>
         <title>Mac使用记录</title>
         <pubTime>2018-07-18T09:48:48.000Z</pubTime>
-        
-        <tag>mac</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术学习" url="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</loc>
-    <lastmod>2018-07-24T03:21:18.864Z</lastmod>
-    <data>
-        <display>
-        <title>Mac通过Privoxy共享shadowsocks代理给其它设备</title>
-        <pubTime>2018-07-24T03:09:31.000Z</pubTime>
         
         <tag>mac</tag>
          
@@ -182,9 +182,9 @@
         <title>Android设置应用启动页</title>
         <pubTime>2018-07-19T03:34:12.000Z</pubTime>
         
-        <tag>Android</tag>
-         
         <tag>quick cocos</tag>
+         
+        <tag>Android</tag>
          
          
            
@@ -204,9 +204,9 @@
         <title>给lua文件注入插件的方法</title>
         <pubTime>2017-01-07T03:54:39.000Z</pubTime>
         
-        <tag>quick cocos</tag>
-         
         <tag>lua</tag>
+         
+        <tag>quick cocos</tag>
          
          
            

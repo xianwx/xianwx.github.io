@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-24T03:21:18.864Z</updated>
+  <updated>2018-07-24T03:26:41.202Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.xianwx.xyz/2018/07/24/mac-share-ss/"/>
     <id>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</id>
     <published>2018-07-24T03:09:31.000Z</published>
-    <updated>2018-07-24T03:21:18.864Z</updated>
+    <updated>2018-07-24T03:26:41.202Z</updated>
     
     <content type="html"><![CDATA[<h1 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h1><p>ss通过socks5代理连接，属于局部代理。有些软件不支持sock5代理，只支持HTTP代理，或者你想让你的手机翻墙，就可以把本地的socks5代理共享出去，Mac OS本身没有这个功能，所以我们需要借助Privoxy。</p>
 <h1 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h1><p>先确定你用的是不是ss，我用的另一个翻墙软件走的就已经是HTTP和HTTPS代理了。。。。如何确认呢？打开网络设置<br><img src="/images/107EA2CBA77698A10C6D445BFC50A2F2.jpg" alt="107EA2CBA77698A10C6D445BFC50A2F2"><br>如果是自动代理配置也行，先打开全局，还需要看看端口。</p>
@@ -41,6 +41,7 @@
 </ol>
 <h1 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h1><p>先查看进程id：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div></pre></td></tr></table></figure></p>
 <p>kill：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="built_in">kill</span> 90986</div></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://sebastianblade.com/share-macos-shadowsocks-proxy-to-other-device/" target="_blank" rel="external">共享 macOS 上的 ShadowSocks 代理给其他设备</a><br><a href="https://www.cnblogs.com/DeviLeo/p/6033591.html" target="_blank" rel="external">Mac上配置Privoxy</a><br><a href="https://blog.csdn.net/yanzi1225627/article/details/51064306" target="_blank" rel="external">Mac上Privoxy将shadowsocks的socks5代理转为http代理</a></p>
 ]]></content>
     
     <summary type="html">
@@ -198,9 +199,9 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Android" scheme="http://www.xianwx.xyz/tags/Android/"/>
-    
       <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
+    
+      <category term="Android" scheme="http://www.xianwx.xyz/tags/Android/"/>
     
   </entry>
   
