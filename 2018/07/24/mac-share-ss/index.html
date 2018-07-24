@@ -15,16 +15,18 @@
 
 
 
-<meta name="description" content="我是老大，你们都得听我的。">
+<meta name="description" content="信不信我的最初目的其实是为了NS可以发截图到Twitter上？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux root用户">
-<meta property="og:url" content="http://www.xianwx.xyz/2018/07/18/root-user/index.html">
+<meta property="og:title" content="Mac通过Privoxy共享shadowsocks代理给其它设备">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/07/24/mac-share-ss/index.html">
 <meta property="og:site_name" content="yuzixin's blog">
-<meta property="og:description" content="我是老大，你们都得听我的。">
-<meta property="og:updated_time" content="2018-07-18T10:24:53.389Z">
+<meta property="og:description" content="信不信我的最初目的其实是为了NS可以发截图到Twitter上？">
+<meta property="og:image" content="http://www.xianwx.xyz/images/107EA2CBA77698A10C6D445BFC50A2F2.jpg">
+<meta property="og:updated_time" content="2018-07-24T03:17:11.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux root用户">
-<meta name="twitter:description" content="我是老大，你们都得听我的。">
+<meta name="twitter:title" content="Mac通过Privoxy共享shadowsocks代理给其它设备">
+<meta name="twitter:description" content="信不信我的最初目的其实是为了NS可以发截图到Twitter上？">
+<meta name="twitter:image" content="http://www.xianwx.xyz/images/107EA2CBA77698A10C6D445BFC50A2F2.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -56,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Linux root用户 | yuzixin&#39;s blog</title>
+<title>Mac通过Privoxy共享shadowsocks代理给其它设备 | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -276,11 +278,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-root-user" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mac-share-ss" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/18/root-user/" class="article-date">
-      <time datetime="2018-07-18T10:22:19.000Z" itemprop="datePublished">2018-07-18</time>
+      <a href="/2018/07/24/mac-share-ss/" class="article-date">
+      <time datetime="2018-07-24T03:09:31.000Z" itemprop="datePublished">2018-07-24</time>
 </a>
 
 
@@ -295,7 +297,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux root用户
+      Mac通过Privoxy共享shadowsocks代理给其它设备
     </h1>
   
 
@@ -310,7 +312,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -321,9 +323,25 @@
       
           
           
-        <p>有时候在Linux上执行命令会碰到”Permission denied, are you root?”这种报错，这代表我们需要进入root用户执行命令，可以使用以下命令进入root<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -i</div></pre></td></tr></table></figure></p>
-<p>在root用户状态下，输入命令exit退出root用户状态。</p>
-<p>尤其跟别人共用一台云服务器的时候，好刺激。</p>
+        <h1 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h1><p>ss通过socks5代理连接，属于局部代理。有些软件不支持sock5代理，只支持HTTP代理，或者你想让你的手机翻墙，就可以把本地的socks5代理共享出去，Mac OS本身没有这个功能，所以我们需要借助Privoxy。</p>
+<h1 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h1><p>先确定你用的是不是ss，我用的另一个翻墙软件走的就已经是HTTP和HTTPS代理了。。。。如何确认呢？打开网络设置<br><img src="/images/107EA2CBA77698A10C6D445BFC50A2F2.jpg" alt="107EA2CBA77698A10C6D445BFC50A2F2"><br>如果是自动代理配置也行，先打开全局，还需要看看端口。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>执行命令安装：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install privoxy</div></pre></td></tr></table></figure></p>
+<p>如果出现报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">The `brew link` step did not complete successfully.</div><div class="line">The formula built, but is not symlinked into /usr/local</div><div class="line">Could not symlink sbin/privoxy</div><div class="line">/usr/local/sbin is not writable.</div></pre></td></tr></table></figure></p>
+<p>证明你缺少sbin这个文件夹或者文件夹的读写权限不正确，可以使用以下命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /usr/<span class="built_in">local</span>/sbin</div><div class="line"><span class="comment">#(如果你没有这个文件夹的话，需要执行上面这一条)</span></div><div class="line"></div><div class="line">sudo chown -R <span class="string">'你的用户名'</span>:admin /usr/<span class="built_in">local</span>/sbin/</div></pre></td></tr></table></figure></p>
+<p>使用这些命令创建以及修改权限结束，再重新link一下：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew link privoxy</div></pre></td></tr></table></figure></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>配置文件在<code>/usr/local/etc/privoxy/config</code>下，习惯用啥修改就用啥修改。<br>先找到<code>forward-socks5t  /</code>去掉注释，改为<code>forward-socks5t   /               127.0.0.1:1080  .</code>（我使用的是<code>forward-socks5   /               127.0.0.1:1080  .</code>，注意最后的<code>.</code>不要漏掉！）<br>这其中的<code>1080</code>端口是ss默认的端口，如果不是，请自己看自己的端口。</p>
+<p>再找到<code>listen-address 127.0.0.1:8118</code>，去掉注释，改为<code>listen-address 0.0.0.0:8118</code>。<br><code>8118</code>是要开放给其它设备的端口，如果已经使用了，就换一个没被用的。</p>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sbin/  </div><div class="line">./privoxy –no-daemon /usr/<span class="built_in">local</span>/etc/privoxy/config &amp;</div><div class="line"><span class="comment"># 最后的 `&amp;` 是为了让 privoxy 在后台运行</span></div></pre></td></tr></table></figure>
+<p>如果没有报错，就可以用了。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
+<li>打开手机，与Mac连上同一个WiFi。</li>
+<li>修改WiFi配置，把HTTP代理设置为手动</li>
+<li>设置服务器为电脑局域网ip</li>
+<li>设置端口为配置开放的端口（如上边的8118）</li>
+<li>可以翻墙了</li>
+</ol>
+<h1 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h1><p>先查看进程id：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div></pre></td></tr></table></figure></p>
+<p>kill：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="built_in">kill</span> 90986</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -439,13 +457,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/07/18/root-user/">Linux root用户</a></p>
+        <p><span>本文标题:</span><a href="/2018/07/24/mac-share-ss/">Mac通过Privoxy共享shadowsocks代理给其它设备</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
-        <p><span>发布时间:</span>2018-07-18, 18:22:19</p>
-        <p><span>最后更新:</span>2018-07-18, 18:24:53</p>
+        <p><span>发布时间:</span>2018-07-24, 11:09:31</p>
+        <p><span>最后更新:</span>2018-07-24, 11:17:11</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/07/18/root-user/" title="Linux root用户">http://www.xianwx.xyz/2018/07/18/root-user/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/18/root-user/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/07/24/mac-share-ss/" title="Mac通过Privoxy共享shadowsocks代理给其它设备">http://www.xianwx.xyz/2018/07/24/mac-share-ss/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/24/mac-share-ss/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -457,16 +475,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/07/18/skynet-server-on-origin-linux/">
-                    给远程云服务器部署skynet服务器
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/07/18/tmux/">
-                    tmux的使用
+                <a href="/2018/07/23/linux-install-jenkins/">
+                    Ubuntu Linux 16.04下如何安装Jenkins
                 </a>
             </div>
         
@@ -478,7 +490,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WHY"><span class="toc-number">1.</span> <span class="toc-text">WHY</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前置工作"><span class="toc-number">2.</span> <span class="toc-text">前置工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-number">3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运行"><span class="toc-number">5.</span> <span class="toc-text">运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用"><span class="toc-number">6.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#shutdown"><span class="toc-number">7.</span> <span class="toc-text">shutdown</span></a></li></ol>
         
     </div>
     <style>
@@ -513,7 +525,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Linux root用户　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Mac通过Privoxy共享shadowsocks代理给其它设备　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -525,7 +537,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/18/root-user/" data-title="Linux root用户" data-url="http://www.xianwx.xyz/2018/07/18/root-user/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/24/mac-share-ss/" data-title="Mac通过Privoxy共享shadowsocks代理给其它设备" data-url="http://www.xianwx.xyz/2018/07/24/mac-share-ss/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -551,15 +563,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/07/18/skynet-server-on-origin-linux/" title="上一篇: 给远程云服务器部署skynet服务器">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/07/18/tmux/" title="下一篇: tmux的使用">
+            <a href="/2018/07/23/linux-install-jenkins/" title="下一篇: Ubuntu Linux 16.04下如何安装Jenkins">
                 <i class="fa fa-angle-right"></i>
             </a>
         

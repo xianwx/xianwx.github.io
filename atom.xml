@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-23T08:01:49.556Z</updated>
+  <updated>2018-07-24T03:17:11.605Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac通过Privoxy共享shadowsocks代理给其它设备</title>
+    <link href="http://www.xianwx.xyz/2018/07/24/mac-share-ss/"/>
+    <id>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</id>
+    <published>2018-07-24T03:09:31.000Z</published>
+    <updated>2018-07-24T03:17:11.605Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h1><p>ss通过socks5代理连接，属于局部代理。有些软件不支持sock5代理，只支持HTTP代理，或者你想让你的手机翻墙，就可以把本地的socks5代理共享出去，Mac OS本身没有这个功能，所以我们需要借助Privoxy。</p>
+<h1 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h1><p>先确定你用的是不是ss，我用的另一个翻墙软件走的就已经是HTTP和HTTPS代理了。。。。如何确认呢？打开网络设置<br><img src="/images/107EA2CBA77698A10C6D445BFC50A2F2.jpg" alt="107EA2CBA77698A10C6D445BFC50A2F2"><br>如果是自动代理配置也行，先打开全局，还需要看看端口。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>执行命令安装：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install privoxy</div></pre></td></tr></table></figure></p>
+<p>如果出现报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">The `brew link` step did not complete successfully.</div><div class="line">The formula built, but is not symlinked into /usr/local</div><div class="line">Could not symlink sbin/privoxy</div><div class="line">/usr/local/sbin is not writable.</div></pre></td></tr></table></figure></p>
+<p>证明你缺少sbin这个文件夹或者文件夹的读写权限不正确，可以使用以下命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /usr/<span class="built_in">local</span>/sbin</div><div class="line"><span class="comment">#(如果你没有这个文件夹的话，需要执行上面这一条)</span></div><div class="line"></div><div class="line">sudo chown -R <span class="string">'你的用户名'</span>:admin /usr/<span class="built_in">local</span>/sbin/</div></pre></td></tr></table></figure></p>
+<p>使用这些命令创建以及修改权限结束，再重新link一下：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew link privoxy</div></pre></td></tr></table></figure></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>配置文件在<code>/usr/local/etc/privoxy/config</code>下，习惯用啥修改就用啥修改。<br>先找到<code>forward-socks5t  /</code>去掉注释，改为<code>forward-socks5t   /               127.0.0.1:1080  .</code>（我使用的是<code>forward-socks5   /               127.0.0.1:1080  .</code>，注意最后的<code>.</code>不要漏掉！）<br>这其中的<code>1080</code>端口是ss默认的端口，如果不是，请自己看自己的端口。</p>
+<p>再找到<code>listen-address 127.0.0.1:8118</code>，去掉注释，改为<code>listen-address 0.0.0.0:8118</code>。<br><code>8118</code>是要开放给其它设备的端口，如果已经使用了，就换一个没被用的。</p>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sbin/  </div><div class="line">./privoxy –no-daemon /usr/<span class="built_in">local</span>/etc/privoxy/config &amp;</div><div class="line"><span class="comment"># 最后的 `&amp;` 是为了让 privoxy 在后台运行</span></div></pre></td></tr></table></figure>
+<p>如果没有报错，就可以用了。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
+<li>打开手机，与Mac连上同一个WiFi。</li>
+<li>修改WiFi配置，把HTTP代理设置为手动</li>
+<li>设置服务器为电脑局域网ip</li>
+<li>设置端口为配置开放的端口（如上边的8118）</li>
+<li>可以翻墙了</li>
+</ol>
+<h1 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h1><p>先查看进程id：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div></pre></td></tr></table></figure></p>
+<p>kill：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="built_in">kill</span> 90986</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      信不信我的最初目的其实是为了NS可以发截图到Twitter上？
+    
+    </summary>
+    
+      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Mac" scheme="http://www.xianwx.xyz/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu Linux 16.04下如何安装Jenkins</title>
@@ -153,9 +194,9 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
-    
       <category term="Android" scheme="http://www.xianwx.xyz/tags/Android/"/>
+    
+      <category term="quick cocos" scheme="http://www.xianwx.xyz/tags/quick-cocos/"/>
     
   </entry>
   
@@ -605,7 +646,7 @@
     <link href="http://www.xianwx.xyz/2018/07/18/mac-command/"/>
     <id>http://www.xianwx.xyz/2018/07/18/mac-command/</id>
     <published>2018-07-18T09:48:48.000Z</published>
-    <updated>2018-07-19T07:17:17.022Z</updated>
+    <updated>2018-07-24T03:10:16.315Z</updated>
     
     <content type="html"><![CDATA[<p>为了拥有友好的开发环境，毅然选择了Mac，现在60键的键盘爽到飞起。<br>扯远了扯远了，还是正经记录吧。</p>
 <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>如果不管命令执行是否成功都往下执行，可以用;分割多个语句放在一行执行，如果希望前面的执行成功才执行后面的语句，用&amp;&amp;分割语句。</p>
@@ -619,7 +660,7 @@
 <p>2. 创建默认的schema<br><img src="/images/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg" alt=""></p>
 <p>3. 右键新创建的schema，set as default schema</p>
 <p>4. 可以开始创建table了。</p>
-]]></content>
+<h1 id="将Mac的ss代理共享给其它设备"><a href="#将Mac的ss代理共享给其它设备" class="headerlink" title="将Mac的ss代理共享给其它设备"></a>将Mac的ss代理共享给其它设备</h1>]]></content>
     
     <summary type="html">
     
@@ -669,48 +710,6 @@
     
     
       <category term="cocos" scheme="http://www.xianwx.xyz/tags/cocos/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git常用命令记录</title>
-    <link href="http://www.xianwx.xyz/2018/05/19/git-commond/"/>
-    <id>http://www.xianwx.xyz/2018/05/19/git-commond/</id>
-    <published>2018-05-19T02:53:12.000Z</published>
-    <updated>2018-05-19T03:22:24.682Z</updated>
-    
-    <content type="html"><![CDATA[<p>可能文章的描述会让大家觉得奇怪，程序猿嘛，应该是“除了使用命令操作，有时候还需要客户端。”才对嘛。<br>但是日常工作中其实，客户端用的居多，毕竟比对啊提交啊什么的，用起来还是很方便很直观的。<br>此处推荐常用软件：<a href="https://git-fork.com/" target="_blank" rel="external">fork</a><br>优点是：</p>
-<ul>
-<li>免费</li>
-<li>有夜晚主题，不用被骚死tree亮瞎眼</li>
-<li>速度快</li>
-<li>一直在维护中，给官方提bug也很乐于解决。</li>
-<li>从它很不好用一直用到现在，感受到它愈发趋于完善，真的很欣慰。</li>
-</ul>
-<p>一般客户端用于：</p>
-<ul>
-<li>commit</li>
-<li>push/pull</li>
-<li>new branch</li>
-<li>fetch</li>
-<li>merge</li>
-<li>stash/use stash</li>
-<li>cherry-pick</li>
-</ul>
-<p>以下是命令介绍:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout [branch] -- [file name] 重指定分支copy指定文件到当前branch</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset --hard [branch]            重置当前到指定分支</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset [branch]~[commit times]    丢弃指定分支指定次数的提交</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      除了使用客户端操作，有时候还需要命令。
-    
-    </summary>
-    
-      <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="git" scheme="http://www.xianwx.xyz/tags/git/"/>
     
   </entry>
   

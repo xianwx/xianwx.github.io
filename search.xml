@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title><![CDATA[Mac通过Privoxy共享shadowsocks代理给其它设备]]></title>
+      <url>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</url>
+      <content type="html"><![CDATA[<h1 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h1><p>ss通过socks5代理连接，属于局部代理。有些软件不支持sock5代理，只支持HTTP代理，或者你想让你的手机翻墙，就可以把本地的socks5代理共享出去，Mac OS本身没有这个功能，所以我们需要借助Privoxy。</p>
+<h1 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h1><p>先确定你用的是不是ss，我用的另一个翻墙软件走的就已经是HTTP和HTTPS代理了。。。。如何确认呢？打开网络设置<br><img src="/images/107EA2CBA77698A10C6D445BFC50A2F2.jpg" alt="107EA2CBA77698A10C6D445BFC50A2F2"><br>如果是自动代理配置也行，先打开全局，还需要看看端口。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>执行命令安装：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install privoxy</div></pre></td></tr></table></figure></p>
+<p>如果出现报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">The `brew link` step did not complete successfully.</div><div class="line">The formula built, but is not symlinked into /usr/local</div><div class="line">Could not symlink sbin/privoxy</div><div class="line">/usr/local/sbin is not writable.</div></pre></td></tr></table></figure></p>
+<p>证明你缺少sbin这个文件夹或者文件夹的读写权限不正确，可以使用以下命令：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /usr/<span class="built_in">local</span>/sbin</div><div class="line"><span class="comment">#(如果你没有这个文件夹的话，需要执行上面这一条)</span></div><div class="line"></div><div class="line">sudo chown -R <span class="string">'你的用户名'</span>:admin /usr/<span class="built_in">local</span>/sbin/</div></pre></td></tr></table></figure></p>
+<p>使用这些命令创建以及修改权限结束，再重新link一下：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew link privoxy</div></pre></td></tr></table></figure></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>配置文件在<code>/usr/local/etc/privoxy/config</code>下，习惯用啥修改就用啥修改。<br>先找到<code>forward-socks5t  /</code>去掉注释，改为<code>forward-socks5t   /               127.0.0.1:1080  .</code>（我使用的是<code>forward-socks5   /               127.0.0.1:1080  .</code>，注意最后的<code>.</code>不要漏掉！）<br>这其中的<code>1080</code>端口是ss默认的端口，如果不是，请自己看自己的端口。</p>
+<p>再找到<code>listen-address 127.0.0.1:8118</code>，去掉注释，改为<code>listen-address 0.0.0.0:8118</code>。<br><code>8118</code>是要开放给其它设备的端口，如果已经使用了，就换一个没被用的。</p>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/sbin/  </div><div class="line">./privoxy –no-daemon /usr/<span class="built_in">local</span>/etc/privoxy/config &amp;</div><div class="line"><span class="comment"># 最后的 `&amp;` 是为了让 privoxy 在后台运行</span></div></pre></td></tr></table></figure>
+<p>如果没有报错，就可以用了。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><ol>
+<li>打开手机，与Mac连上同一个WiFi。</li>
+<li>修改WiFi配置，把HTTP代理设置为手动</li>
+<li>设置服务器为电脑局域网ip</li>
+<li>设置端口为配置开放的端口（如上边的8118）</li>
+<li>可以翻墙了</li>
+</ol>
+<h1 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h1><p>先查看进程id：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | grep privoxy</div></pre></td></tr></table></figure></p>
+<p>kill：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo <span class="built_in">kill</span> 90986</div></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Ubuntu Linux 16.04下如何安装Jenkins]]></title>
       <url>http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/</url>
       <content type="html"><![CDATA[<h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><a href="/2018/07/23/linux-install-java/" title="Ubuntu Linux 16.04下如何安装Java">Ubuntu Linux 16.04下如何安装Java</a>
@@ -303,7 +328,7 @@
 <p>2. 创建默认的schema<br><img src="/images/14D6CC4556F6F4E73E2FB578D0D2F26E.jpg" alt=""></p>
 <p>3. 右键新创建的schema，set as default schema</p>
 <p>4. 可以开始创建table了。</p>
-]]></content>
+<h1 id="将Mac的ss代理共享给其它设备"><a href="#将Mac的ss代理共享给其它设备" class="headerlink" title="将Mac的ss代理共享给其它设备"></a>将Mac的ss代理共享给其它设备</h1>]]></content>
     </entry>
     
     <entry>
