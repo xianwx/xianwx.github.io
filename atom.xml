@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-24T03:17:11.605Z</updated>
+  <updated>2018-07-24T03:21:18.864Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.xianwx.xyz/2018/07/24/mac-share-ss/"/>
     <id>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</id>
     <published>2018-07-24T03:09:31.000Z</published>
-    <updated>2018-07-24T03:17:11.605Z</updated>
+    <updated>2018-07-24T03:21:18.864Z</updated>
     
     <content type="html"><![CDATA[<h1 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h1><p>ss通过socks5代理连接，属于局部代理。有些软件不支持sock5代理，只支持HTTP代理，或者你想让你的手机翻墙，就可以把本地的socks5代理共享出去，Mac OS本身没有这个功能，所以我们需要借助Privoxy。</p>
 <h1 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h1><p>先确定你用的是不是ss，我用的另一个翻墙软件走的就已经是HTTP和HTTPS代理了。。。。如何确认呢？打开网络设置<br><img src="/images/107EA2CBA77698A10C6D445BFC50A2F2.jpg" alt="107EA2CBA77698A10C6D445BFC50A2F2"><br>如果是自动代理配置也行，先打开全局，还需要看看端口。</p>
@@ -52,7 +52,7 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Mac" scheme="http://www.xianwx.xyz/tags/Mac/"/>
+      <category term="mac" scheme="http://www.xianwx.xyz/tags/mac/"/>
     
   </entry>
   
@@ -61,7 +61,7 @@
     <link href="http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/"/>
     <id>http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/</id>
     <published>2018-07-23T07:58:35.000Z</published>
-    <updated>2018-07-23T08:01:49.556Z</updated>
+    <updated>2018-07-24T03:20:11.093Z</updated>
     
     <content type="html"><![CDATA[<h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><a href="/2018/07/23/linux-install-java/" title="Ubuntu Linux 16.04下如何安装Java">Ubuntu Linux 16.04下如何安装Java</a>
 <h1 id="安装Jenkins"><a href="#安装Jenkins" class="headerlink" title="安装Jenkins"></a>安装Jenkins</h1><p>很简单，只需要四个命令。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -</div><div class="line">sudo sh -c <span class="string">'echo deb http://pkg.jenkins.io/debian-stable binary/ &gt; /etc/apt/sources.list.d</span></div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install jenkins</div></pre></td></tr></table></figure></p>
@@ -74,6 +74,10 @@
     
     </summary>
     
+    
+      <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
+    
+      <category term="Jenkins" scheme="http://www.xianwx.xyz/tags/Jenkins/"/>
     
   </entry>
   
@@ -378,7 +382,7 @@
     <link href="http://www.xianwx.xyz/2018/07/18/ssh-copy/"/>
     <id>http://www.xianwx.xyz/2018/07/18/ssh-copy/</id>
     <published>2018-07-18T10:37:29.000Z</published>
-    <updated>2018-07-18T10:39:30.960Z</updated>
+    <updated>2018-07-24T03:22:24.939Z</updated>
     
     <content type="html"><![CDATA[<h1 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h1><p>利用scp传输文件：</p>
 <p>传输本地文件到远端：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /path/filename username@servername:/path</div></pre></td></tr></table></figure></p>
@@ -398,7 +402,7 @@
     
       <category term="Linux" scheme="http://www.xianwx.xyz/tags/Linux/"/>
     
-      <category term="Mac" scheme="http://www.xianwx.xyz/tags/Mac/"/>
+      <category term="mac" scheme="http://www.xianwx.xyz/tags/mac/"/>
     
       <category term="ssh" scheme="http://www.xianwx.xyz/tags/ssh/"/>
     
@@ -646,7 +650,7 @@
     <link href="http://www.xianwx.xyz/2018/07/18/mac-command/"/>
     <id>http://www.xianwx.xyz/2018/07/18/mac-command/</id>
     <published>2018-07-18T09:48:48.000Z</published>
-    <updated>2018-07-24T03:10:16.315Z</updated>
+    <updated>2018-07-24T03:21:33.442Z</updated>
     
     <content type="html"><![CDATA[<p>为了拥有友好的开发环境，毅然选择了Mac，现在60键的键盘爽到飞起。<br>扯远了扯远了，还是正经记录吧。</p>
 <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>如果不管命令执行是否成功都往下执行，可以用;分割多个语句放在一行执行，如果希望前面的执行成功才执行后面的语句，用&amp;&amp;分割语句。</p>
@@ -671,7 +675,7 @@
       <category term="技术学习" scheme="http://www.xianwx.xyz/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="Mac" scheme="http://www.xianwx.xyz/tags/Mac/"/>
+      <category term="mac" scheme="http://www.xianwx.xyz/tags/mac/"/>
     
   </entry>
   

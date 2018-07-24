@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</loc>
+    <loc>http://www.xianwx.xyz/2018/07/18/ssh-copy/</loc>
     
-    <lastmod>2018-07-24T03:17:11.605Z</lastmod>
+    <lastmod>2018-07-24T03:22:24.939Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.xianwx.xyz/2018/07/18/mac-command/</loc>
     
-    <lastmod>2018-07-24T03:10:16.315Z</lastmod>
+    <lastmod>2018-07-24T03:21:33.442Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xianwx.xyz/2018/07/24/mac-share-ss/</loc>
+    
+    <lastmod>2018-07-24T03:21:18.864Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/</loc>
     
-    <lastmod>2018-07-23T08:01:49.556Z</lastmod>
+    <lastmod>2018-07-24T03:20:11.093Z</lastmod>
     
   </url>
   
@@ -103,13 +110,6 @@
     <loc>http://www.xianwx.xyz/2018/07/19/node-start-server/</loc>
     
     <lastmod>2018-07-19T02:21:20.157Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.xianwx.xyz/2018/07/18/ssh-copy/</loc>
-    
-    <lastmod>2018-07-18T10:39:30.960Z</lastmod>
     
   </url>
   
