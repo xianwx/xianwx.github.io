@@ -1,3 +1,4 @@
+http://www.xianwx.xyz/2018/07/24/apt-get-error-fix/
 http://www.xianwx.xyz/2018/07/24/mac-share-ss/
 http://www.xianwx.xyz/2018/07/23/linux-install-jenkins/
 http://www.xianwx.xyz/2018/07/23/alternatives-manage-jdk/
@@ -7,4 +8,3 @@ http://www.xianwx.xyz/2018/07/19/android-slash/
 http://www.xianwx.xyz/2018/07/19/node-deal-post/
 http://www.xianwx.xyz/2018/07/19/http-route/
 http://www.xianwx.xyz/2018/07/19/node-connect-mysql/
-http://www.xianwx.xyz/2018/07/19/how-to-use-curl/
