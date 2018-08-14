@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xianwx.xyz/"/>
-  <updated>2018-07-24T03:52:35.661Z</updated>
+  <updated>2018-08-14T09:07:27.341Z</updated>
   <id>http://www.xianwx.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.xianwx.xyz/2018/07/24/apt-get-error-fix/"/>
     <id>http://www.xianwx.xyz/2018/07/24/apt-get-error-fix/</id>
     <published>2018-07-24T03:50:58.000Z</published>
-    <updated>2018-07-24T03:52:35.661Z</updated>
+    <updated>2018-08-14T09:07:27.341Z</updated>
     
     <content type="html"><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>如果某次使用apt-get出现报错，可能会对之后使用apt-get出现影响，会报”subprocess installed post-installation script returned error exit status 1”，可以用以下方法处理：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get autoclean</div><div class="line">apt-get autoremove</div></pre></td></tr></table></figure></p>
 <p>就可以卡死的阻断删掉了。</p>
@@ -30,7 +30,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;如果某次使用apt-get出现报错，可能会对之后使用apt-get出现影响，会报”subprocess installed post-ins
+      挂了挂了，快清理缓存。
     
     </summary>
     
