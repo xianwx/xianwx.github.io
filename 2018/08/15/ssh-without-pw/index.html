@@ -15,16 +15,16 @@
 
 
 
-<meta name="description" content="平常吐槽不停，真到写起来的时候反而记不起来了……">
+<meta name="description" content="我从山中来，要到你屋去，你屋门紧锁，来去任自如！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写cocos的时候一些踩雷记录">
-<meta property="og:url" content="http://www.xianwx.xyz/2018/07/19/quick-cocos/index.html">
+<meta property="og:title" content="如何不需要每次输密码访问一台机器">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/08/15/ssh-without-pw/index.html">
 <meta property="og:site_name" content="yuzixin's blog">
-<meta property="og:description" content="平常吐槽不停，真到写起来的时候反而记不起来了……">
-<meta property="og:updated_time" content="2018-07-19T07:26:31.317Z">
+<meta property="og:description" content="我从山中来，要到你屋去，你屋门紧锁，来去任自如！">
+<meta property="og:updated_time" content="2018-08-15T03:34:12.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写cocos的时候一些踩雷记录">
-<meta name="twitter:description" content="平常吐槽不停，真到写起来的时候反而记不起来了……">
+<meta name="twitter:title" content="如何不需要每次输密码访问一台机器">
+<meta name="twitter:description" content="我从山中来，要到你屋去，你屋门紧锁，来去任自如！">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>写cocos的时候一些踩雷记录 | yuzixin&#39;s blog</title>
+<title>如何不需要每次输密码访问一台机器 | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -276,11 +276,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-quick-cocos" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ssh-without-pw" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/07/19/quick-cocos/" class="article-date">
-      <time datetime="2018-07-19T03:48:05.000Z" itemprop="datePublished">2018-07-19</time>
+      <a href="/2018/08/15/ssh-without-pw/" class="article-date">
+      <time datetime="2018-08-15T02:53:15.000Z" itemprop="datePublished">2018-08-15</time>
 </a>
 
 
@@ -295,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      写cocos的时候一些踩雷记录
+      如何不需要每次输密码访问一台机器
     </h1>
   
 
@@ -310,7 +310,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -321,7 +321,8 @@
       
           
           
-        <h1 id="C-导出给LUA使用的时候"><a href="#C-导出给LUA使用的时候" class="headerlink" title="C++导出给LUA使用的时候"></a>C++导出给LUA使用的时候</h1><p>在导出给lua使用的时候，如果父类没有导出，那父控件继承的公共方法将没有。<br>比如 EffectLight 继承自 Effect Effect 继承自 Ref 如果不导出Effect 创建的EffectLight对象将没有retain方法，除非导出Effect。</p>
+        <p>其实很简单，就是把自己电脑生成的pub公钥传到那台机子上，利用命令<code>ssh-copy-id</code>就可以。<br>如何生存公钥可以查看我的另一篇文章<a href="/2017/01/07/manage-your-git-ssh-key/" title="更好的管理你的git SSH-Key">更好的管理你的git SSH-Key</a><br>但是这个命令在不同的系统，不同的系统版本下参数的要求不一样，具体可以自己看help。<br>比如我的机子上：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-copy-id user@remote_ip .ssh/id_rsa.pub</div></pre></td></tr></table></figure></p>
+<p>然后输入密码，就可以直接用ssh访问那台机子，不要小看这个不需要输密码，它并不只是为了方便，而是可以在脚本里可以用ssh-copy之类的命令了。尤其是向gitlab-runner这种地方，如果不那么弄可能会有问题，之前跟日本方面运维对接，把我们游戏的热更资源先传到中转机再传到最终的cdn上，最开始的做法是传到中转机后然后ssh执行中转机上的一个expect命令，本地写好脚本，测试，OK，没问题。但是在runner里跑就一定失败。。。。最后的做法就是我给中转机和cdn机子加了互信，可以直接ssh连接，然后我脚本改成先ssh到中转机，再ssh-copy到cdn机子。</p>
 
       
     </div>
@@ -437,13 +438,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/07/19/quick-cocos/">写cocos的时候一些踩雷记录</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/15/ssh-without-pw/">如何不需要每次输密码访问一台机器</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
-        <p><span>发布时间:</span>2018-07-19, 11:48:05</p>
-        <p><span>最后更新:</span>2018-07-19, 15:26:31</p>
+        <p><span>发布时间:</span>2018-08-15, 10:53:15</p>
+        <p><span>最后更新:</span>2018-08-15, 11:34:12</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/07/19/quick-cocos/" title="写cocos的时候一些踩雷记录">http://www.xianwx.xyz/2018/07/19/quick-cocos/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/07/19/quick-cocos/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/15/ssh-without-pw/" title="如何不需要每次输密码访问一台机器">http://www.xianwx.xyz/2018/08/15/ssh-without-pw/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/15/ssh-without-pw/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -455,16 +456,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/07/23/linux-install-java/">
-                    Ubuntu Linux 16.04下如何安装Java
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/07/19/android-slash/">
-                    Android设置应用启动页
+                <a href="/2018/07/24/apt-get-error-fix/">
+                    处理&quot;subprocess installed post-installation script returned error exit status 1&quot;报错
                 </a>
             </div>
         
@@ -476,7 +471,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-导出给LUA使用的时候"><span class="toc-number">1.</span> <span class="toc-text">C++导出给LUA使用的时候</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -511,7 +506,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"写cocos的时候一些踩雷记录　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"如何不需要每次输密码访问一台机器　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -523,7 +518,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2018/07/19/quick-cocos/" data-title="写cocos的时候一些踩雷记录" data-url="http://www.xianwx.xyz/2018/07/19/quick-cocos/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/08/15/ssh-without-pw/" data-title="如何不需要每次输密码访问一台机器" data-url="http://www.xianwx.xyz/2018/08/15/ssh-without-pw/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -549,15 +544,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/07/23/linux-install-java/" title="上一篇: Ubuntu Linux 16.04下如何安装Java">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/07/19/android-slash/" title="下一篇: Android设置应用启动页">
+            <a href="/2018/07/24/apt-get-error-fix/" title="下一篇: 处理&quot;subprocess installed post-installation script returned error exit status 1&quot;报错">
                 <i class="fa fa-angle-right"></i>
             </a>
         

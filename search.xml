@@ -4,6 +4,14 @@
   
     
     <entry>
+      <title><![CDATA[如何不需要每次输密码访问一台机器]]></title>
+      <url>http://www.xianwx.xyz/2018/08/15/ssh-without-pw/</url>
+      <content type="html"><![CDATA[<p>其实很简单，就是把自己电脑生成的pub公钥传到那台机子上，利用命令<code>ssh-copy-id</code>就可以。<br>如何生存公钥可以查看我的另一篇文章<a href="/2017/01/07/manage-your-git-ssh-key/" title="更好的管理你的git SSH-Key">更好的管理你的git SSH-Key</a><br>但是这个命令在不同的系统，不同的系统版本下参数的要求不一样，具体可以自己看help。<br>比如我的机子上：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-copy-id user@remote_ip .ssh/id_rsa.pub</div></pre></td></tr></table></figure></p>
+<p>然后输入密码，就可以直接用ssh访问那台机子，不要小看这个不需要输密码，它并不只是为了方便，而是可以在脚本里可以用ssh-copy之类的命令了。尤其是向gitlab-runner这种地方，如果不那么弄可能会有问题，之前跟日本方面运维对接，把我们游戏的热更资源先传到中转机再传到最终的cdn上，最开始的做法是传到中转机后然后ssh执行中转机上的一个expect命令，本地写好脚本，测试，OK，没问题。但是在runner里跑就一定失败。。。。最后的做法就是我给中转机和cdn机子加了互信，可以直接ssh连接，然后我脚本改成先ssh到中转机，再ssh-copy到cdn机子。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[处理"subprocess installed post-installation script returned error exit status 1"报错]]></title>
       <url>http://www.xianwx.xyz/2018/07/24/apt-get-error-fix/</url>
       <content type="html"><![CDATA[<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>如果某次使用apt-get出现报错，可能会对之后使用apt-get出现影响，会报”subprocess installed post-installation script returned error exit status 1”，可以用以下方法处理：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">apt-get autoclean</div><div class="line">apt-get autoremove</div></pre></td></tr></table></figure></p>
