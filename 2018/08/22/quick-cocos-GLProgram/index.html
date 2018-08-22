@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="我从山中来，要到你屋去，你屋门紧锁，来去任自如！">
-<meta name="keywords" content="Linux,mac">
+<meta name="description" content="拒绝阉割，从我做起。">
+<meta name="keywords" content="cocos,quick,shader">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何不需要每次输密码访问一台机器">
-<meta property="og:url" content="http://www.xianwx.xyz/2018/08/15/ssh-without-pw/index.html">
+<meta property="og:title" content="把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/08/22/quick-cocos-GLProgram/index.html">
 <meta property="og:site_name" content="yuzixin&#39;s blog">
-<meta property="og:description" content="我从山中来，要到你屋去，你屋门紧锁，来去任自如！">
+<meta property="og:description" content="拒绝阉割，从我做起。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-15T03:34:12.475Z">
+<meta property="og:updated_time" content="2018-08-22T07:56:11.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何不需要每次输密码访问一台机器">
-<meta name="twitter:description" content="我从山中来，要到你屋去，你屋门紧锁，来去任自如！">
+<meta name="twitter:title" content="把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua">
+<meta name="twitter:description" content="拒绝阉割，从我做起。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>如何不需要每次输密码访问一台机器 | yuzixin&#39;s blog</title>
+<title>把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -278,11 +278,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-ssh-without-pw" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-quick-cocos-GLProgram" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/15/ssh-without-pw/" class="article-date">
-      <time datetime="2018-08-15T02:53:15.000Z" itemprop="datePublished">2018-08-15</time>
+      <a href="/2018/08/22/quick-cocos-GLProgram/" class="article-date">
+      <time datetime="2018-08-22T06:57:13.000Z" itemprop="datePublished">2018-08-22</time>
 </a>
 
 
@@ -297,7 +297,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何不需要每次输密码访问一台机器
+      把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua
     </h1>
   
 
@@ -312,7 +312,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos/">cocos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/quick/">quick</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/">shader</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -323,8 +323,17 @@
       
           
           
-        <p>其实很简单，就是把自己电脑生成的pub公钥传到那台机子上，利用命令<code>ssh-copy-id</code>就可以。<br>如何生存公钥可以查看我的另一篇文章<a href="/2017/01/07/manage-your-git-ssh-key/" title="更好的管理你的git SSH-Key">更好的管理你的git SSH-Key</a><br>但是这个命令在不同的系统，不同的系统版本下参数的要求不一样，具体可以自己看help。<br>比如我的机子上：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id user@remote_ip .ssh/id_rsa.pub</span><br></pre></td></tr></table></figure></p>
-<p>然后输入密码，就可以直接用ssh访问那台机子，不要小看这个不需要输密码，它并不只是为了方便，而是可以在脚本里可以用ssh-copy之类的命令了。尤其是向gitlab-runner这种地方，如果不那么弄可能会有问题，之前跟日本方面运维对接，把我们游戏的热更资源先传到中转机再传到最终的cdn上，最开始的做法是传到中转机后然后ssh执行中转机上的一个expect命令，本地写好脚本，测试，OK，没问题。但是在runner里跑就一定失败。。。。最后的做法就是我给中转机和cdn机子加了互信，可以直接ssh连接，然后我脚本改成先ssh到中转机，再ssh-copy到cdn机子。</p>
+        <p>不知道为什么3.6.1里把GLProgram的接口给屏蔽了，导致想用shader的时候会有很多的不方便，于是决定把接口再次暴露出来。</p>
+<h1 id="修改导出配置的ini文件"><a href="#修改导出配置的ini文件" class="headerlink" title="修改导出配置的ini文件"></a>修改导出配置的ini文件</h1><p>open <code>quick/tools/tolua/cocos2dx.ini</code>，cocos系统的C++类大部分都在里边导出的，自定义的类可以新增ini文件用于导出，并新增对应的genbindings python脚本，新增的好处是，不需要把系统的重新导出一遍，一是节省时间，二是。。。。用genbindings.py文件重新导出的话，会有大量的diff，<code>这一点朕也不明白</code>。</p>
+<p>言归正传，打开<code>cocos2dx.ini</code>后，可以看到在skip里skip掉了GLProgram里的大量接口（用的是正则式，干掉了一堆），直接都删掉，执行genbindings.py脚本重新导出。</p>
+<h1 id="解决报错"><a href="#解决报错" class="headerlink" title="解决报错"></a>解决报错</h1><p>按理来说！上述过程做完就算成功了，但是！cocos是不可能让你如愿的（计划通），首先，导出过后，所有的lua文件里的return self几乎都会被删掉，导出的cpp文件里的<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lua_settop(tolua_S, <span class="number">1</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>也大量会变成<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>很无奈吧。。。。我的做法就是，手动剔除掉跟此次修改无关的地方的diff，只把新增的部分copy过来，具体怎么操作，就只是个体力活而已了，没啥好说的。<br>但是这还没完，如果你用xcode重新编译，就会有以下报错，大意是有7处重复了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ld: 7 duplicate symbols for architecture x86_64</span><br></pre></td></tr></table></figure></p>
+<p>是不是莫名其妙？<br>这时候我们才突然想起来，没错，里边还有个文件叫：<code>lua_cocos2dx_manual.cpp</code><br>惊喜不惊喜？意外不意外？没错，这里手写了一部分接口，所以导致了重复，所以只要把<code>lua_cocos2dx_auto.cpp</code>里的已经manual导出过的接口给删除掉即可。</p>
+<h1 id="需要注意的地方"><a href="#需要注意的地方" class="headerlink" title="需要注意的地方"></a>需要注意的地方</h1><p>查看GLProgram.lua文件，仔细看注释，<code>setUniformLocationWith1f</code>，<code>setUniformLocationWith2f</code>，<code>setUniformLocationWith3f</code>，<code>setUniformLocationWith4f</code>，<code>setUniformLocationWith1i</code>这几个方法，分别被转成了<code>setUniformLocationF32</code>，<code>setUniformLocationI32</code>两个方法。不要用错咯。</p>
+<h1 id="bugs"><a href="#bugs" class="headerlink" title="bugs"></a>bugs</h1><p>使用<code>setUniformFloat</code>方法时会有<code>cc.GLProgramState:setUniformFloat argument #2 is &#39;string&#39;; &#39;number&#39; expected.</code>的报错，明明参数是没传错的，于是查看<code>lua_cocos2dx_auto.cpp</code>文件里<code>setUniformFloat</code>的实现，发现有串重复的代码，删掉即可。就是这串：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (argc == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> arg0;</span><br><span class="line">        ok &amp;= luaval_to_int32(tolua_S, <span class="number">2</span>,(<span class="keyword">int</span> *)&amp;arg0, <span class="string">"cc.GLProgramState:setUniformFloat"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!ok) &#123; <span class="keyword">break</span>; &#125;</span><br><span class="line">        <span class="keyword">double</span> arg1;</span><br><span class="line">        ok &amp;= luaval_to_number(tolua_S, <span class="number">3</span>,&amp;arg1, <span class="string">"cc.GLProgramState:setUniformFloat"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!ok) &#123; <span class="keyword">break</span>; &#125;</span><br><span class="line">        cobj-&gt;setUniformFloat(arg0, arg1);</span><br><span class="line">        lua_settop(tolua_S, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="number">0</span>);</span><br><span class="line">ok  = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure></p>
+<p>同理，<code>setUniformVec2</code>也有同样的报错，用同样的解决方法即可。</p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>重新使用xcode编译出play，可以愉快的用shader了。之后我会分享一些特效在github和coding上，欢迎关注。</p>
 
       
     </div>
@@ -440,13 +449,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/15/ssh-without-pw/">如何不需要每次输密码访问一台机器</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/22/quick-cocos-GLProgram/">把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
-        <p><span>发布时间:</span>2018-08-15, 10:53:15</p>
-        <p><span>最后更新:</span>2018-08-15, 11:34:12</p>
+        <p><span>发布时间:</span>2018-08-22, 14:57:13</p>
+        <p><span>最后更新:</span>2018-08-22, 15:56:11</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/15/ssh-without-pw/" title="如何不需要每次输密码访问一台机器">http://www.xianwx.xyz/2018/08/15/ssh-without-pw/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/15/ssh-without-pw/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/22/quick-cocos-GLProgram/" title="把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua">http://www.xianwx.xyz/2018/08/22/quick-cocos-GLProgram/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/22/quick-cocos-GLProgram/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -458,16 +467,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/22/quick-cocos-GLProgram/">
-                    把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/07/24/apt-get-error-fix/">
-                    处理&#34;subprocess installed post-installation script returned error exit status 1&#34;报错
+                <a href="/2018/08/15/ssh-without-pw/">
+                    如何不需要每次输密码访问一台机器
                 </a>
             </div>
         
@@ -479,7 +482,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#修改导出配置的ini文件"><span class="toc-number">1.</span> <span class="toc-text">修改导出配置的ini文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决报错"><span class="toc-number">2.</span> <span class="toc-text">解决报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#需要注意的地方"><span class="toc-number">3.</span> <span class="toc-text">需要注意的地方</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#bugs"><span class="toc-number">4.</span> <span class="toc-text">bugs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结束"><span class="toc-number">5.</span> <span class="toc-text">结束</span></a></li></ol>
         
     </div>
     <style>
@@ -514,7 +517,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"如何不需要每次输密码访问一台机器　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -526,7 +529,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2018/08/15/ssh-without-pw/" data-title="如何不需要每次输密码访问一台机器" data-url="http://www.xianwx.xyz/2018/08/15/ssh-without-pw/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/08/22/quick-cocos-GLProgram/" data-title="把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua" data-url="http://www.xianwx.xyz/2018/08/22/quick-cocos-GLProgram/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -552,15 +555,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/22/quick-cocos-GLProgram/" title="上一篇: 把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/07/24/apt-get-error-fix/" title="下一篇: 处理&#34;subprocess installed post-installation script returned error exit status 1&#34;报错">
+            <a href="/2018/08/15/ssh-without-pw/" title="下一篇: 如何不需要每次输密码访问一台机器">
                 <i class="fa fa-angle-right"></i>
             </a>
         
