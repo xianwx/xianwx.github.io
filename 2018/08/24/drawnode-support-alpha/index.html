@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="yuzixin&#39;s blog">
 <meta property="og:description" content="可以透明是人类的终极梦想">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.xianwx.xyz/images/9E61FC0234A8FC6DA01D8BAD905BDB13.jpg%20=308x273">
-<meta property="og:image" content="http://www.xianwx.xyz/images/2D42984A72B3261335A9B67957152CF3.jpg%20=600x600">
-<meta property="og:image" content="http://www.xianwx.xyz/images/A67CD56460D7BC3B92B8E2BC6E4CF32B.png%20=284x267">
-<meta property="og:updated_time" content="2018-08-24T09:37:25.618Z">
+<meta property="og:image" content="http://www.xianwx.xyz/images/9E61FC0234A8FC6DA01D8BAD905BDB13.jpg">
+<meta property="og:image" content="http://www.xianwx.xyz/images/2D42984A72B3261335A9B67957152CF3.jpg">
+<meta property="og:image" content="http://www.xianwx.xyz/images/A67CD56460D7BC3B92B8E2BC6E4CF32B.png">
+<meta property="og:updated_time" content="2018-08-24T09:39:23.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="给quick-cocos的drawnode支持alpha">
 <meta name="twitter:description" content="可以透明是人类的终极梦想">
-<meta name="twitter:image" content="http://www.xianwx.xyz/images/9E61FC0234A8FC6DA01D8BAD905BDB13.jpg%20=308x273">
+<meta name="twitter:image" content="http://www.xianwx.xyz/images/9E61FC0234A8FC6DA01D8BAD905BDB13.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -327,11 +327,11 @@
       
           
           
-        <h1 id="画五维图"><a href="#画五维图" class="headerlink" title="画五维图"></a>画五维图</h1><p>很久很久很久以前，策划要求我给他们做个功能，按照英雄当前的属性值，显示一个五维图，我拍了拍手里的砖头，爽快的答应了。<br>大概就长下边这样<br><img src="/images/9E61FC0234A8FC6DA01D8BAD905BDB13.jpg =308x273" alt="截图"></p>
+        <h1 id="画五维图"><a href="#画五维图" class="headerlink" title="画五维图"></a>画五维图</h1><p>很久很久很久以前，策划要求我给他们做个功能，按照英雄当前的属性值，显示一个五维图，我拍了拍手里的砖头，爽快的答应了。<br>大概就长下边这样<br><img src="/images/9E61FC0234A8FC6DA01D8BAD905BDB13.jpg" alt="截图"></p>
 <p>这很简单啊，display.newPolygon走一个，半小时搞定（主要是为了要对上她画的这几个点，妈耶累死我）。</p>
 <h1 id="缩放特效"><a href="#缩放特效" class="headerlink" title="缩放特效"></a>缩放特效</h1><p>然后策划又来了，说我要个缩放特效，让这个东西从小放大，我又摸了摸手里的砖头，点头答应了，也很简单啊，scaleTo一下就好了。</p>
 <h1 id="透明度变化"><a href="#透明度变化" class="headerlink" title="透明度变化"></a>透明度变化</h1><p>接着策划又㕛叒来了，说，不仅要缩放，还要有透明度的变化。我心想好吧，砸嘛又不能砸死，只能做了。于是对创建的五维图进行了setOpacity，然鹅，并没有变化。</p>
-<p><img src="/images/2D42984A72B3261335A9B67957152CF3.jpg =600x600" alt="凝重"><br>怎么办呢？</p>
+<p><img src="/images/2D42984A72B3261335A9B67957152CF3.jpg" alt="凝重"><br>怎么办呢？</p>
 <p>这个时候，要先冷静下来，总之要先找到Time Machine（钻垃圾桶</p>
 <h1 id="查找问题所在"><a href="#查找问题所在" class="headerlink" title="查找问题所在"></a>查找问题所在</h1><p>既然设置不成功，肯定就是它不支持，那我来看看为啥不支持吧，首先打开CCDrawNode.cpp，看下draw方法是怎么写的。<br>嗯，不出所料，是用OpenGL画的，那我们看下它的shader是咋写的，onDraw里只有个<code>glProgram</code>，所以还得继续找找。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> glProgram = getGLProgram();</span><br><span class="line">glProgram-&gt;use();</span><br><span class="line">glProgram-&gt;setUniformsForBuiltins(transform);</span><br></pre></td></tr></table></figure></p>
 <p>既然是直接get，那肯定是init的时候设置了，看看init函数。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> DrawNode::init()</span><br><span class="line">&#123;</span><br><span class="line">    _blendFunc = BlendFunc::ALPHA_PREMULTIPLIED;</span><br><span class="line"></span><br><span class="line">    setGLProgramState(GLProgramState::getOrCreateWithGLProgramName(GLProgram::SHADER_NAME_POSITION_LENGTH_TEXTURE_COLOR));</span><br><span class="line">    </span><br><span class="line">    ensureCapacity(<span class="number">512</span>);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -342,7 +342,7 @@
 <p>很明显了，是<code>v_color = vec4(a_color.rgb * a_color.a, a_color.a);</code>这句的问题，我们只要把alpha加上即可，将以上shader改成：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* ccPositionColorLengthTexture_vert = STRINGIFY(</span><br><span class="line"></span><br><span class="line">\n#ifdef GL_ES\n</span><br><span class="line">attribute mediump vec4 a_position;</span><br><span class="line">attribute mediump vec2 a_texcoord;</span><br><span class="line">attribute mediump vec4 a_color;</span><br><span class="line"></span><br><span class="line">varying mediump vec4 v_color;</span><br><span class="line">varying mediump vec2 v_texcoord;</span><br><span class="line"></span><br><span class="line">\n#<span class="keyword">else</span>\n</span><br><span class="line"></span><br><span class="line">attribute vec4 a_position;</span><br><span class="line">attribute vec2 a_texcoord;</span><br><span class="line">attribute vec4 a_color;</span><br><span class="line"></span><br><span class="line">varying vec4 v_color;</span><br><span class="line">varying vec2 v_texcoord;</span><br><span class="line"></span><br><span class="line">uniform <span class="keyword">float</span> u_alpha;</span><br><span class="line"></span><br><span class="line">\n#endif\n</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    v_color = vec4(a_color.rgb * a_color.a * u_alpha, a_color.a * u_alpha);</span><br><span class="line">    v_texcoord = a_texcoord;</span><br><span class="line"></span><br><span class="line">    gl_Position = CC_MVPMatrix * a_position;</span><br><span class="line">&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
 <p>既然增加了一个uniform <code>u_alpha</code>，那就要在程序里设置它。<br>打开<code>CCDrawNode.cpp</code><br>在<code>onDraw</code>，<code>onDrawGLLine</code>，<code>onDrawGLPoint</code>方法里都加上一句<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">glProgram-&gt;setUniformLocationWith1f(glProgram-&gt;getUniformLocation(<span class="string">"u_alpha"</span>), _displayedOpacity / <span class="number">255.0</span>);</span><br></pre></td></tr></table></figure></p>
 <p>重新编译player，再来一次setOpacity，果然如我们所想的一样，成功了。</p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>策划看了一眼，说，加上透明度变化好丑哦，去掉吧。<br><img src="/images/A67CD56460D7BC3B92B8E2BC6E4CF32B.png =284x267" alt="操里lailai"></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>策划看了一眼，说，加上透明度变化好丑哦，去掉吧。<br><img src="/images/A67CD56460D7BC3B92B8E2BC6E4CF32B.png" alt="操里lailai"></p>
 
       
     </div>
@@ -461,7 +461,7 @@
         <p><span>本文标题:</span><a href="/2018/08/24/drawnode-support-alpha/">给quick-cocos的drawnode支持alpha</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
         <p><span>发布时间:</span>2018-08-24, 17:32:51</p>
-        <p><span>最后更新:</span>2018-08-24, 17:37:25</p>
+        <p><span>最后更新:</span>2018-08-24, 17:39:23</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/24/drawnode-support-alpha/" title="给quick-cocos的drawnode支持alpha">http://www.xianwx.xyz/2018/08/24/drawnode-support-alpha/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/24/drawnode-support-alpha/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
