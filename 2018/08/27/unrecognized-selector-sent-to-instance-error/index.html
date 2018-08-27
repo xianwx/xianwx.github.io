@@ -15,17 +15,18 @@
 
 
 
-<meta name="description" content="google-site-verification: googlecf1642d17180e557.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yuzixin&#39;s blog">
-<meta property="og:url" content="http://www.xianwx.xyz/googlecf1642d17180e557.html">
+<meta name="description" content="转角遇到bug">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="写iOS时碰到的unrecognized selector sent to instance报错">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/index.html">
 <meta property="og:site_name" content="yuzixin&#39;s blog">
-<meta property="og:description" content="google-site-verification: googlecf1642d17180e557.html">
+<meta property="og:description" content="转角遇到bug">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-07T10:00:03.000Z">
+<meta property="og:updated_time" content="2018-08-27T02:46:49.111Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yuzixin&#39;s blog">
-<meta name="twitter:description" content="google-site-verification: googlecf1642d17180e557.html">
+<meta name="twitter:title" content="写iOS时碰到的unrecognized selector sent to instance报错">
+<meta name="twitter:description" content="转角遇到bug">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -57,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>yuzixin&#39;s blog</title>
+<title>写iOS时碰到的unrecognized selector sent to instance报错 | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -67,7 +68,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -277,11 +278,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-unrecognized-selector-sent-to-instance-error" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/googlecf1642d17180e557.html" class="article-date">
-      <time datetime="2018-08-22T07:37:21.785Z" itemprop="datePublished">2018-08-22</time>
+      <a href="/2018/08/27/unrecognized-selector-sent-to-instance-error/" class="article-date">
+      <time datetime="2018-08-27T02:42:01.000Z" itemprop="datePublished">2018-08-27</time>
 </a>
 
 
@@ -292,30 +293,44 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      写iOS时碰到的unrecognized selector sent to instance报错
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/技术学习/">技术学习</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
-
-
           
-          
-        google-site-verification: googlecf1642d17180e557.html
+        <p>之前跟心动网络对接台湾版本，接了他们的“天下网游”SDK，有段这样的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+ (void) callTXWYPay:(NSDictionary *)dict</span><br><span class="line">&#123;</span><br><span class="line">    txwyPaySucc = [dict[@&quot;onSucc&quot;] intValue];</span><br><span class="line">    txwyPayFail = [dict[@&quot;onFail&quot;] intValue];</span><br><span class="line">    txwyPayCancel = [dict[@&quot;onCancel&quot;] intValue];</span><br><span class="line"></span><br><span class="line">    int level = [dict[@&quot;userLevel&quot;] intValue];</span><br><span class="line">    NSString *productId = [dict[@&quot;productId&quot;] stringValue];</span><br><span class="line">    NSString *orderKey = [dict[@&quot;orderKey&quot;] stringValue];</span><br><span class="line"></span><br><span class="line">    [SDKTxwyPassport payWithProductID:productId quantity:1 svrId:@&quot;1&quot; mark:orderKey level:level];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在我的手机上运行无误，在对方手机上出现无法调起SDK的情况，定位了一下，发现是没有走到<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[SDKTxwyPassport payWithProductID:productId quantity:<span class="number">1</span> svrId:<span class="string">@"1"</span> mark:orderKey level:level];</span><br></pre></td></tr></table></figure></p>
+<p>而且有个报错是<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-[<span class="built_in">NSTaggedPointerString</span> stringValue]: unrecognized selector sent to instance <span class="number">0xa00303668616f6e6</span></span><br></pre></td></tr></table></figure></p>
+<p>对方跟我说，可能是dict里某个值是空的，我查看了下lua层面的代码：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> NULL = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span><span class="keyword">end</span></span><br><span class="line"><span class="keyword">local</span> args = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- callbacks</span></span><br><span class="line">args.onSucc = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    self:updateTip(Text:getStr(<span class="string">"Pay_zhifucheng"</span>))</span><br><span class="line">    self:removeTip()</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">or</span> NULL</span><br><span class="line">args.onFail = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>            </span><br><span class="line">    self:updateTip(Text:getStr(<span class="string">"pay_error"</span>))</span><br><span class="line">    self:removeTip()</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">or</span> NULL</span><br><span class="line">args.onCancel = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>            </span><br><span class="line">    self:updateTip(Text:getStr(<span class="string">"Pay_zhifushibai"</span>))</span><br><span class="line">    self:removeTip()</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">or</span> NULL</span><br><span class="line"></span><br><span class="line"><span class="comment">-- args</span></span><br><span class="line">args.userLevel = <span class="built_in">tonumber</span>(game.playerData.playerLevel) <span class="keyword">or</span> <span class="number">0</span></span><br><span class="line">args.productId = <span class="built_in">tostring</span>(productID) <span class="keyword">or</span> <span class="string">""</span></span><br><span class="line">args.orderKey = <span class="built_in">tostring</span>(orderKey) <span class="keyword">or</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line">luaoc.callStaticMethod(<span class="string">"AppController"</span>, <span class="string">"callTXWYPay"</span>, args)</span><br></pre></td></tr></table></figure></p>
+<p>我觉得我写的已经够安全了……于是死活想不通为啥还是调不起。</p>
+<h1 id="实际原因"><a href="#实际原因" class="headerlink" title="实际原因"></a>实际原因</h1><p>于是我再询问了一下专门写oc的朋友，他跟我说，这个报错其实是<code>某个对象没有stringValue的方法，应该是我强转的原因</code>。<br>于是我恍然大悟，我既然已经在lua层面tostring过了，在oc就可以直接使用这个值了。<br>于是改成下面形式：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>) callTXWYPay:(<span class="built_in">NSDictionary</span> *)dict</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"callTXWYPay"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"dict:%@"</span>, dict);</span><br><span class="line">    </span><br><span class="line">    txwyPaySucc = [dict[<span class="string">@"onSucc"</span>] intValue];</span><br><span class="line">    txwyPayFail = [dict[<span class="string">@"onFail"</span>] intValue];</span><br><span class="line">    txwyPayCancel = [dict[<span class="string">@"onCancel"</span>] intValue];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> level = [dict[<span class="string">@"userLevel"</span>] intValue];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"准备开始调起SDK productId: %@, orderKey: %@, level: %d"</span>,dict[<span class="string">@"productId"</span>],dict[<span class="string">@"orderKey"</span>],level);</span><br><span class="line"></span><br><span class="line">    [SDKTxwyPassport payWithProductID:dict[<span class="string">@"productId"</span>] quantity:<span class="number">1</span> svrId:<span class="string">@"1"</span> mark:dict[<span class="string">@"orderKey"</span>] level:level];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"call sdk end"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>正常调起SDK，并打印出”call sdk end”，问题解决。<br>另外，dict是可以通过NSLog直接打出来的！</p>
+
       
     </div>
     <div class="article-content">
@@ -429,10 +444,59 @@
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/08/27/unrecognized-selector-sent-to-instance-error/">写iOS时碰到的unrecognized selector sent to instance报错</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
+        <p><span>发布时间:</span>2018-08-27, 10:42:01</p>
+        <p><span>最后更新:</span>2018-08-27, 10:46:49</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/27/unrecognized-selector-sent-to-instance-error/" title="写iOS时碰到的unrecognized selector sent to instance报错">http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/08/27/sublime-use-luacheck/">
+                    sublime使用luacheck
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实际原因"><span class="toc-number">1.</span> <span class="toc-text">实际原因</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -449,7 +513,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"写iOS时碰到的unrecognized selector sent to instance报错　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -461,7 +525,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="googlecf1642d17180e557.html" data-title="" data-url="http://www.xianwx.xyz/googlecf1642d17180e557.html"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/08/27/unrecognized-selector-sent-to-instance-error/" data-title="写iOS时碰到的unrecognized selector sent to instance报错" data-url="http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -482,6 +546,24 @@
 </div>
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/08/27/sublime-use-luacheck/" title="下一篇: sublime使用luacheck">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/unrecognized-selector-sent-to-instance-error/">写iOS时碰到的unrecognized selector sent to instance报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/27/sublime-use-luacheck/">sublime使用luacheck</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/24/drawnode-support-alpha/">给quick-cocos的drawnode支持alpha</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/quick-cocos-GLProgram/">把quick-cocos-community 3.6.1里的GLProgram里隐藏的接口暴露给Lua</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/15/ssh-without-pw/">如何不需要每次输密码访问一台机器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/24/apt-get-error-fix/">处理"subprocess installed post-installation script returned error exit status 1"报错</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/24/mac-share-ss/">Mac通过Privoxy共享shadowsocks代理给其它设备</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/23/linux-install-jenkins/">Ubuntu Linux 16.04下如何安装Jenkins</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/23/alternatives-manage-jdk/">Linux JDK多版本管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/23/linux-install-java/">Ubuntu Linux 16.04下如何安装Java</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/quick-cocos/">写cocos的时候一些踩雷记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/android-slash/">Android设置应用启动页</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/node-deal-post/">Node如何处理POST请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/http-route/">Node使用路由的方式处理请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/node-connect-mysql/">Node连接MySQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/how-to-use-curl/">怎么使用curl模拟http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/node-learn-record/">Node学习记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/19/node-start-server/">Node开启一个HTTP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/ssh-copy/">对远程服务器利用ssh传输文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/http-server-on-origin-linux/">给云服务器安装HTTP服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/skynet-server-on-origin-linux/">给远程云服务器部署skynet服务器</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/root-user/">Linux root用户</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/tmux/">tmux的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/fix-gradle-project-sync-failed/">解决Gradle project sync failed. Please fix your project and try again.</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/18/mac-command/">Mac使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/05/LuaJavaBridge/">LuaJavaBridge</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/19/git-commond/">git常用命令记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/19/hexo-keep-pref/">持续完善hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/07/manage-your-git-ssh-key/">更好的管理你的git SSH-Key</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/07/ext-layer-in-quick-cocos/">给lua文件注入插件的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/lua-multiple-inheritance/">lua的元表以及多继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/duoshuo-style/">自定义自己的评论系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/09/power-up-your-quick-look/">加强你的quick look</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/08/build-hexo-blog-with-github-pages/">如何使用github + hexo搭建一个属于自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/27/hello-world/">hello world</a></li></ul>
 
 
 
