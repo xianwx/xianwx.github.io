@@ -15,18 +15,29 @@
 
 
 
-<meta name="description" content="转角遇到bug">
-<meta name="keywords" content="iOS">
+<meta name="description" content="欢迎各位领导莅临">
+<meta name="keywords" content="cocos,quick,shader">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写iOS时碰到的unrecognized selector sent to instance报错">
-<meta property="og:url" content="http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/index.html">
+<meta property="og:title" content="quick-cocos2dx shader分享">
+<meta property="og:url" content="http://www.xianwx.xyz/2018/08/29/quick-cocos-shader-share/index.html">
 <meta property="og:site_name" content="yuzixin&#39;s blog">
-<meta property="og:description" content="转角遇到bug">
+<meta property="og:description" content="欢迎各位领导莅临">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T03:01:07.084Z">
+<meta property="og:image" content="http://www.xianwx.xyz/images/cloud.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/dissolve.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/flame.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/fluxay_1.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/fluxay_2.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/glow_circle.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/grassy.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/search_light.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/transfer.gif">
+<meta property="og:image" content="http://www.xianwx.xyz/images/water_wave.gif">
+<meta property="og:updated_time" content="2018-08-29T02:36:29.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写iOS时碰到的unrecognized selector sent to instance报错">
-<meta name="twitter:description" content="转角遇到bug">
+<meta name="twitter:title" content="quick-cocos2dx shader分享">
+<meta name="twitter:description" content="欢迎各位领导莅临">
+<meta name="twitter:image" content="http://www.xianwx.xyz/images/cloud.gif">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -58,7 +69,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>写iOS时碰到的unrecognized selector sent to instance报错 | yuzixin&#39;s blog</title>
+<title>quick-cocos2dx shader分享 | yuzixin&#39;s blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -278,11 +289,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-unrecognized-selector-sent-to-instance-error" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-quick-cocos-shader-share" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/08/27/unrecognized-selector-sent-to-instance-error/" class="article-date">
-      <time datetime="2018-08-27T02:42:01.000Z" itemprop="datePublished">2018-08-27</time>
+      <a href="/2018/08/29/quick-cocos-shader-share/" class="article-date">
+      <time datetime="2018-08-29T02:30:07.000Z" itemprop="datePublished">2018-08-29</time>
 </a>
 
 
@@ -297,7 +308,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      写iOS时碰到的unrecognized selector sent to instance报错
+      quick-cocos2dx shader分享
     </h1>
   
 
@@ -312,7 +323,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos/">cocos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/quick/">quick</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/">shader</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -323,13 +334,29 @@
       
           
           
-        <p>之前跟心动网络对接台湾版本，接了他们的“天下网游”SDK，有段这样的代码。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>) callTXWYPay:(<span class="built_in">NSDictionary</span> *)dict</span><br><span class="line">&#123;</span><br><span class="line">    txwyPaySucc = [dict[<span class="string">@"onSucc"</span>] intValue];</span><br><span class="line">    txwyPayFail = [dict[<span class="string">@"onFail"</span>] intValue];</span><br><span class="line">    txwyPayCancel = [dict[<span class="string">@"onCancel"</span>] intValue];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> level = [dict[<span class="string">@"userLevel"</span>] intValue];</span><br><span class="line">    <span class="built_in">NSString</span> *productId = [dict[<span class="string">@"productId"</span>] stringValue];</span><br><span class="line">    <span class="built_in">NSString</span> *orderKey = [dict[<span class="string">@"orderKey"</span>] stringValue];</span><br><span class="line"></span><br><span class="line">    [SDKTxwyPassport payWithProductID:productId quantity:<span class="number">1</span> svrId:<span class="string">@"1"</span> mark:orderKey level:level];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在我的手机上运行无误，在对方手机上出现无法调起SDK的情况，定位了一下，发现是没有走到<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[SDKTxwyPassport payWithProductID:productId quantity:<span class="number">1</span> svrId:<span class="string">@"1"</span> mark:orderKey level:level];</span><br></pre></td></tr></table></figure></p>
-<p>而且有个报错是<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-[<span class="built_in">NSTaggedPointerString</span> stringValue]: unrecognized selector sent to instance <span class="number">0xa00303668616f6e6</span></span><br></pre></td></tr></table></figure></p>
-<p>对方跟我说，可能是dict里某个值是空的，我查看了下lua层面的代码：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> NULL = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span><span class="keyword">end</span></span><br><span class="line"><span class="keyword">local</span> args = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- callbacks</span></span><br><span class="line">args.onSucc = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    self:updateTip(Text:getStr(<span class="string">"Pay_zhifucheng"</span>))</span><br><span class="line">    self:removeTip()</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">or</span> NULL</span><br><span class="line">args.onFail = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>            </span><br><span class="line">    self:updateTip(Text:getStr(<span class="string">"pay_error"</span>))</span><br><span class="line">    self:removeTip()</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">or</span> NULL</span><br><span class="line">args.onCancel = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>            </span><br><span class="line">    self:updateTip(Text:getStr(<span class="string">"Pay_zhifushibai"</span>))</span><br><span class="line">    self:removeTip()</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">or</span> NULL</span><br><span class="line"></span><br><span class="line"><span class="comment">-- args</span></span><br><span class="line">args.userLevel = <span class="built_in">tonumber</span>(game.playerData.playerLevel) <span class="keyword">or</span> <span class="number">0</span></span><br><span class="line">args.productId = <span class="built_in">tostring</span>(productID) <span class="keyword">or</span> <span class="string">""</span></span><br><span class="line">args.orderKey = <span class="built_in">tostring</span>(orderKey) <span class="keyword">or</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line">luaoc.callStaticMethod(<span class="string">"AppController"</span>, <span class="string">"callTXWYPay"</span>, args)</span><br></pre></td></tr></table></figure></p>
-<p>我觉得我写的已经够安全了……于是死活想不通为啥还是调不起。</p>
-<h1 id="实际原因"><a href="#实际原因" class="headerlink" title="实际原因"></a>实际原因</h1><p>于是我再询问了一下专门写oc的朋友，他跟我说，这个报错其实是<code>某个对象没有stringValue的方法，应该是我强转的原因</code>。<br>于是我恍然大悟，我既然已经在lua层面tostring过了，在oc就可以直接使用这个值了。<br>于是改成下面形式：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>) callTXWYPay:(<span class="built_in">NSDictionary</span> *)dict</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"callTXWYPay"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"dict:%@"</span>, dict);</span><br><span class="line">    </span><br><span class="line">    txwyPaySucc = [dict[<span class="string">@"onSucc"</span>] intValue];</span><br><span class="line">    txwyPayFail = [dict[<span class="string">@"onFail"</span>] intValue];</span><br><span class="line">    txwyPayCancel = [dict[<span class="string">@"onCancel"</span>] intValue];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> level = [dict[<span class="string">@"userLevel"</span>] intValue];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"准备开始调起SDK productId: %@, orderKey: %@, level: %d"</span>,dict[<span class="string">@"productId"</span>],dict[<span class="string">@"orderKey"</span>],level);</span><br><span class="line"></span><br><span class="line">    [SDKTxwyPassport payWithProductID:dict[<span class="string">@"productId"</span>] quantity:<span class="number">1</span> svrId:<span class="string">@"1"</span> mark:dict[<span class="string">@"orderKey"</span>] level:level];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"call sdk end"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>正常调起SDK，并打印出”call sdk end”，问题解决。<br>另外，dict是可以通过NSLog直接打出来的！</p>
+        <h1 id="shader-demo-基于自改版本的quick-cocos-community-3-6-1"><a href="#shader-demo-基于自改版本的quick-cocos-community-3-6-1" class="headerlink" title="shader demo 基于自改版本的quick-cocos-community 3.6.1"></a>shader demo 基于自改版本的quick-cocos-community 3.6.1</h1><p>shader出处来自九尾狐游戏工作室，他们做了个用cocos creator的版本，地址是：</p>
+<h3 id="github项目地址-传送门"><a href="#github项目地址-传送门" class="headerlink" title="github项目地址 传送门"></a><a href="https://github.com/fylz1125/ShaderDemos" target="_blank" rel="noopener">github项目地址 传送门</a></h3><h3 id="码云项目地址-传送门"><a href="#码云项目地址-传送门" class="headerlink" title="码云项目地址 传送门"></a><a href="https://gitee.com/darkmoon/ShaderDemos" target="_blank" rel="noopener">码云项目地址 传送门</a></h3><p>我们公司用的是quick cocos进行开发，我相信很多小团队都是喜欢使用lua开发游戏，简单方便容易上手，热更也不需要头疼，但是quick已经被cocos抛弃，后序更新我都没关注过，基本有bug就自己魔改。现在我传到网上的quick项目是我魔改过后的一部分内容的版本（地址在下边）。<br>但是上面项目是用creator的，对lua开发者不适用，于是我就想到了转移到lua代码。</p>
+<h1 id="本项目地址"><a href="#本项目地址" class="headerlink" title="本项目地址"></a>本项目地址</h1><h3 id="coding版本-传送门"><a href="#coding版本-传送门" class="headerlink" title="coding版本 传送门"></a><a href="https://coding.net/u/xianwx/p/ShaderDemo/git" target="_blank" rel="noopener">coding版本 传送门</a></h3><h3 id="github版本-传送门"><a href="#github版本-传送门" class="headerlink" title="github版本 传送门"></a><a href="https://github.com/xianwx/QuickCocosShader" target="_blank" rel="noopener">github版本 传送门</a></h3><h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p>quick-cocos-community 3.6.1，自己开放了GLProgram的接口，如果不使用这个player的话，可能会有报错，不想用可以自己魔改自己的引擎，只要接口都有就可以。</p>
+<h2 id="可以自己魔改"><a href="#可以自己魔改" class="headerlink" title="可以自己魔改"></a>可以自己魔改</h2><p><a href="http://xianwx.xyz/2018/08/22/quick-cocos-GLProgram/" target="_blank" rel="noopener">魔改方法</a></p>
+<h2 id="也可以用我魔改过后的版本"><a href="#也可以用我魔改过后的版本" class="headerlink" title="也可以用我魔改过后的版本"></a>也可以用我魔改过后的版本</h2><p><a href="https://coding.net/u/xianwx/p/my_quick_3.6/git" target="_blank" rel="noopener">quick coding 传送门</a><br>我实在是传不到github来，各种代理大法都试过了。。。改host大法也试过了，反正就是。。。传不动，气死。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>可以自己新建一个新的项目，然后把这个项目里的res和src拷贝过去，这样你就可以在手机上跑了，我在我自己的苹果手机上跑过，效果还可以的。实现主要看src/app/layer/EffectLayer.lua就可以了，shader的使用全在src/app/effect/里边，shader在src/app/shader/里边。</p>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/images/cloud.gif" alt="云朵效果"></p>
+<p><img src="/images/dissolve.gif" alt="溶解效果"></p>
+<p><img src="/images/flame.gif" alt="火焰效果"></p>
+<p><img src="/images/fluxay_1.gif" alt="流光效果1"></p>
+<p><img src="/images/fluxay_2.gif" alt="流光效果2"></p>
+<p><img src="/images/glow_circle.gif" alt="发光圆效果"></p>
+<p><img src="/images/grassy.gif" alt="草地效果"></p>
+<p><img src="/images/search_light.gif" alt="模拟战争迷雾效果"></p>
+<p><img src="/images/transfer.gif" alt="渐变效果"></p>
+<p><img src="/images/water_wave.gif" alt="水波纹效果"></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol>
+<li>请勿用做商用（需要商用的话请联系shader原作者）</li>
+<li>请注意shader是有原作者的</li>
+<li>我只把自己有兴趣的魔改了，之后还会找其它的效果持续更新。</li>
+<li>欢迎在github上star</li>
+<li>欢迎大家交流</li>
+</ol>
 
       
     </div>
@@ -445,13 +472,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/08/27/unrecognized-selector-sent-to-instance-error/">写iOS时碰到的unrecognized selector sent to instance报错</a></p>
+        <p><span>本文标题:</span><a href="/2018/08/29/quick-cocos-shader-share/">quick-cocos2dx shader分享</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
-        <p><span>发布时间:</span>2018-08-27, 10:42:01</p>
-        <p><span>最后更新:</span>2018-08-27, 11:01:07</p>
+        <p><span>发布时间:</span>2018-08-29, 10:30:07</p>
+        <p><span>最后更新:</span>2018-08-29, 10:36:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/08/27/unrecognized-selector-sent-to-instance-error/" title="写iOS时碰到的unrecognized selector sent to instance报错">http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/08/29/quick-cocos-shader-share/" title="quick-cocos2dx shader分享">http://www.xianwx.xyz/2018/08/29/quick-cocos-shader-share/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/29/quick-cocos-shader-share/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -463,16 +490,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/08/29/quick-cocos-shader-share/">
-                    quick-cocos2dx shader分享
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/08/27/sublime-use-luacheck/">
-                    sublime使用luacheck
+                <a href="/2018/08/27/unrecognized-selector-sent-to-instance-error/">
+                    写iOS时碰到的unrecognized selector sent to instance报错
                 </a>
             </div>
         
@@ -484,7 +505,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实际原因"><span class="toc-number">1.</span> <span class="toc-text">实际原因</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shader-demo-基于自改版本的quick-cocos-community-3-6-1"><span class="toc-number">1.</span> <span class="toc-text">shader demo 基于自改版本的quick-cocos-community 3.6.1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#github项目地址-传送门"><span class="toc-number">1.0.1.</span> <span class="toc-text">github项目地址 传送门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#码云项目地址-传送门"><span class="toc-number">1.0.2.</span> <span class="toc-text">码云项目地址 传送门</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本项目地址"><span class="toc-number">2.</span> <span class="toc-text">本项目地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#coding版本-传送门"><span class="toc-number">2.0.1.</span> <span class="toc-text">coding版本 传送门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github版本-传送门"><span class="toc-number">2.0.2.</span> <span class="toc-text">github版本 传送门</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发工具"><span class="toc-number">3.</span> <span class="toc-text">开发工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#可以自己魔改"><span class="toc-number">3.1.</span> <span class="toc-text">可以自己魔改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#也可以用我魔改过后的版本"><span class="toc-number">3.2.</span> <span class="toc-text">也可以用我魔改过后的版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#效果图"><span class="toc-number">5.</span> <span class="toc-text">效果图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-number">6.</span> <span class="toc-text">最后</span></a></li></ol>
         
     </div>
     <style>
@@ -519,7 +540,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"写iOS时碰到的unrecognized selector sent to instance报错　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"quick-cocos2dx shader分享　| yuzixin's blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -531,7 +552,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2018/08/27/unrecognized-selector-sent-to-instance-error/" data-title="写iOS时碰到的unrecognized selector sent to instance报错" data-url="http://www.xianwx.xyz/2018/08/27/unrecognized-selector-sent-to-instance-error/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2018/08/29/quick-cocos-shader-share/" data-title="quick-cocos2dx shader分享" data-url="http://www.xianwx.xyz/2018/08/29/quick-cocos-shader-share/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuzixin"};
         (function() {
@@ -557,15 +578,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/08/29/quick-cocos-shader-share/" title="上一篇: quick-cocos2dx shader分享">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/08/27/sublime-use-luacheck/" title="下一篇: sublime使用luacheck">
+            <a href="/2018/08/27/unrecognized-selector-sent-to-instance-error/" title="下一篇: 写iOS时碰到的unrecognized selector sent to instance报错">
                 <i class="fa fa-angle-right"></i>
             </a>
         
