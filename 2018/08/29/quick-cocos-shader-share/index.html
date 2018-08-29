@@ -15,13 +15,13 @@
 
 
 
-<meta name="description" content="欢迎各位领导莅临">
+<meta name="description" content="欢迎各位领导莅临指导">
 <meta name="keywords" content="cocos,quick,shader">
 <meta property="og:type" content="article">
 <meta property="og:title" content="quick-cocos2dx shader分享">
 <meta property="og:url" content="http://www.xianwx.xyz/2018/08/29/quick-cocos-shader-share/index.html">
 <meta property="og:site_name" content="yuzixin&#39;s blog">
-<meta property="og:description" content="欢迎各位领导莅临">
+<meta property="og:description" content="欢迎各位领导莅临指导">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.xianwx.xyz/images/cloud.gif">
 <meta property="og:image" content="http://www.xianwx.xyz/images/dissolve.gif">
@@ -33,10 +33,10 @@
 <meta property="og:image" content="http://www.xianwx.xyz/images/search_light.gif">
 <meta property="og:image" content="http://www.xianwx.xyz/images/transfer.gif">
 <meta property="og:image" content="http://www.xianwx.xyz/images/water_wave.gif">
-<meta property="og:updated_time" content="2018-08-29T02:36:29.140Z">
+<meta property="og:updated_time" content="2018-08-29T02:43:33.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="quick-cocos2dx shader分享">
-<meta name="twitter:description" content="欢迎各位领导莅临">
+<meta name="twitter:description" content="欢迎各位领导莅临指导">
 <meta name="twitter:image" content="http://www.xianwx.xyz/images/cloud.gif">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
@@ -337,7 +337,7 @@
         <h1 id="shader-demo-基于自改版本的quick-cocos-community-3-6-1"><a href="#shader-demo-基于自改版本的quick-cocos-community-3-6-1" class="headerlink" title="shader demo 基于自改版本的quick-cocos-community 3.6.1"></a>shader demo 基于自改版本的quick-cocos-community 3.6.1</h1><p>shader出处来自九尾狐游戏工作室，他们做了个用cocos creator的版本，地址是：</p>
 <h3 id="github项目地址-传送门"><a href="#github项目地址-传送门" class="headerlink" title="github项目地址 传送门"></a><a href="https://github.com/fylz1125/ShaderDemos" target="_blank" rel="noopener">github项目地址 传送门</a></h3><h3 id="码云项目地址-传送门"><a href="#码云项目地址-传送门" class="headerlink" title="码云项目地址 传送门"></a><a href="https://gitee.com/darkmoon/ShaderDemos" target="_blank" rel="noopener">码云项目地址 传送门</a></h3><p>我们公司用的是quick cocos进行开发，我相信很多小团队都是喜欢使用lua开发游戏，简单方便容易上手，热更也不需要头疼，但是quick已经被cocos抛弃，后序更新我都没关注过，基本有bug就自己魔改。现在我传到网上的quick项目是我魔改过后的一部分内容的版本（地址在下边）。<br>但是上面项目是用creator的，对lua开发者不适用，于是我就想到了转移到lua代码。</p>
 <h1 id="本项目地址"><a href="#本项目地址" class="headerlink" title="本项目地址"></a>本项目地址</h1><h3 id="coding版本-传送门"><a href="#coding版本-传送门" class="headerlink" title="coding版本 传送门"></a><a href="https://coding.net/u/xianwx/p/ShaderDemo/git" target="_blank" rel="noopener">coding版本 传送门</a></h3><h3 id="github版本-传送门"><a href="#github版本-传送门" class="headerlink" title="github版本 传送门"></a><a href="https://github.com/xianwx/QuickCocosShader" target="_blank" rel="noopener">github版本 传送门</a></h3><h1 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h1><p>quick-cocos-community 3.6.1，自己开放了GLProgram的接口，如果不使用这个player的话，可能会有报错，不想用可以自己魔改自己的引擎，只要接口都有就可以。</p>
-<h2 id="可以自己魔改"><a href="#可以自己魔改" class="headerlink" title="可以自己魔改"></a>可以自己魔改</h2><p><a href="http://xianwx.xyz/2018/08/22/quick-cocos-GLProgram/" target="_blank" rel="noopener">魔改方法</a></p>
+<h2 id="可以自己魔改"><a href="#可以自己魔改" class="headerlink" title="可以自己魔改"></a>可以自己魔改</h2><a href="/2018/08/22/quick-cocos-GLProgram/" title="魔改方法">魔改方法</a>
 <h2 id="也可以用我魔改过后的版本"><a href="#也可以用我魔改过后的版本" class="headerlink" title="也可以用我魔改过后的版本"></a>也可以用我魔改过后的版本</h2><p><a href="https://coding.net/u/xianwx/p/my_quick_3.6/git" target="_blank" rel="noopener">quick coding 传送门</a><br>我实在是传不到github来，各种代理大法都试过了。。。改host大法也试过了，反正就是。。。传不动，气死。</p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>可以自己新建一个新的项目，然后把这个项目里的res和src拷贝过去，这样你就可以在手机上跑了，我在我自己的苹果手机上跑过，效果还可以的。实现主要看src/app/layer/EffectLayer.lua就可以了，shader的使用全在src/app/effect/里边，shader在src/app/shader/里边。</p>
 <h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/images/cloud.gif" alt="云朵效果"></p>
@@ -475,7 +475,7 @@
         <p><span>本文标题:</span><a href="/2018/08/29/quick-cocos-shader-share/">quick-cocos2dx shader分享</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">禹子歆</a></p>
         <p><span>发布时间:</span>2018-08-29, 10:30:07</p>
-        <p><span>最后更新:</span>2018-08-29, 10:36:29</p>
+        <p><span>最后更新:</span>2018-08-29, 10:43:33</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/08/29/quick-cocos-shader-share/" title="quick-cocos2dx shader分享">http://www.xianwx.xyz/2018/08/29/quick-cocos-shader-share/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.xianwx.xyz/2018/08/29/quick-cocos-shader-share/　　作者: 禹子歆" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
